@@ -1,0 +1,118 @@
+using Beanz.Core.Areas.HummanResourceManagement.Masters;
+using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
+using Beanz.DTOs.BeanzCommon;
+using Beanz.DTOs.BeanzRoutes;
+using Beanz.DTOs.Common;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Beanz.API.Areas.HummanResourceManagement.Masters
+{
+    [Route("api/[area]/Masters/[controller]/[action]")]
+    [ApiController]
+    [Area("HummanResourceManagement")]
+    public class WeekDaysController : ControllerBase
+    {
+        private readonly IWeekDayRepository _weekDaysRepository;
+
+        public WeekDaysController(IWeekDayRepository weekDaysRepository)
+        {
+            _weekDaysRepository = weekDaysRepository;
+        }
+
+        [HttpPost("Get")]
+        public async Task<List<WeekDayDTO>> GetWeekDays(BeanzCommonDTO common)
+        {
+            var data = await _weekDaysRepository.GetWeekDaysAsync(common);
+            return data;
+        }
+
+        [HttpPost("Set")]
+        public async Task<ActionResult> SetWeekDays(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _weekDaysRepository.SetWeekDaysAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("Post")]
+        public async Task<ActionResult> PostWeekDays(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _weekDaysRepository.PostWeekDaysAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("Del")]
+        public async Task<ActionResult> DelWeekDays(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _weekDaysRepository.DelWeekDaysAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("LookUp")]
+        public async Task<List<BeanzlookupDTO>> LookUpWeekDays(BeanzCommonDTO lookup)
+        {
+            var data = await _weekDaysRepository.LookUpWeekDaysAsync(lookup);
+            return data;
+        }
+
+        [HttpPost("GetInfo")]
+        public async Task<WeekDayViewModel> GetInfoWeekDays(BeanzCommonDTO common)
+        {
+            var data = await _weekDaysRepository.GetInfoWeekDaysAsync(common);
+            return data;
+        }
+
+        [HttpPost("Print")]
+        public async Task<WeekDayViewModel> PrintWeekDays(BeanzCommonDTO common)
+        {
+            var data = await _weekDaysRepository.PrintWeekDaysAsync(common);
+            return data;
+        }
+
+        [HttpPost("Approve")]
+        public async Task<ActionResult> ApproveWeekDays(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _weekDaysRepository.ApproveWeekDaysAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+    }
+}
