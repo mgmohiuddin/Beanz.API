@@ -8,6 +8,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
         public static void Register(IServiceCollection services)
         {
             services.AddScoped<IAdvanceSalaryPolicieRepository, AdvanceSalaryPolicieRepository>();
+            services.AddScoped<IAdvanceSalaryPolicyPaymentRepository, AdvanceSalaryPolicyPaymentRepository>();
         }
     }
 }
