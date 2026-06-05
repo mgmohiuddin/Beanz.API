@@ -1,7 +1,7 @@
-using Beanz.Core.Areas.System.Setup;
-using Beanz.Data.Services.Areas.System.Setup;
+using Beanz.Core.Areas.BeanzSystem.Setup;
+using Beanz.Data.Services.Areas.BeanzSystem.Setup;
 
-namespace Beanz.API.StartupConfig.System.Setup
+namespace Beanz.API.StartupConfig.BeanzSystem.Setup
 {
     public class ses_Setup
     {
