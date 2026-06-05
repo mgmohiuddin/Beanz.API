@@ -34,6 +34,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Masters
             services.AddScoped<IRelationTypeRepository, RelationTypeRepository>();
             services.AddScoped<IResidenceIDTypeRepository, ResidenceIDTypeRepository>();
             services.AddScoped<IShiftTypeRepository, ShiftTypeRepository>();
+            services.AddScoped<ISponsorRepository, SponsorRepository>();
         }
     }
 }
