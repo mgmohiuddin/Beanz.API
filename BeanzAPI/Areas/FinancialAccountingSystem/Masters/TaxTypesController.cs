@@ -37,7 +37,7 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
                 else
                     return Ok(beanzResponseDTO);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message.ToString());
             }
@@ -54,7 +54,7 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
                 else
                     return Ok(beanzResponseDTO);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message.ToString());
             }
@@ -71,7 +71,7 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
                 else
                     return Ok(beanzResponseDTO);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message.ToString());
             }

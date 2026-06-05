@@ -5,7 +5,7 @@ using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Beanz.API.Areas.System.Setup
+namespace Beanz.API.Areas.BeanzSystem.Setup
 {
     [Route("api/[area]/Setup/[controller]/[action]")]
     [ApiController]

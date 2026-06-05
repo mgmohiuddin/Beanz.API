@@ -276,6 +276,8 @@ namespace Beanz.API
             //StartupConfig.Administrations.GeneralMasters.GeneralMasters.Register(services);
             //StartupConfig.Administrations.Security.Security.Register(services);
 
+            StartupConfig.System.Setup.ses_Setup.Register(services);
+
             ////--------------------------------Administrations------End-------------------------------
             ////--------------------------Start------FinancialAccountingSystem-------------------------------------
             //StartupConfig.FinancialAccountingSystem.Dashboards.FinancialAccountingSystemDashboards.Register(services);

@@ -54,7 +54,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Employees
                 else
                     return Ok(beanzResponseDTO);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message.ToString());
             }
