@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+
+namespace Beanz.DTOs.Areas.HummanResourceManagement.Masters
+{
+    public class SubGradeDTO
+    {
+        public int SubGradeID { get; set; }
+        public int GradeID { get; set; }
+        public string SubGradeCode { get; set; }
+        public string SubGradeName { get; set; }
+        public string SubGradeAlias { get; set; }
+        public int CompanyID { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public DateTime ApprovedDate { get; set; }
+        public int ApprovedBy { get; set; }
+        public DateTime PostedDate { get; set; }
+        public int PostedBy { get; set; }
+        public DateTime DeletedDate { get; set; }
+        public int DeletedBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsPosted { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+
+    public class SubGradeViewModel
+    {
+        public List<SubGradeDTO> SubGrades { get; set; }
+        public SubGradeDTO SubGrade { get; set; }
+    }
+}
