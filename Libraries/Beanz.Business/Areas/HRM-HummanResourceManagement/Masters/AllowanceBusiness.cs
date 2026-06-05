@@ -99,6 +99,16 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
             return _repository.GetInfoAllowancesAsync(common);
         }
 
+        public Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzCommonDTO lookup)
+            => _repository.LookUpAllowancesAsync(lookup);
+
+        public Task<AllowanceViewModel> PrintAllowancesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(new AllowanceViewModel());
+            return _repository.PrintAllowancesAsync(common);
+        }
+
         public Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzCommonDTO common)
         {
             var ctx = ValidateKey(common);
