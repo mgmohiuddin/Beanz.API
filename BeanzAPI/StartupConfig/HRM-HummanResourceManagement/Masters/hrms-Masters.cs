@@ -43,6 +43,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Masters
             services.AddScoped<IVacationTypeRepository, VacationTypeRepository>();
             services.AddScoped<IVisaTypeRepository, VisaTypeRepository>();
             services.AddScoped<IWeekDayRepository, WeekDayRepository>();
+            services.AddScoped<IWorkProfessionRepository, WorkProfessionRepository>();
         }
     }
 }
