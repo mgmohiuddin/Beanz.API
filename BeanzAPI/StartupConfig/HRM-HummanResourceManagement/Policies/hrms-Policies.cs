@@ -33,6 +33,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
             services.AddScoped<IHolidayPolicieRepository, HolidayPolicieRepository>();
             services.AddScoped<IHolidayPolicyDayRepository, HolidayPolicyDayRepository>();
             services.AddScoped<IHolidayPolicyEligibleRepository, HolidayPolicyEligibleRepository>();
+            services.AddScoped<IHolidayPolicyPaymentRepository, HolidayPolicyPaymentRepository>();
         }
     }
 }
