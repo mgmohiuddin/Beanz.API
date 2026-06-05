@@ -28,6 +28,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Masters
             services.AddScoped<ILoanTypeRepository, LoanTypeRepository>();
             services.AddScoped<IOvertimeTypeRepository, OvertimeTypeRepository>();
             services.AddScoped<IPaidTimeOffTypeRepository, PaidTimeOffTypeRepository>();
+            services.AddScoped<IPayrollTypeRepository, PayrollTypeRepository>();
         }
     }
 }
