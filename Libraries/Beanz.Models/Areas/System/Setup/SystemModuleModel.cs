@@ -1,6 +1,6 @@
 using System;
 
-namespace Beanz.Models.Areas.System.Setup.Objects
+namespace Beanz.Models.Areas.BeanzSystem.Setup.Objects
 {
     // Entity model generated from table structure
     public class SystemModule

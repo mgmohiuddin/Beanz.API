@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Beanz.DTOs.Areas.System.Setup
+namespace Beanz.DTOs.Areas.BeanzSystem.Setup
 {
     public class SystemScreenEndpointDTO
     {

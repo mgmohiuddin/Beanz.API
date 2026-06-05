@@ -1,9 +1,9 @@
 using AutoMapper;
-using Beanz.Core.Areas.System.Setup;
+using Beanz.Core.Areas.BeanzSystem.Setup;
 using Beanz.Data.Services.DataAccessLayer;
 using Beanz.Data.Services.DataAccessLayer.DAL;
 using Beanz.DTOs.Areas;
-using Beanz.DTOs.Areas.System.Setup;
+using Beanz.DTOs.Areas.BeanzSystem.Setup;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
@@ -11,7 +11,7 @@ using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Beanz.Data.Services.Areas.System.Setup
+namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
 {
     public class SystemScreenEndpointRepository : ISystemScreenEndpointRepository
     {
