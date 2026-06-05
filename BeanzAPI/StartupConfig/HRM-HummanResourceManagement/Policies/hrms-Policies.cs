@@ -61,6 +61,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
             services.AddScoped<ITrainingPolicyEligibleRepository, TrainingPolicyEligibleRepository>();
             services.AddScoped<IVacationPolicieRepository, VacationPolicieRepository>();
             services.AddScoped<IVacationPolicyEligibleRepository, VacationPolicyEligibleRepository>();
+            services.AddScoped<IVacationPolicyPaymentRepository, VacationPolicyPaymentRepository>();
         }
     }
 }
