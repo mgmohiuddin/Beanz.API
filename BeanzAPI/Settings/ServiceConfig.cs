@@ -143,8 +143,14 @@ namespace Beanz.API
             services.AddScoped<IBeanzScriptRepository, BeanzScriptRepository>();
             services.AddScoped<IBeanzRepository, BeanzRepository>();
             services.AddScoped<IBeanzPermissionRepository, BeanzPermissionRepository>();
-            services.AddScoped<ITotpService, TotpService>(); 
+            services.AddScoped<ITotpService, TotpService>();
 
+            StartupConfig.BeanzSystem.Setup.ses_Setup.Register(services);
+
+            ////--------------------------Start------HumanResourceManagementSystem-------------------------------------
+            StartupConfig.HummanResourceManagement.Masters.hrms_Masters.Register(services);
+            StartupConfig.HummanResourceManagement.Policies.hrms_Policies.Register(services);
+            StartupConfig.HummanResourceManagement.Statuses.hrms_Statuses.Register(services);
         }
 
         public static void Registerd(WebApplicationBuilder builder)
@@ -276,7 +282,7 @@ namespace Beanz.API
             //StartupConfig.Administrations.GeneralMasters.GeneralMasters.Register(services);
             //StartupConfig.Administrations.Security.Security.Register(services);
 
-            StartupConfig.System.Setup.ses_Setup.Register(services);
+            StartupConfig.BeanzSystem.Setup.ses_Setup.Register(services);
 
             ////--------------------------------Administrations------End-------------------------------
             ////--------------------------Start------FinancialAccountingSystem-------------------------------------
