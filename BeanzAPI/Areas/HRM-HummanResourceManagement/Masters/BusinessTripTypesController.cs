@@ -10,28 +10,28 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
-    public class BonusTypesController : ControllerBase
+    public class BusinessTripTypesController : ControllerBase
     {
-        private readonly IBonusTypeRepository _bonusTypesRepository;
+        private readonly IBusinessTripTypeRepository _businessTripTypesRepository;
 
-        public BonusTypesController(IBonusTypeRepository bonusTypesRepository)
+        public BusinessTripTypesController(IBusinessTripTypeRepository businessTripTypesRepository)
         {
-            _bonusTypesRepository = bonusTypesRepository;
+            _businessTripTypesRepository = businessTripTypesRepository;
         }
 
         [HttpPost("Get")]
-        public async Task<List<BonusTypeDTO>> GetBonusTypes(BeanzCommonDTO common)
+        public async Task<List<BusinessTripTypeDTO>> GetBusinessTripTypes(BeanzCommonDTO common)
         {
-            var data = await _bonusTypesRepository.GetBonusTypesAsync(common);
+            var data = await _businessTripTypesRepository.GetBusinessTripTypesAsync(common);
             return data;
         }
 
         [HttpPost("Set")]
-        public async Task<ActionResult> SetBonusTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> SetBusinessTripTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _bonusTypesRepository.SetBonusTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.SetBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -44,11 +44,11 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Post")]
-        public async Task<ActionResult> PostBonusTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> PostBusinessTripTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _bonusTypesRepository.PostBonusTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.PostBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -61,11 +61,11 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Del")]
-        public async Task<ActionResult> DelBonusTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> DelBusinessTripTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _bonusTypesRepository.DelBonusTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.DelBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -78,32 +78,32 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("LookUp")]
-        public async Task<List<BeanzlookupDTO>> LookUpBonusTypes(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpBusinessTripTypes(BeanzCommonDTO lookup)
         {
-            var data = await _bonusTypesRepository.LookUpBonusTypesAsync(lookup);
+            var data = await _businessTripTypesRepository.LookUpBusinessTripTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
-        public async Task<BonusTypeViewModel> GetInfoBonusTypes(BeanzCommonDTO common)
+        public async Task<BusinessTripTypeViewModel> GetInfoBusinessTripTypes(BeanzCommonDTO common)
         {
-            var data = await _bonusTypesRepository.GetInfoBonusTypesAsync(common);
+            var data = await _businessTripTypesRepository.GetInfoBusinessTripTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
-        public async Task<BonusTypeViewModel> PrintBonusTypes(BeanzCommonDTO common)
+        public async Task<BusinessTripTypeViewModel> PrintBusinessTripTypes(BeanzCommonDTO common)
         {
-            var data = await _bonusTypesRepository.PrintBonusTypesAsync(common);
+            var data = await _businessTripTypesRepository.PrintBusinessTripTypesAsync(common);
             return data;
         }
 
         [HttpPost("Approve")]
-        public async Task<ActionResult> ApproveBonusTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> ApproveBusinessTripTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _bonusTypesRepository.ApproveBonusTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.ApproveBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
