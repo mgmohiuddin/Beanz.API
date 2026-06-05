@@ -27,6 +27,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
             services.AddScoped<IEndOfServicePolicySalaryAllowanceRepository, EndOfServicePolicySalaryAllowanceRepository>();
             services.AddScoped<IEndOfServicePolicyYearSalarieRepository, EndOfServicePolicyYearSalarieRepository>();
             services.AddScoped<IGosiPolicieRepository, GosiPolicieRepository>();
+            services.AddScoped<IGosiPolicyDetailRepository, GosiPolicyDetailRepository>();
         }
     }
 }
