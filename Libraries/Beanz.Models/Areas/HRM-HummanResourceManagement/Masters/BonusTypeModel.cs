@@ -1,0 +1,29 @@
+using System;
+
+namespace Beanz.Models.Areas.HummanResourceManagement.Masters.Objects
+{
+    // Entity model generated from table structure
+    public class BonusType
+    {
+        public int BonusTypeID { get; set; }
+        public string BonusTypeCode { get; set; }
+        public string BonusTypeName { get; set; }
+        public string BonusTypeAlias { get; set; }
+        public int CompanyID { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public DateTime ApprovedDate { get; set; }
+        public int ApprovedBy { get; set; }
+        public DateTime PostedDate { get; set; }
+        public int PostedBy { get; set; }
+        public DateTime DeletedDate { get; set; }
+        public int DeletedBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsPosted { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+}
