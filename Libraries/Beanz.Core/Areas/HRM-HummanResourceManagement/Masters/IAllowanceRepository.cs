@@ -1,4 +1,4 @@
-﻿using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
+using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
