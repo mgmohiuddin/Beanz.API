@@ -7,6 +7,7 @@ namespace Beanz.API.StartupConfig.HummanResourceManagement.Employees
     {
         public static void Register(IServiceCollection services)
         {
+            services.AddScoped<IEmployeeAllowanceRepository, EmployeeAllowanceRepository>();
             services.AddScoped<IEmployeeAssignPolicieRepository, EmployeeAssignPolicieRepository>();
             services.AddScoped<IEmployeeCalendarDayRepository, EmployeeCalendarDayRepository>();
             services.AddScoped<IEmployeeCalendarDayShiftRepository, EmployeeCalendarDayShiftRepository>();
