@@ -49,6 +49,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
             services.AddScoped<IPaidTimeOffPolicieRepository, PaidTimeOffPolicieRepository>();
             services.AddScoped<IPaidTimeOffPolicyEligibleRepository, PaidTimeOffPolicyEligibleRepository>();
             services.AddScoped<IPaidTimeOffPolicyPaymentRepository, PaidTimeOffPolicyPaymentRepository>();
+            services.AddScoped<IPayrollPolicieRepository, PayrollPolicieRepository>();
         }
     }
 }
