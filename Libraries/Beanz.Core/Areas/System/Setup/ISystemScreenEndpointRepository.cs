@@ -1,9 +1,9 @@
-using Beanz.DTOs.Areas.System.Setup;
+using Beanz.DTOs.Areas.BeanzSystem.Setup;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 
-namespace Beanz.Core.Areas.System.Setup
+namespace Beanz.Core.Areas.BeanzSystem.Setup
 {
     public interface ISystemScreenEndpointRepository
     {
