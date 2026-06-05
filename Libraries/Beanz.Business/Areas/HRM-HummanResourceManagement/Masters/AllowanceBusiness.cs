@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Beanz.Core.Areas.HummanResourceManagement.Masters;
-using Beanz.Models.Areas.HummanResourceManagement.Masters;
-using Beanz.Models.Areas.HummanResourceManagement.Masters.Objects;
-using Beanz.Domain.Common;
+using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
+using Beanz.DTOs.Common;
+using Beanz.DTOs.BeanzRoutes;
 
 namespace Beanz.Business.Areas.HummanResourceManagement.Masters
 {
@@ -19,13 +19,13 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
         public Task<List<AllowanceDTO>> GetAllowancesAsync(BeanzCommonDTO common)
             => _repository.GetAllowancesAsync(common);
 
-        public Task<string> SetAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseDTO> SetAllowancesAsync(BeanzCommonDTO common)
             => _repository.SetAllowancesAsync(common);
 
-        public Task<string> PostAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseDTO> PostAllowancesAsync(BeanzCommonDTO common)
             => _repository.PostAllowancesAsync(common);
 
-        public Task<string> DelAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseDTO> DelAllowancesAsync(BeanzCommonDTO common)
             => _repository.DelAllowancesAsync(common);
 
         public Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzCommonDTO common)
