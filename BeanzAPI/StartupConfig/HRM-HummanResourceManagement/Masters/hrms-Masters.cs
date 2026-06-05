@@ -38,6 +38,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Masters
             services.AddScoped<ISubGradeRepository, SubGradeRepository>();
             services.AddScoped<ITicketClassTypeRepository, TicketClassTypeRepository>();
             services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
+            services.AddScoped<ITrainingTypeRepository, TrainingTypeRepository>();
         }
     }
 }
