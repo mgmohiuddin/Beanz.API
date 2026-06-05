@@ -7,9 +7,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Masters
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddScoped<IAdvanceSalaryTypeRepository, AdvanceSalaryTypeRepository>();
-            services.AddScoped<IAllowanceRepository, AllowanceRepository>();
-            services.AddScoped<IAllowancesGroupRepository, AllowancesGroupRepository>();
+            services.AddScoped<IAdvanceSalaryTypeRepository, AdvanceSalaryTypeRepository>();  
             services.AddScoped<IAllowanceTypeRepository, AllowanceTypeRepository>();
             services.AddScoped<IAssetTypeRepository, AssetTypeRepository>();
             services.AddScoped<IAttendanceTypeRepository, AttendanceTypeRepository>();
