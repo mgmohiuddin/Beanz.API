@@ -1,7 +1,7 @@
 using Beanz.Core.Areas.HummanResourceManagement.Statuses;
 using Beanz.Data.Services.Areas.HummanResourceManagement.Statuses;
 
-namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Statuses
+namespace Beanz.API.StartupConfig.HummanResourceManagement.Statuses
 {
     public class hrms_Statuses
     {

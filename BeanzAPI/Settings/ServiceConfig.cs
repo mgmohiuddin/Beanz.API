@@ -322,7 +322,9 @@ namespace Beanz.API
 
 
             ////--------------------------Start------HumanResourceManagementSystem-------------------------------------
-            StartupConfig.HRM_HummanResourceManagement.Masters.HRM_Masters.Register(services);
+            StartupConfig.HummanResourceManagement.Masters.hrms_Masters.Register(services);
+            StartupConfig.HummanResourceManagement.Policies.hrms_Policies.Register(services);
+            StartupConfig.HummanResourceManagement.Statuses.hrms_Statuses.Register(services);
             //StartupConfig.HumanResourceManagementSystem.Dashboards.Attendance.Register(services);
             //StartupConfig.HumanResourceManagementSystem.Dashboards.Employees.Register(services);
             //StartupConfig.HumanResourceManagementSystem.Dashboards.Leaves.Register(services);
