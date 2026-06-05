@@ -1,7 +1,7 @@
 using Beanz.Core.Areas.HummanResourceManagement.Masters;
 using Beanz.Data.Services.Areas.HummanResourceManagement.Masters;
 
-namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Masters
+namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters
 {
     public class hrms_Masters
     {
