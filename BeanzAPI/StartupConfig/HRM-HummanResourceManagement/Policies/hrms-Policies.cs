@@ -55,6 +55,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
             services.AddScoped<IShiftPolicieRepository, ShiftPolicieRepository>();
             services.AddScoped<IShiftPolicyEligibleRepository, ShiftPolicyEligibleRepository>();
             services.AddScoped<ITicketPolicieRepository, TicketPolicieRepository>();
+            services.AddScoped<ITicketPolicyEligibleRepository, TicketPolicyEligibleRepository>();
         }
     }
 }
