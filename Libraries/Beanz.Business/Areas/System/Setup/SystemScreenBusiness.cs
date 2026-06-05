@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beanz.Core.Areas.System.Setup;
-using Beanz.DTOs.Areas.System.Setup;
+using Beanz.Core.Areas.BeanzSystem.Setup;
+using Beanz.DTOs.Areas.BeanzSystem.Setup;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
 
-namespace Beanz.Business.Areas.System.Setup
+namespace Beanz.Business.Areas.BeanzSystem.Setup
 {
     public class SystemScreenBusiness
     {
