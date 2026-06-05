@@ -1,0 +1,33 @@
+using System;
+
+namespace Beanz.Models.Areas.HummanResourceManagement.Employees.Objects
+{
+    // Entity model generated from table structure
+    public class EmployeeDependentDocument
+    {
+        public int EmployeeDependentDocumentID { get; set; }
+        public int EmployeeDependentID { get; set; }
+        public int DocumentTypeID { get; set; }
+        public int DocumentSubmissionTypeID { get; set; }
+        public string EmployeeDependentDocumentCode { get; set; }
+        public string EmployeeDependentDocumentName { get; set; }
+        public string EmployeeDependentDocumentAlias { get; set; }
+        public int EmployeeID { get; set; }
+        public int CompanyID { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public DateTime ApprovedDate { get; set; }
+        public int ApprovedBy { get; set; }
+        public DateTime PostedDate { get; set; }
+        public int PostedBy { get; set; }
+        public DateTime DeletedDate { get; set; }
+        public int DeletedBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsPosted { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+}
