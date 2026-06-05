@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+namespace Beanz.DTOs.Areas.HummanResourceManagement.Policies
+{
+    public class GosiPolicyPaymentDTO
+    {
+        public int GosiPolicyPaymentID { get; set; }
+        public int GosiPolicyID { get; set; }
+        public int AllowanceTypeID { get; set; }
+        public int AllowanceID { get; set; }
+        public string GosiPolicyPaymentCode { get; set; }
+        public string GosiPolicyPaymentName { get; set; }
+        public string GosiPolicyPaymentAlias { get; set; }
+        public int CompanyID { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public DateTime ApprovedDate { get; set; }
+        public int ApprovedBy { get; set; }
+        public DateTime PostedDate { get; set; }
+        public int PostedBy { get; set; }
+        public DateTime DeletedDate { get; set; }
+        public int DeletedBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsPosted { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+
+    public class GosiPolicyPaymentViewModel
+    {
+        public List<GosiPolicyPaymentDTO> GosiPolicyPayments { get; set; }
+        public GosiPolicyPaymentDTO GosiPolicyPayment { get; set; }
+    }
+}
