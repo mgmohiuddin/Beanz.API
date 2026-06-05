@@ -37,6 +37,7 @@ namespace Beanz.API.StartupConfig.HRM_HummanResourceManagement.Policies
             services.AddScoped<IInsurancePolicieRepository, InsurancePolicieRepository>();
             services.AddScoped<IInsurancePolicyEligibleRepository, InsurancePolicyEligibleRepository>();
             services.AddScoped<ILeavePolicieRepository, LeavePolicieRepository>();
+            services.AddScoped<ILeavePolicyEligibleRepository, LeavePolicyEligibleRepository>();
         }
     }
 }
