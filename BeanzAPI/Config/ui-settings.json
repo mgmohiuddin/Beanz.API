@@ -1,0 +1,15 @@
+{
+  "LoginUISettingId": 1,
+  "BrandName": "Beanz Innovations",
+  "BrandLogo": "C",
+  "HeroImageUrl": "",
+  "ShowHeroPanel": true,
+  "ShowGoogleButton": true,
+  "ShowSignupLink": true,
+  "ShowFooter": true,
+  "PrimaryColor": "217 91% 45%",
+  "GradientFrom": "217 91% 50%",
+  "GradientTo": "270 91% 65%",
+  "UpdatedAt": "2026-05-01T12:55:51.7751252Z",
+  "UpdatedBy": "Administrator"
+}

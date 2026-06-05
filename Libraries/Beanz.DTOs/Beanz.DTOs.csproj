@@ -1,0 +1,114 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\Administrator\**" />
+    <Compile Remove="Common\FinancialAccountingSystem\**" />
+    <Compile Remove="Common\HospitalInformationSystem\**" />
+    <Compile Remove="Common\HumanResourceManagementSystem\**" />
+    <Compile Remove="Common\OtherAreas\**" />
+    <Compile Remove="Common\Security\**" />
+    <Compile Remove="Common\SupplyChainManagment\**" />
+    <Compile Remove="Common\SystemConfig\**" />
+    <Compile Remove="DashboardsAndReports\**" />
+    <Compile Remove="EmployeeSelfService\**" />
+    <Compile Remove="ExertERP\**" />
+    <Compile Remove="FDA\**" />
+    <Compile Remove="FinancialAccountingSystem\**" />
+    <Compile Remove="HospitalInformationSystem\**" />
+    <Compile Remove="HumanResourceManagementSystem\**" />
+    <Compile Remove="Intefaces\**" />
+    <Compile Remove="OtherAreas\**" />
+    <Compile Remove="SupplyChainManagment\**" />
+    <Compile Remove="SystemConfig\**" />
+    <Compile Remove="SystemDesigner\**" />
+    <Compile Remove="UISettings\**" />
+    <Compile Remove="zatca\**" />
+    <EmbeddedResource Remove="Common\Administrator\**" />
+    <EmbeddedResource Remove="Common\FinancialAccountingSystem\**" />
+    <EmbeddedResource Remove="Common\HospitalInformationSystem\**" />
+    <EmbeddedResource Remove="Common\HumanResourceManagementSystem\**" />
+    <EmbeddedResource Remove="Common\OtherAreas\**" />
+    <EmbeddedResource Remove="Common\Security\**" />
+    <EmbeddedResource Remove="Common\SupplyChainManagment\**" />
+    <EmbeddedResource Remove="Common\SystemConfig\**" />
+    <EmbeddedResource Remove="DashboardsAndReports\**" />
+    <EmbeddedResource Remove="EmployeeSelfService\**" />
+    <EmbeddedResource Remove="ExertERP\**" />
+    <EmbeddedResource Remove="FDA\**" />
+    <EmbeddedResource Remove="FinancialAccountingSystem\**" />
+    <EmbeddedResource Remove="HospitalInformationSystem\**" />
+    <EmbeddedResource Remove="HumanResourceManagementSystem\**" />
+    <EmbeddedResource Remove="Intefaces\**" />
+    <EmbeddedResource Remove="OtherAreas\**" />
+    <EmbeddedResource Remove="SupplyChainManagment\**" />
+    <EmbeddedResource Remove="SystemConfig\**" />
+    <EmbeddedResource Remove="SystemDesigner\**" />
+    <EmbeddedResource Remove="UISettings\**" />
+    <EmbeddedResource Remove="zatca\**" />
+    <None Remove="Common\Administrator\**" />
+    <None Remove="Common\FinancialAccountingSystem\**" />
+    <None Remove="Common\HospitalInformationSystem\**" />
+    <None Remove="Common\HumanResourceManagementSystem\**" />
+    <None Remove="Common\OtherAreas\**" />
+    <None Remove="Common\Security\**" />
+    <None Remove="Common\SupplyChainManagment\**" />
+    <None Remove="Common\SystemConfig\**" />
+    <None Remove="DashboardsAndReports\**" />
+    <None Remove="EmployeeSelfService\**" />
+    <None Remove="ExertERP\**" />
+    <None Remove="FDA\**" />
+    <None Remove="FinancialAccountingSystem\**" />
+    <None Remove="HospitalInformationSystem\**" />
+    <None Remove="HumanResourceManagementSystem\**" />
+    <None Remove="Intefaces\**" />
+    <None Remove="OtherAreas\**" />
+    <None Remove="SupplyChainManagment\**" />
+    <None Remove="SystemConfig\**" />
+    <None Remove="SystemDesigner\**" />
+    <None Remove="UISettings\**" />
+    <None Remove="zatca\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AuthModule\ExternalDTOs\AppleSignInDTO.cs" />
+    <Compile Remove="AuthModule\ExternalDTOs\ExternalAccessTokenDTO.cs" />
+    <Compile Remove="AuthModule\ExternalDTOs\ExternalIdTokenDTO.cs" />
+    <Compile Remove="AuthModule\RequestResponse\Request\EmailVerificationTokenRequestDTO.cs" />
+    <Compile Remove="AuthModule\RequestResponse\Response\GoogleResponseDTO.cs" />
+    <Compile Remove="AuthModule\SignUpServiceResult.cs" />
+    <Compile Remove="Common\BeanzCommonDTO.cs" />
+    <Compile Remove="Common\BeanzHISCommonDTO.cs" />
+    <Compile Remove="Common\BeanzLoginDTO.cs" />
+    <Compile Remove="Common\RequestDTO.cs" />
+    <Compile Remove="Common\ResponseoLDDTO.cs" />
+    <Compile Remove="UserAlertsDTO.cs" />
+    <Compile Remove="UserMessagesDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" Version="1.51.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ADM-Administration\" />
+    <Folder Include="Areas\CRM-CustomerRelationManagement\" />
+    <Folder Include="Areas\ESS-EmployeeSelfService\" />
+    <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
+    <Folder Include="Areas\HIS-HospitalInformationSystem\" />
+    <Folder Include="Areas\POS-PointOfSales\" />
+    <Folder Include="Areas\SCM-SupplyChainManagement\" />
+  </ItemGroup>
+
+</Project>

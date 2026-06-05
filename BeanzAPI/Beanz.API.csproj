@@ -1,0 +1,157 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AreasOld\**" />
+    <Compile Remove="Security\Basic\**" />
+    <Compile Remove="StartupConfig\Administrations\**" />
+    <Compile Remove="StartupConfig\DashboardsAndReports\**" />
+    <Compile Remove="StartupConfig\EmployeeSelfService\**" />
+    <Compile Remove="StartupConfig\ExertERP\**" />
+    <Compile Remove="StartupConfig\FDA\**" />
+    <Compile Remove="StartupConfig\FinancialAccountingSystem\**" />
+    <Compile Remove="StartupConfig\HospitalInformationSystem\**" />
+    <Compile Remove="StartupConfig\HumanResourceManagementSystem\**" />
+    <Compile Remove="StartupConfig\OtherAreas\**" />
+    <Compile Remove="StartupConfig\SupplyChainManagment\**" />
+    <Compile Remove="StartupConfig\SystemConfig\**" />
+    <Compile Remove="StartupConfig\Zatca\**" />
+    <Content Remove="AreasOld\**" />
+    <Content Remove="Security\Basic\**" />
+    <Content Remove="StartupConfig\Administrations\**" />
+    <Content Remove="StartupConfig\DashboardsAndReports\**" />
+    <Content Remove="StartupConfig\EmployeeSelfService\**" />
+    <Content Remove="StartupConfig\ExertERP\**" />
+    <Content Remove="StartupConfig\FDA\**" />
+    <Content Remove="StartupConfig\FinancialAccountingSystem\**" />
+    <Content Remove="StartupConfig\HospitalInformationSystem\**" />
+    <Content Remove="StartupConfig\HumanResourceManagementSystem\**" />
+    <Content Remove="StartupConfig\OtherAreas\**" />
+    <Content Remove="StartupConfig\SupplyChainManagment\**" />
+    <Content Remove="StartupConfig\SystemConfig\**" />
+    <Content Remove="StartupConfig\Zatca\**" />
+    <EmbeddedResource Remove="AreasOld\**" />
+    <EmbeddedResource Remove="Security\Basic\**" />
+    <EmbeddedResource Remove="StartupConfig\Administrations\**" />
+    <EmbeddedResource Remove="StartupConfig\DashboardsAndReports\**" />
+    <EmbeddedResource Remove="StartupConfig\EmployeeSelfService\**" />
+    <EmbeddedResource Remove="StartupConfig\ExertERP\**" />
+    <EmbeddedResource Remove="StartupConfig\FDA\**" />
+    <EmbeddedResource Remove="StartupConfig\FinancialAccountingSystem\**" />
+    <EmbeddedResource Remove="StartupConfig\HospitalInformationSystem\**" />
+    <EmbeddedResource Remove="StartupConfig\HumanResourceManagementSystem\**" />
+    <EmbeddedResource Remove="StartupConfig\OtherAreas\**" />
+    <EmbeddedResource Remove="StartupConfig\SupplyChainManagment\**" />
+    <EmbeddedResource Remove="StartupConfig\SystemConfig\**" />
+    <EmbeddedResource Remove="StartupConfig\Zatca\**" />
+    <None Remove="AreasOld\**" />
+    <None Remove="Security\Basic\**" />
+    <None Remove="StartupConfig\Administrations\**" />
+    <None Remove="StartupConfig\DashboardsAndReports\**" />
+    <None Remove="StartupConfig\EmployeeSelfService\**" />
+    <None Remove="StartupConfig\ExertERP\**" />
+    <None Remove="StartupConfig\FDA\**" />
+    <None Remove="StartupConfig\FinancialAccountingSystem\**" />
+    <None Remove="StartupConfig\HospitalInformationSystem\**" />
+    <None Remove="StartupConfig\HumanResourceManagementSystem\**" />
+    <None Remove="StartupConfig\OtherAreas\**" />
+    <None Remove="StartupConfig\SupplyChainManagment\**" />
+    <None Remove="StartupConfig\SystemConfig\**" />
+    <None Remove="StartupConfig\Zatca\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\CodeGeneratorController.cs" />
+    <Compile Remove="Controllers\General\UISettingController.cs" />
+    <Compile Remove="Controllers\LoginController.cs" />
+    <Compile Remove="Controllers\TestController.cs" />
+    <Compile Remove="Mapper\CharityMapper.cs" />
+    <Compile Remove="Mapper\DashboardsMapper.cs" />
+    <Compile Remove="Mapper\DynamicsMapper.cs" />
+    <Compile Remove="Mapper\MastersMapper.cs" />
+    <Compile Remove="Mapper\OtherAreasMapper.cs" />
+    <Compile Remove="Mapper\PPLMapper.cs" />
+    <Compile Remove="Mapper\ReportsMapper.cs" />
+    <Compile Remove="Mapper\SCMMapper.cs" />
+    <Compile Remove="Mapper\SCMTransactionsMapper.cs" />
+    <Compile Remove="Mapper\SecurityMapper.cs" />
+    <Compile Remove="Models\User.cs" />
+    <Compile Remove="Models\UserDto.cs" />
+    <Compile Remove="Security\BeanzAuthentication.cs" />
+    <Compile Remove="Services\GoogleService.cs" />
+    <Compile Remove="Validations\BrandValidations.cs" />
+    <Compile Remove="Validations\SCMCommonValidations.cs" />
+    <Compile Remove="Validations\ValidationRules.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
+    <Folder Include="Areas\ADM-Administration\" />
+    <Folder Include="Areas\ESS-EmployeeSelfService\" />
+    <Folder Include="Areas\HIS-HospitalInformationSystem\" />
+    <Folder Include="Areas\CRM-CustomerRelationManagement\" />
+    <Folder Include="Areas\POS-PointOfSales\" />
+    <Folder Include="Areas\SCM-SupplyChainManagement\" />
+    <Folder Include="Security\" />
+    <Folder Include="StartupConfig\ADM-Administration\" />
+    <Folder Include="StartupConfig\CRM-CustomerRelationManagement\" />
+    <Folder Include="StartupConfig\ESS-EmployeeSelfService\" />
+    <Folder Include="StartupConfig\FAS-FinancialAccountingSystem\" />
+    <Folder Include="StartupConfig\HIS-HospitalInformationSystem\" />
+    <Folder Include="StartupConfig\POS-PointOfSales\" />
+    <Folder Include="StartupConfig\SCM-SupplyChainManagement\" />
+    <Folder Include="Validations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.51.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.26.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+    <PackageReference Include="Otp.NET" Version="1.4.1" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+    <PackageReference Include="QRCoder" Version="1.8.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.31" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\Beanz.Business\Beanz.Business.csproj" />
+    <ProjectReference Include="..\Libraries\Beanz.Core\Beanz.Core.csproj" />
+    <ProjectReference Include="..\Libraries\Beanz.Data.Services\Beanz.Data.Services.csproj" />
+    <ProjectReference Include="..\Libraries\Beanz.DTOs\Beanz.DTOs.csproj" />
+    <ProjectReference Include="..\Libraries\Beanz.Models\Beanz.Models.csproj" />
+    <ProjectReference Include="..\Libraries\Beanz.Utilities\Beanz.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FastReport">
+      <HintPath>C:\Program Files (x86)\Fast Reports\2024.2.6\FastReport .NET Enterprise\Framework\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Web">
+      <HintPath>C:\Program Files (x86)\Fast Reports\2024.2.6\FastReport .NET Enterprise\Framework\FastReport.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Zatca.EInvoice.SDK">
+      <HintPath>zatcaDLL\Zatca.EInvoice.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Zatca.EInvoice.SDK.Contracts">
+      <HintPath>zatcaDLL\Zatca.EInvoice.SDK.Contracts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Administration\**" />
+    <Compile Remove="Charity\**" />
+    <Compile Remove="Dashboards\**" />
+    <Compile Remove="Dynamics\**" />
+    <Compile Remove="Embryos\**" />
+    <Compile Remove="EmployeeSelfService\**" />
+    <Compile Remove="EMRActivities\**" />
+    <Compile Remove="EMRFrontOffice\**" />
+    <Compile Remove="EMRMasters\**" />
+    <Compile Remove="EMRTransactions\**" />
+    <Compile Remove="ExertERP\**" />
+    <Compile Remove="eXertIntegrate\**" />
+    <Compile Remove="FASTransactions\**" />
+    <Compile Remove="FAS\**" />
+    <Compile Remove="FDA\**" />
+    <Compile Remove="FinancialAccountingSystem\**" />
+    <Compile Remove="GeneticLogBook\**" />
+    <Compile Remove="HospitalInformationSystem\**" />
+    <Compile Remove="HRMSTransactions\**" />
+    <Compile Remove="HRMS\**" />
+    <Compile Remove="HumanResourceManagementSystem\**" />
+    <Compile Remove="Library\**" />
+    <Compile Remove="Masters\**" />
+    <Compile Remove="MDS\**" />
+    <Compile Remove="PatientPortal\**" />
+    <Compile Remove="Reports\**" />
+    <Compile Remove="SCMTransactions\**" />
+    <Compile Remove="SCM\**" />
+    <EmbeddedResource Remove="Administration\**" />
+    <EmbeddedResource Remove="Charity\**" />
+    <EmbeddedResource Remove="Dashboards\**" />
+    <EmbeddedResource Remove="Dynamics\**" />
+    <EmbeddedResource Remove="Embryos\**" />
+    <EmbeddedResource Remove="EmployeeSelfService\**" />
+    <EmbeddedResource Remove="EMRActivities\**" />
+    <EmbeddedResource Remove="EMRFrontOffice\**" />
+    <EmbeddedResource Remove="EMRMasters\**" />
+    <EmbeddedResource Remove="EMRTransactions\**" />
+    <EmbeddedResource Remove="ExertERP\**" />
+    <EmbeddedResource Remove="eXertIntegrate\**" />
+    <EmbeddedResource Remove="FASTransactions\**" />
+    <EmbeddedResource Remove="FAS\**" />
+    <EmbeddedResource Remove="FDA\**" />
+    <EmbeddedResource Remove="FinancialAccountingSystem\**" />
+    <EmbeddedResource Remove="GeneticLogBook\**" />
+    <EmbeddedResource Remove="HospitalInformationSystem\**" />
+    <EmbeddedResource Remove="HRMSTransactions\**" />
+    <EmbeddedResource Remove="HRMS\**" />
+    <EmbeddedResource Remove="HumanResourceManagementSystem\**" />
+    <EmbeddedResource Remove="Library\**" />
+    <EmbeddedResource Remove="Masters\**" />
+    <EmbeddedResource Remove="MDS\**" />
+    <EmbeddedResource Remove="PatientPortal\**" />
+    <EmbeddedResource Remove="Reports\**" />
+    <EmbeddedResource Remove="SCMTransactions\**" />
+    <EmbeddedResource Remove="SCM\**" />
+    <None Remove="Administration\**" />
+    <None Remove="Charity\**" />
+    <None Remove="Dashboards\**" />
+    <None Remove="Dynamics\**" />
+    <None Remove="Embryos\**" />
+    <None Remove="EmployeeSelfService\**" />
+    <None Remove="EMRActivities\**" />
+    <None Remove="EMRFrontOffice\**" />
+    <None Remove="EMRMasters\**" />
+    <None Remove="EMRTransactions\**" />
+    <None Remove="ExertERP\**" />
+    <None Remove="eXertIntegrate\**" />
+    <None Remove="FASTransactions\**" />
+    <None Remove="FAS\**" />
+    <None Remove="FDA\**" />
+    <None Remove="FinancialAccountingSystem\**" />
+    <None Remove="GeneticLogBook\**" />
+    <None Remove="HospitalInformationSystem\**" />
+    <None Remove="HRMSTransactions\**" />
+    <None Remove="HRMS\**" />
+    <None Remove="HumanResourceManagementSystem\**" />
+    <None Remove="Library\**" />
+    <None Remove="Masters\**" />
+    <None Remove="MDS\**" />
+    <None Remove="PatientPortal\**" />
+    <None Remove="Reports\**" />
+    <None Remove="SCMTransactions\**" />
+    <None Remove="SCM\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="BeanzModel\ResponseModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ADM-Administration\" />
+    <Folder Include="Areas\CRM-CustomerRelationManagement\" />
+    <Folder Include="Areas\ESS-EmployeeSelfService\" />
+    <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
+    <Folder Include="Areas\HIS-HospitalInformationSystem\" />
+    <Folder Include="Areas\POS-PointOfSales\" />
+    <Folder Include="Areas\SCM-SupplyChainManagement\" />
+    <Folder Include="BeanzModel\" />
+  </ItemGroup>
+
+</Project>

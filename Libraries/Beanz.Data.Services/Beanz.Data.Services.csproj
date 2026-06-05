@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DashboardsAndReports\**" />
+    <Compile Remove="EmployeeSelfService\**" />
+    <Compile Remove="ExertERP\**" />
+    <Compile Remove="FDA\**" />
+    <Compile Remove="FinancialAccountingSystem\**" />
+    <Compile Remove="HospitalInformationSystem\**" />
+    <Compile Remove="HumanResourceManagementSystem\**" />
+    <Compile Remove="OtherAreas\**" />
+    <Compile Remove="SupplyChainManagment\**" />
+    <Compile Remove="SystemConfig\**" />
+    <Compile Remove="zatca\**" />
+    <EmbeddedResource Remove="DashboardsAndReports\**" />
+    <EmbeddedResource Remove="EmployeeSelfService\**" />
+    <EmbeddedResource Remove="ExertERP\**" />
+    <EmbeddedResource Remove="FDA\**" />
+    <EmbeddedResource Remove="FinancialAccountingSystem\**" />
+    <EmbeddedResource Remove="HospitalInformationSystem\**" />
+    <EmbeddedResource Remove="HumanResourceManagementSystem\**" />
+    <EmbeddedResource Remove="OtherAreas\**" />
+    <EmbeddedResource Remove="SupplyChainManagment\**" />
+    <EmbeddedResource Remove="SystemConfig\**" />
+    <EmbeddedResource Remove="zatca\**" />
+    <None Remove="DashboardsAndReports\**" />
+    <None Remove="EmployeeSelfService\**" />
+    <None Remove="ExertERP\**" />
+    <None Remove="FDA\**" />
+    <None Remove="FinancialAccountingSystem\**" />
+    <None Remove="HospitalInformationSystem\**" />
+    <None Remove="HumanResourceManagementSystem\**" />
+    <None Remove="OtherAreas\**" />
+    <None Remove="SupplyChainManagment\**" />
+    <None Remove="SystemConfig\**" />
+    <None Remove="zatca\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AuthModule\AuthService.cs" />
+    <Compile Remove="AuthModule\ExternalLoginRepositoryOld.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.26.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Beanz.Core\Beanz.Core.csproj" />
+    <ProjectReference Include="..\Beanz.Models\Beanz.Models.csproj" />
+    <ProjectReference Include="..\Beanz.Utilities\Beanz.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ADM-Administration\" />
+    <Folder Include="Areas\CRM-CustomerRelationManagement\" />
+    <Folder Include="Areas\ESS-EmployeeSelfService\" />
+    <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
+    <Folder Include="Areas\HIS-HospitalInformationSystem\" />
+    <Folder Include="Areas\POS-PointOfSales\" />
+    <Folder Include="Areas\SCM-SupplyChainManagement\" />
+  </ItemGroup>
+
+</Project>

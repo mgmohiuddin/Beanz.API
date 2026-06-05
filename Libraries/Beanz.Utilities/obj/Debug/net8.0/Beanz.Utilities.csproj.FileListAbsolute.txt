@@ -1,0 +1,12 @@
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\bin\Debug\net8.0\Beanz.Utilities.deps.json
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\bin\Debug\net8.0\Beanz.Utilities.dll
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\bin\Debug\net8.0\Beanz.Utilities.pdb
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.AssemblyInfoInputs.cache
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.AssemblyInfo.cs
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.csproj.CoreCompileInputs.cache
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.sourcelink.json
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.dll
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\refint\Beanz.Utilities.dll
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\Beanz.Utilities.pdb
+D:\BeanzBkp\Beanz\BeanzERP\BeanzAPI2027\Libraries\Beanz.Utilities\obj\Debug\net8.0\ref\Beanz.Utilities.dll

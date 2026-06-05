@@ -1,0 +1,1361 @@
+[
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "AppleCallback",
+    "RelativePath": "api/auth/external/apple/callback",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserJson",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "FacebookSignIn",
+    "RelativePath": "api/auth/external/facebook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.ExternalDTOs.FacebookSignInDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "GitHubCallback",
+    "RelativePath": "api/auth/external/github/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "state",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "GoogleSignIn",
+    "RelativePath": "api/auth/external/google",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.ExternalDTOs.GoogleSignInDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "LinkedInCallback",
+    "RelativePath": "api/auth/external/linkedin/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "state",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "MicrosoftSignIn",
+    "RelativePath": "api/auth/external/microsoft",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.ExternalDTOs.MicrosoftSignInDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "TwitterSignIn",
+    "RelativePath": "api/auth/external/twitter",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.ExternalDTOs.TwitterCallbackDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "Disable",
+    "RelativePath": "api/auth/mfa/totp/disable",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "Enable",
+    "RelativePath": "api/auth/mfa/totp/enable",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.TotpDTOs.TotpEnableDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "Setup",
+    "RelativePath": "api/auth/mfa/totp/setup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "Verify",
+    "RelativePath": "api/auth/mfa/totp/verify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.TotpDTOs.TotpVerifyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "SelectCompany",
+    "RelativePath": "api/auth/select-company",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Beanz.DTOs.Auth.AuthSignOutDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "SignIn",
+    "RelativePath": "api/auth/signin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignInRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "SignOut",
+    "RelativePath": "api/auth/signout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Beanz.DTOs.Auth.AuthSignOutDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "SignUp",
+    "RelativePath": "api/auth/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authSingupDTO",
+        "Type": "Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "SignUpOLD",
+    "RelativePath": "api/auth/signupOLD",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authSingupDTO",
+        "Type": "Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "VerifyEmail",
+    "RelativePath": "api/auth/verify-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "Beanz.DTOs.AuthModule.EmailDTOs.VerifyEmailDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Del",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/Del",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Get",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/Get",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "GetInfo",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Lookup",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/Lookup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Post",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Print",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/Print",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Set",
+    "RelativePath": "api/Beanz/{system}/{area}/{module}/Set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "area",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Del",
+    "RelativePath": "api/Beanz/{system}/{module}/Del",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Get",
+    "RelativePath": "api/Beanz/{system}/{module}/Get",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "GetInfo",
+    "RelativePath": "api/Beanz/{system}/{module}/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Lookup",
+    "RelativePath": "api/Beanz/{system}/{module}/Lookup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Post",
+    "RelativePath": "api/Beanz/{system}/{module}/Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Print",
+    "RelativePath": "api/Beanz/{system}/{module}/Print",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzController",
+    "Method": "Set",
+    "RelativePath": "api/Beanz/{system}/{module}/Set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "system",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "module",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzPermissionController",
+    "Method": "DelBeanzPermissions",
+    "RelativePath": "api/BeanzPermission/DelBeanzPermissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzPermissionController",
+    "Method": "GetBeanzPermission",
+    "RelativePath": "api/BeanzPermission/GetBeanzPermission",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzPermissionController",
+    "Method": "LookUpBeanzPermissions",
+    "RelativePath": "api/BeanzPermission/LookUpBeanzPermissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lookup",
+        "Type": "Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzPermissionController",
+    "Method": "SetBeanzPermissions",
+    "RelativePath": "api/BeanzPermission/SetBeanzPermissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzScriptController",
+    "Method": "Execute",
+    "RelativePath": "api/BeanzScript/Execute",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "script",
+        "Type": "Beanz.DTOs.BeanzRoutes.ScriptParameterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzScriptController",
+    "Method": "ExecuteDefinition",
+    "RelativePath": "api/BeanzScript/ExecuteDefinition",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "script",
+        "Type": "Beanz.DTOs.BeanzRoutes.ScriptDefinitionParameterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzScriptController",
+    "Method": "ExecuteSP",
+    "RelativePath": "api/BeanzScript/ExecuteSP",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "script",
+        "Type": "Beanz.DTOs.BeanzRoutes.ScriptParameterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzScriptController",
+    "Method": "GetDatabaseObjects",
+    "RelativePath": "api/BeanzScript/GetDatabaseObjects",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.BeanzRoutes.ScriptParameterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.BeanzRoutes.BeanzScriptController",
+    "Method": "GetDatabaseTableDetails",
+    "RelativePath": "api/BeanzScript/GetDatabaseTableDetails",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.BeanzRoutes.ScriptParameterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.EFMController",
+    "Method": "Get",
+    "RelativePath": "api/EFM",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.EFMController",
+    "Method": "Post",
+    "RelativePath": "api/EFM",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.EFMController",
+    "Method": "Get",
+    "RelativePath": "api/EFM/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.EFMController",
+    "Method": "Put",
+    "RelativePath": "api/EFM/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.EFMController",
+    "Method": "Delete",
+    "RelativePath": "api/EFM/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "ApproveAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/ApproveAllowances/Approve",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "DelAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/DelAllowances/Del",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "GetAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/GetAllowances/Get",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "GetInfoAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/GetInfoAllowances/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "LookUpAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/LookUpAllowances/LookUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lookup",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "PostAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/PostAllowances/Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "PrintAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/PrintAllowances/Print",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
+    "Method": "SetAllowances",
+    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/SetAllowances/Set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.ImageController",
+    "Method": "GetImage",
+    "RelativePath": "api/Image/{folderName}/{imageName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "folderName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.ImageController",
+    "Method": "GetImageFullpath",
+    "RelativePath": "api/Image/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fullPath",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.ImageController",
+    "Method": "UploadImage",
+    "RelativePath": "api/Image/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "folderPath",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentDisposition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Headers",
+        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
+        "IsRequired": false
+      },
+      {
+        "Name": "Length",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.SecureController",
+    "Method": "GetSecureDataAsync",
+    "RelativePath": "api/secure/data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.General.TextTranslateController",
+    "Method": "Index",
+    "RelativePath": "api/TextTranslate/Index",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.BeanzCommon.BeanzlookupDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.ValuesController",
+    "Method": "Post",
+    "RelativePath": "api/Values",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.ValuesController",
+    "Method": "Put",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.ValuesController",
+    "Method": "Delete",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

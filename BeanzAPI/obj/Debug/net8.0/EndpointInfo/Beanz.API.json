@@ -1,0 +1,3237 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Beanz API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/HummanResourceManagement/Masters/Allowances/GetAllowances/Get": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/SetAllowances/Set": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/PostAllowances/Post": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/DelAllowances/Del": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/LookUpAllowances/LookUp": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/GetInfoAllowances/GetInfo": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/PrintAllowances/Print": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Allowances/ApproveAllowances/Approve": {
+      "post": {
+        "tags": [
+          "Allowances"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/signupOLD": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/verify-email": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.EmailDTOs.VerifyEmailDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.EmailDTOs.VerifyEmailDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.EmailDTOs.VerifyEmailDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/signin": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignInRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignInRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignInRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/mfa/totp/setup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/mfa/totp/enable": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.TotpDTOs.TotpEnableDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.TotpDTOs.TotpEnableDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.TotpDTOs.TotpEnableDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/mfa/totp/verify": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.TotpDTOs.TotpVerifyDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.TotpDTOs.TotpVerifyDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.TotpDTOs.TotpVerifyDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/mfa/totp/disable": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/google": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.GoogleSignInDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.GoogleSignInDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.GoogleSignInDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/microsoft": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.MicrosoftSignInDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.MicrosoftSignInDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.MicrosoftSignInDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/facebook": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.FacebookSignInDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.FacebookSignInDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.FacebookSignInDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/apple/callback": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "IdToken": {
+                    "type": "string"
+                  },
+                  "UserJson": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "IdToken": {
+                  "style": "form"
+                },
+                "UserJson": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/github/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/twitter": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.TwitterCallbackDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.TwitterCallbackDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.AuthModule.ExternalDTOs.TwitterCallbackDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/external/linkedin/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/signout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Auth.AuthSignOutDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Auth.AuthSignOutDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Auth.AuthSignOutDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/select-company": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Auth.AuthSignOutDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Auth.AuthSignOutDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Auth.AuthSignOutDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/Get": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/Get": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/Set": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/Set": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/Post": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/Post": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/Del": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/Del": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/Lookup": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/Lookup": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/GetInfo": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/GetInfo": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{module}/Print": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Beanz/{system}/{area}/{module}/Print": {
+      "post": {
+        "tags": [
+          "Beanz"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "module",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzPermission/GetBeanzPermission": {
+      "post": {
+        "tags": [
+          "BeanzPermission"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzRequestDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BeanzPermission/SetBeanzPermissions": {
+      "post": {
+        "tags": [
+          "BeanzPermission"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzPermission/DelBeanzPermissions": {
+      "post": {
+        "tags": [
+          "BeanzPermission"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzPermission/LookUpBeanzPermissions": {
+      "post": {
+        "tags": [
+          "BeanzPermission"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BeanzScript/Execute": {
+      "post": {
+        "tags": [
+          "BeanzScript"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzScript/ExecuteDefinition": {
+      "post": {
+        "tags": [
+          "BeanzScript"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptDefinitionParameterDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptDefinitionParameterDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptDefinitionParameterDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzScript/ExecuteSP": {
+      "post": {
+        "tags": [
+          "BeanzScript"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzScript/GetDatabaseObjects": {
+      "post": {
+        "tags": [
+          "BeanzScript"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BeanzScript/GetDatabaseTableDetails": {
+      "post": {
+        "tags": [
+          "BeanzScript"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.BeanzRoutes.ScriptParameterDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EFM": {
+      "get": {
+        "tags": [
+          "EFM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EFM"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EFM/{id}": {
+      "get": {
+        "tags": [
+          "EFM"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "EFM"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "EFM"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Image/upload": {
+      "post": {
+        "tags": [
+          "Image"
+        ],
+        "parameters": [
+          {
+            "name": "folderPath",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ContentType": {
+                    "type": "string"
+                  },
+                  "ContentDisposition": {
+                    "type": "string"
+                  },
+                  "Headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "Length": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "FileName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "ContentType": {
+                  "style": "form"
+                },
+                "ContentDisposition": {
+                  "style": "form"
+                },
+                "Headers": {
+                  "style": "form"
+                },
+                "Length": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "FileName": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Image/get": {
+      "get": {
+        "tags": [
+          "Image"
+        ],
+        "parameters": [
+          {
+            "name": "fullPath",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Image/{folderName}/{imageName}": {
+      "get": {
+        "tags": [
+          "Image"
+        ],
+        "parameters": [
+          {
+            "name": "folderName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "imageName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/secure/data": {
+      "get": {
+        "tags": [
+          "Secure"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TextTranslate/Index": {
+      "post": {
+        "tags": [
+          "TextTranslate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Values": {
+      "get": {
+        "tags": [
+          "Values"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Values"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Values/{id}": {
+      "get": {
+        "tags": [
+          "Values"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Values"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Values"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO": {
+        "type": "object",
+        "properties": {
+          "allowanceID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "allowancesGroupID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "allowanceTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "allowanceCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "allowanceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "allowanceAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRequiredPolicy": {
+            "type": "boolean"
+          },
+          "isUnstructured": {
+            "type": "boolean"
+          },
+          "isBasicSalary": {
+            "type": "boolean"
+          },
+          "isFixedAllowance": {
+            "type": "boolean"
+          },
+          "isLinkedPolicy": {
+            "type": "boolean"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "approvedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approvedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "postedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "postedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deletedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isApproved": {
+            "type": "boolean"
+          },
+          "isPosted": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel": {
+        "type": "object",
+        "properties": {
+          "allowances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO"
+            },
+            "nullable": true
+          },
+          "allowance": {
+            "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.Auth.AuthSignOutDTO": {
+        "required": [
+          "userID"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.EmailDTOs.VerifyEmailDTO": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.ExternalDTOs.FacebookSignInDTO": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.ExternalDTOs.GoogleSignInDTO": {
+        "type": "object",
+        "properties": {
+          "idToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.ExternalDTOs.MicrosoftSignInDTO": {
+        "type": "object",
+        "properties": {
+          "idToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.ExternalDTOs.TwitterCallbackDTO": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "codeVerifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignInRequestDTO": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "deviceInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "languageID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.RequestResponse.Request.AuthSignupRequestDTO": {
+        "required": [
+          "confirmPassword",
+          "emailAddress",
+          "fullName",
+          "password",
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "maxLength": 100,
+            "minLength": 3,
+            "type": "string"
+          },
+          "fullName": {
+            "maxLength": 200,
+            "minLength": 2,
+            "type": "string"
+          },
+          "emailAddress": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "maxLength": 100,
+            "minLength": 8,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\w\\s]).{8,}$",
+            "type": "string"
+          },
+          "confirmPassword": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "mobileNumber": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "profilePictureUrl": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "avatarUrl": {
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "languageID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "googleSub": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.TotpDTOs.TotpEnableDTO": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "minLength": 1,
+            "pattern": "^[0-9]{6}$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.AuthModule.TotpDTOs.TotpVerifyDTO": {
+        "required": [
+          "code",
+          "userID"
+        ],
+        "type": "object",
+        "properties": {
+          "userID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "minLength": 1,
+            "pattern": "^[0-9]{6}$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.BeanzCommon.BeanzlookupDTO": {
+        "type": "object",
+        "properties": {
+          "valueField": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "displayField": {
+            "type": "string",
+            "nullable": true
+          },
+          "foreginValueField": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.BeanzRoutes.BeanzPermissionDTO": {
+        "type": "object",
+        "properties": {
+          "jwtToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "jwtIPAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "json": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryKeyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "foreignKeyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "languageID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "screenID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "branchID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "foreginValueField": {
+            "type": "string",
+            "nullable": true
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyRolePermissionID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "area": {
+            "type": "string",
+            "nullable": true
+          },
+          "areaSubFolder": {
+            "type": "string",
+            "nullable": true
+          },
+          "controller": {
+            "type": "string",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "isInsert": {
+            "type": "boolean"
+          },
+          "isUpdate": {
+            "type": "boolean"
+          },
+          "isDelete": {
+            "type": "boolean"
+          },
+          "isView": {
+            "type": "boolean"
+          },
+          "isPost": {
+            "type": "boolean"
+          },
+          "isImport": {
+            "type": "boolean"
+          },
+          "isExport": {
+            "type": "boolean"
+          },
+          "isSendEmail": {
+            "type": "boolean"
+          },
+          "isViewCharts": {
+            "type": "boolean"
+          },
+          "isViewHistory": {
+            "type": "boolean"
+          },
+          "schemaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "screenTableName": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemScreenID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.BeanzRoutes.ScriptDefinitionParameterDTO": {
+        "type": "object",
+        "properties": {
+          "dataSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "initialCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "script": {
+            "type": "string",
+            "nullable": true
+          },
+          "schemaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "tableName": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowsAffected": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": { }
+            },
+            "nullable": true
+          },
+          "tables": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": { }
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.BeanzRoutes.ScriptParameterDTO": {
+        "type": "object",
+        "properties": {
+          "dataSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "initialCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "script": {
+            "type": "string",
+            "nullable": true
+          },
+          "schemaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "tableName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.Common.BeanzCommonDTO": {
+        "type": "object",
+        "properties": {
+          "jwtToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "jwtIPAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "json": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryKeyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "foreignKeyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "languageID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "screenID": {
+            "type": "string",
+            "nullable": true
+          },
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "branchID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "foreginValueField": {
+            "type": "string",
+            "nullable": true
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.Common.BeanzRequestDTO": {
+        "type": "object",
+        "properties": {
+          "jwtToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "jwtIPAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "json": {
+            "type": "string",
+            "nullable": true
+          },
+          "primaryKeyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "foreignKeyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "languageID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "screenID": {
+            "type": "string",
+            "nullable": true
+          },
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "branchID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "foreginValueField": {
+            "type": "string",
+            "nullable": true
+          },
+          "system": {
+            "type": "string",
+            "nullable": true
+          },
+          "area": {
+            "type": "string",
+            "nullable": true
+          },
+          "module": {
+            "type": "string",
+            "nullable": true
+          },
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
