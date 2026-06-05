@@ -1,15 +1,15 @@
-using Beanz.Core.Areas.System.Setup;
-using Beanz.DTOs.Areas.System.Setup;
+using Beanz.Core.Areas.BeanzSystem.Setup;
+using Beanz.DTOs.Areas.BeanzSystem.Setup;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Beanz.API.Areas.System.Setup
+namespace Beanz.API.Areas.BeanzSystem.Setup
 {
     [Route("api/[area]/Setup/[controller]/[action]")]
     [ApiController]
-    [Area("System")]
+    [Area("BeanzSystem")]
     public class SystemModulesController : ControllerBase
     {
         private readonly ISystemModuleRepository _systemModulesRepository;
