@@ -13,6 +13,8 @@ namespace Beanz.IBusiness.Areas.HummanResourceManagement.Masters
         Task<BeanzResponseDTO> PostAllowancesAsync(BeanzCommonDTO common);
         Task<BeanzResponseDTO> DelAllowancesAsync(BeanzCommonDTO common);
         Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzCommonDTO common);
+        Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzCommonDTO lookup);
+        Task<AllowanceViewModel> PrintAllowancesAsync(BeanzCommonDTO common);
         Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzCommonDTO common);
     }
 }
