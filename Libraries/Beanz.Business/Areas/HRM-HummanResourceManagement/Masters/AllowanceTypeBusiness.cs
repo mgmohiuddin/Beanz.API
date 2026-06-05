@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beanz.Core.Areas.HummanResourceManagement.Masters; 
+using Beanz.Core.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
