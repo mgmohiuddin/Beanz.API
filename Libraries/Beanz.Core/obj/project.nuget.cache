@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sm62iFf0hkM=",
+  "dgSpecHash": "Bp+0X8Ll2DQ=",
   "success": true,
-  "projectFilePath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.Core\\Beanz.Core.csproj",
+  "projectFilePath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Core\\Beanz.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mohammed\\.nuget\\packages\\google.apis\\1.51.0\\google.apis.1.51.0.nupkg.sha512",
     "C:\\Users\\Mohammed\\.nuget\\packages\\google.apis.auth\\1.51.0\\google.apis.auth.1.51.0.nupkg.sha512",

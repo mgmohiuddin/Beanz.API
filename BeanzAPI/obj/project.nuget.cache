@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y+GNp5sQ2B0=",
+  "dgSpecHash": "qLIOs3MK4eo=",
   "success": true,
-  "projectFilePath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\BeanzAPI\\Beanz.API.csproj",
+  "projectFilePath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Beanz.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mohammed\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Mohammed\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
@@ -273,9 +273,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'System.IdentityModel.Tokens.Jwt' 6.21.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "projectPath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\BeanzAPI\\Beanz.API.csproj",
+      "projectPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Beanz.API.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\BeanzAPI\\Beanz.API.csproj",
+      "filePath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Beanz.API.csproj",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
         "net8.0"

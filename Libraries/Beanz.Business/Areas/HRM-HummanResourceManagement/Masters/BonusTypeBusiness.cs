@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Beanz.Core.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
-using Beanz.DTOs.Areas.Common;
-using Beanz.DTOs.Areas.BeanzRoutes;
+using Beanz.DTOs.Common;
+using Beanz.DTOs.BeanzRoutes;
 
 namespace Beanz.Business.Areas.HummanResourceManagement.Masters
 {

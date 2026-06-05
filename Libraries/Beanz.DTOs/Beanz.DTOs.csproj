@@ -107,6 +107,7 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
+    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
   </ItemGroup>

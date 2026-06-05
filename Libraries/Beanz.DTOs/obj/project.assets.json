@@ -180,11 +180,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
+      "projectUniqueName": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
       "projectName": "Beanz.DTOs",
-      "projectPath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
+      "projectPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
       "packagesPath": "C:\\Users\\Mohammed\\.nuget\\packages\\",
-      "outputPath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.DTOs\\obj\\",
+      "outputPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

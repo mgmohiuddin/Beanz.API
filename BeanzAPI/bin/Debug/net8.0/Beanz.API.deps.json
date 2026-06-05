@@ -2844,6 +2844,9 @@
       },
       "Beanz.Business/1.0.0": {
         "dependencies": {
+          "Beanz.Core": "1.0.0",
+          "Beanz.DTOs": "1.0.0",
+          "Beanz.Data.Services": "1.0.0",
           "Beanz.Models": "1.0.0"
         },
         "runtime": {

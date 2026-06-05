@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.Models\\Beanz.Models.csproj",
+      "projectUniqueName": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Models\\Beanz.Models.csproj",
       "projectName": "Beanz.Models",
-      "projectPath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.Models\\Beanz.Models.csproj",
+      "projectPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Models\\Beanz.Models.csproj",
       "packagesPath": "C:\\Users\\Mohammed\\.nuget\\packages\\",
-      "outputPath": "D:\\BeanzBkp\\Beanz\\BeanzERP\\BeanzAPI2027\\Libraries\\Beanz.Models\\obj\\",
+      "outputPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

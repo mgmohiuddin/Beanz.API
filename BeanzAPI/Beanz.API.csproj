@@ -95,6 +95,7 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
     <Folder Include="Areas\CRM-CustomerRelationManagement\" />
+    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
     <Folder Include="Security\" />

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Beanz.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03544c8ab60966457af1d10c3a00b9cf422db342")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c13ac8741559507276ead14eac32e6b3cb91c09")]
 [assembly: System.Reflection.AssemblyProductAttribute("Beanz.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Beanz.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
