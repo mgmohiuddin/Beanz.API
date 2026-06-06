@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class TicketTypesController : ControllerBase
     {
-        private readonly ITicketTypeRepository _ticketTypesRepository;
+        private readonly ITicketTypeBusiness _ticketTypesBusiness;
 
-        public TicketTypesController(ITicketTypeRepository ticketTypesRepository)
+        public TicketTypesController(ITicketTypeBusiness ticketTypesBusiness)
         {
-            _ticketTypesRepository = ticketTypesRepository;
+            _ticketTypesBusiness = ticketTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<TicketTypeDTO>> GetTicketTypes(BeanzCommonDTO common)
         {
-            var data = await _ticketTypesRepository.GetTicketTypesAsync(common);
+            var data = await _ticketTypesBusiness.GetTicketTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketTypesRepository.SetTicketTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketTypesBusiness.SetTicketTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketTypesRepository.PostTicketTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketTypesBusiness.PostTicketTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketTypesRepository.DelTicketTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketTypesBusiness.DelTicketTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpTicketTypes(BeanzCommonDTO lookup)
         {
-            var data = await _ticketTypesRepository.LookUpTicketTypesAsync(lookup);
+            var data = await _ticketTypesBusiness.LookUpTicketTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<TicketTypeViewModel> GetInfoTicketTypes(BeanzCommonDTO common)
         {
-            var data = await _ticketTypesRepository.GetInfoTicketTypesAsync(common);
+            var data = await _ticketTypesBusiness.GetInfoTicketTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<TicketTypeViewModel> PrintTicketTypes(BeanzCommonDTO common)
         {
-            var data = await _ticketTypesRepository.PrintTicketTypesAsync(common);
+            var data = await _ticketTypesBusiness.PrintTicketTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketTypesRepository.ApproveTicketTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketTypesBusiness.ApproveTicketTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
