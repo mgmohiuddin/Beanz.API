@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class LeaveTypesController : ControllerBase
     {
-        private readonly ILeaveTypeRepository _leaveTypesRepository;
+        private readonly ILeaveTypeBusiness _leaveTypesBusiness;
 
-        public LeaveTypesController(ILeaveTypeRepository leaveTypesRepository)
+        public LeaveTypesController(ILeaveTypeBusiness leaveTypesBusiness)
         {
-            _leaveTypesRepository = leaveTypesRepository;
+            _leaveTypesBusiness = leaveTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<LeaveTypeDTO>> GetLeaveTypes(BeanzCommonDTO common)
         {
-            var data = await _leaveTypesRepository.GetLeaveTypesAsync(common);
+            var data = await _leaveTypesBusiness.GetLeaveTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _leaveTypesRepository.SetLeaveTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _leaveTypesBusiness.SetLeaveTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _leaveTypesRepository.PostLeaveTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _leaveTypesBusiness.PostLeaveTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _leaveTypesRepository.DelLeaveTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _leaveTypesBusiness.DelLeaveTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpLeaveTypes(BeanzCommonDTO lookup)
         {
-            var data = await _leaveTypesRepository.LookUpLeaveTypesAsync(lookup);
+            var data = await _leaveTypesBusiness.LookUpLeaveTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<LeaveTypeViewModel> GetInfoLeaveTypes(BeanzCommonDTO common)
         {
-            var data = await _leaveTypesRepository.GetInfoLeaveTypesAsync(common);
+            var data = await _leaveTypesBusiness.GetInfoLeaveTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<LeaveTypeViewModel> PrintLeaveTypes(BeanzCommonDTO common)
         {
-            var data = await _leaveTypesRepository.PrintLeaveTypesAsync(common);
+            var data = await _leaveTypesBusiness.PrintLeaveTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _leaveTypesRepository.ApproveLeaveTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _leaveTypesBusiness.ApproveLeaveTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
