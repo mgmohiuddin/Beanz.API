@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Beanz.Core.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 
 namespace Beanz.Business.Areas.HummanResourceManagement.Masters
 {
-    public class OvertimeTypeBusiness
+    public class OvertimeTypeBusiness : IOvertimeTypeBusiness
     {
         private readonly IOvertimeTypeRepository _repository;
 
@@ -16,22 +18,102 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
             _repository = repository;
         }
 
-        public Task<List<OvertimeTypeDTO>> GetOvertimeTypesAsync(BeanzCommonDTO common)
-            => _repository.GetOvertimeTypesAsync(common);
+        // ---------- Validation Helpers ----------
+        private static BeanzResponseDTO Fail(string code, string message)
+            => new BeanzResponseDTO { ErrorCode = code, ErrorMessage = message };
 
-        public Task<BeanzResponseDTO> SetOvertimeTypesAsync(BeanzCommonDTO common)
-            => _repository.SetOvertimeTypesAsync(common);
+        private static BeanzResponseDTO ValidateContext(BeanzCommonDTO common)
+        {
+            if (common == null)
+                return Fail("ERR001", "Request payload is required.");
+            if (common.CompanyID <= 0)
+                return Fail("ERR002", "CompanyID is required.");
+            if (common.UserID <= 0)
+                return Fail("ERR003", "UserID is required.");
+            return null;
+        }
+
+        private static BeanzResponseDTO ValidateKey(BeanzCommonDTO common)
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return ctx;
+            if (common.PrimaryKeyID <= 0)
+                return Fail("ERR010", "PrimaryKeyID is required.");
+            return null;
+        }
+
+        // ---------- Methods ----------
+        public Task<List<OvertimeTypeDTO>> GetOvertimeTypesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return Task.FromResult(new List<OvertimeTypeDTO>());
+            return _repository.GetOvertimeTypesAsync(common);
+        }
+
+        public async Task<BeanzResponseDTO> SetOvertimeTypesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return ctx;
+
+            if (string.IsNullOrWhiteSpace(common.Json))
+                return Fail("ERR011", "Request data (Json) is required.");
+
+            OvertimeTypeDTO dto;
+            try
+            {
+                dto = JsonConvert.DeserializeObject<OvertimeTypeDTO>(common.Json);
+            }
+            catch
+            {
+                return Fail("ERR012", "Invalid request payload format.");
+            }
+
+            if (dto == null)
+                return Fail("ERR012", "Invalid request payload.");
+            if (string.IsNullOrWhiteSpace(dto.OvertimeTypeCode))
+                return Fail("ERR013", "OvertimeType Code is required.");
+            if (string.IsNullOrWhiteSpace(dto.OvertimeTypeName))
+                return Fail("ERR014", "OvertimeType Name is required.");
+
+            return await _repository.SetOvertimeTypesAsync(common);
+        }
 
         public Task<BeanzResponseDTO> PostOvertimeTypesAsync(BeanzCommonDTO common)
-            => _repository.PostOvertimeTypesAsync(common);
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(ctx);
+            return _repository.PostOvertimeTypesAsync(common);
+        }
 
         public Task<BeanzResponseDTO> DelOvertimeTypesAsync(BeanzCommonDTO common)
-            => _repository.DelOvertimeTypesAsync(common);
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(ctx);
+            return _repository.DelOvertimeTypesAsync(common);
+        }
 
         public Task<OvertimeTypeViewModel> GetInfoOvertimeTypesAsync(BeanzCommonDTO common)
-            => _repository.GetInfoOvertimeTypesAsync(common);
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return Task.FromResult(new OvertimeTypeViewModel());
+            return _repository.GetInfoOvertimeTypesAsync(common);
+        }
+
+        public Task<List<BeanzlookupDTO>> LookUpOvertimeTypesAsync(BeanzCommonDTO lookup)
+            => _repository.LookUpOvertimeTypesAsync(lookup);
+
+        public Task<OvertimeTypeViewModel> PrintOvertimeTypesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(new OvertimeTypeViewModel());
+            return _repository.PrintOvertimeTypesAsync(common);
+        }
 
         public Task<BeanzResponseDTO> ApproveOvertimeTypesAsync(BeanzCommonDTO common)
-            => _repository.ApproveOvertimeTypesAsync(common);
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(ctx);
+            return _repository.ApproveOvertimeTypesAsync(common);
+        }
     }
 }
