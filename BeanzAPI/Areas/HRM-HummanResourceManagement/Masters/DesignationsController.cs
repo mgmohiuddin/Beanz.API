@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class DesignationsController : ControllerBase
     {
-        private readonly IDesignationRepository _designationsRepository;
+        private readonly IDesignationBusiness _designationsBusiness;
 
-        public DesignationsController(IDesignationRepository designationsRepository)
+        public DesignationsController(IDesignationBusiness designationsBusiness)
         {
-            _designationsRepository = designationsRepository;
+            _designationsBusiness = designationsBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<DesignationDTO>> GetDesignations(BeanzCommonDTO common)
         {
-            var data = await _designationsRepository.GetDesignationsAsync(common);
+            var data = await _designationsBusiness.GetDesignationsAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _designationsRepository.SetDesignationsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _designationsBusiness.SetDesignationsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _designationsRepository.PostDesignationsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _designationsBusiness.PostDesignationsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _designationsRepository.DelDesignationsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _designationsBusiness.DelDesignationsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpDesignations(BeanzCommonDTO lookup)
         {
-            var data = await _designationsRepository.LookUpDesignationsAsync(lookup);
+            var data = await _designationsBusiness.LookUpDesignationsAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<DesignationViewModel> GetInfoDesignations(BeanzCommonDTO common)
         {
-            var data = await _designationsRepository.GetInfoDesignationsAsync(common);
+            var data = await _designationsBusiness.GetInfoDesignationsAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<DesignationViewModel> PrintDesignations(BeanzCommonDTO common)
         {
-            var data = await _designationsRepository.PrintDesignationsAsync(common);
+            var data = await _designationsBusiness.PrintDesignationsAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _designationsRepository.ApproveDesignationsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _designationsBusiness.ApproveDesignationsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
