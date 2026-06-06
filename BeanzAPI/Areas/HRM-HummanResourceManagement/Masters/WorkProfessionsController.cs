@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class WorkProfessionsController : ControllerBase
     {
-        private readonly IWorkProfessionRepository _workProfessionsRepository;
+        private readonly IWorkProfessionBusiness _workProfessionsBusiness;
 
-        public WorkProfessionsController(IWorkProfessionRepository workProfessionsRepository)
+        public WorkProfessionsController(IWorkProfessionBusiness workProfessionsBusiness)
         {
-            _workProfessionsRepository = workProfessionsRepository;
+            _workProfessionsBusiness = workProfessionsBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<WorkProfessionDTO>> GetWorkProfessions(BeanzCommonDTO common)
         {
-            var data = await _workProfessionsRepository.GetWorkProfessionsAsync(common);
+            var data = await _workProfessionsBusiness.GetWorkProfessionsAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _workProfessionsRepository.SetWorkProfessionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _workProfessionsBusiness.SetWorkProfessionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _workProfessionsRepository.PostWorkProfessionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _workProfessionsBusiness.PostWorkProfessionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _workProfessionsRepository.DelWorkProfessionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _workProfessionsBusiness.DelWorkProfessionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpWorkProfessions(BeanzCommonDTO lookup)
         {
-            var data = await _workProfessionsRepository.LookUpWorkProfessionsAsync(lookup);
+            var data = await _workProfessionsBusiness.LookUpWorkProfessionsAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<WorkProfessionViewModel> GetInfoWorkProfessions(BeanzCommonDTO common)
         {
-            var data = await _workProfessionsRepository.GetInfoWorkProfessionsAsync(common);
+            var data = await _workProfessionsBusiness.GetInfoWorkProfessionsAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<WorkProfessionViewModel> PrintWorkProfessions(BeanzCommonDTO common)
         {
-            var data = await _workProfessionsRepository.PrintWorkProfessionsAsync(common);
+            var data = await _workProfessionsBusiness.PrintWorkProfessionsAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _workProfessionsRepository.ApproveWorkProfessionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _workProfessionsBusiness.ApproveWorkProfessionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
