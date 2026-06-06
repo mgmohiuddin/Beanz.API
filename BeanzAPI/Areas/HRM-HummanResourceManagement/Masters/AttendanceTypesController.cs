@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class AttendanceTypesController : ControllerBase
     {
-        private readonly IAttendanceTypeRepository _attendanceTypesRepository;
+        private readonly IAttendanceTypeBusiness _attendanceTypesBusiness;
 
-        public AttendanceTypesController(IAttendanceTypeRepository attendanceTypesRepository)
+        public AttendanceTypesController(IAttendanceTypeBusiness attendanceTypesBusiness)
         {
-            _attendanceTypesRepository = attendanceTypesRepository;
+            _attendanceTypesBusiness = attendanceTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<AttendanceTypeDTO>> GetAttendanceTypes(BeanzCommonDTO common)
         {
-            var data = await _attendanceTypesRepository.GetAttendanceTypesAsync(common);
+            var data = await _attendanceTypesBusiness.GetAttendanceTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesRepository.SetAttendanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesBusiness.SetAttendanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesRepository.PostAttendanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesBusiness.PostAttendanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesRepository.DelAttendanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesBusiness.DelAttendanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpAttendanceTypes(BeanzCommonDTO lookup)
         {
-            var data = await _attendanceTypesRepository.LookUpAttendanceTypesAsync(lookup);
+            var data = await _attendanceTypesBusiness.LookUpAttendanceTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<AttendanceTypeViewModel> GetInfoAttendanceTypes(BeanzCommonDTO common)
         {
-            var data = await _attendanceTypesRepository.GetInfoAttendanceTypesAsync(common);
+            var data = await _attendanceTypesBusiness.GetInfoAttendanceTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<AttendanceTypeViewModel> PrintAttendanceTypes(BeanzCommonDTO common)
         {
-            var data = await _attendanceTypesRepository.PrintAttendanceTypesAsync(common);
+            var data = await _attendanceTypesBusiness.PrintAttendanceTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesRepository.ApproveAttendanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _attendanceTypesBusiness.ApproveAttendanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
