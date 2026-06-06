@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class PaidTimeOffTypesController : ControllerBase
     {
-        private readonly IPaidTimeOffTypeRepository _paidTimeOffTypesRepository;
+        private readonly IPaidTimeOffTypeBusiness _paidTimeOffTypesBusiness;
 
-        public PaidTimeOffTypesController(IPaidTimeOffTypeRepository paidTimeOffTypesRepository)
+        public PaidTimeOffTypesController(IPaidTimeOffTypeBusiness paidTimeOffTypesBusiness)
         {
-            _paidTimeOffTypesRepository = paidTimeOffTypesRepository;
+            _paidTimeOffTypesBusiness = paidTimeOffTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<PaidTimeOffTypeDTO>> GetPaidTimeOffTypes(BeanzCommonDTO common)
         {
-            var data = await _paidTimeOffTypesRepository.GetPaidTimeOffTypesAsync(common);
+            var data = await _paidTimeOffTypesBusiness.GetPaidTimeOffTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesRepository.SetPaidTimeOffTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesBusiness.SetPaidTimeOffTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesRepository.PostPaidTimeOffTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesBusiness.PostPaidTimeOffTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesRepository.DelPaidTimeOffTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesBusiness.DelPaidTimeOffTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpPaidTimeOffTypes(BeanzCommonDTO lookup)
         {
-            var data = await _paidTimeOffTypesRepository.LookUpPaidTimeOffTypesAsync(lookup);
+            var data = await _paidTimeOffTypesBusiness.LookUpPaidTimeOffTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<PaidTimeOffTypeViewModel> GetInfoPaidTimeOffTypes(BeanzCommonDTO common)
         {
-            var data = await _paidTimeOffTypesRepository.GetInfoPaidTimeOffTypesAsync(common);
+            var data = await _paidTimeOffTypesBusiness.GetInfoPaidTimeOffTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<PaidTimeOffTypeViewModel> PrintPaidTimeOffTypes(BeanzCommonDTO common)
         {
-            var data = await _paidTimeOffTypesRepository.PrintPaidTimeOffTypesAsync(common);
+            var data = await _paidTimeOffTypesBusiness.PrintPaidTimeOffTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesRepository.ApprovePaidTimeOffTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paidTimeOffTypesBusiness.ApprovePaidTimeOffTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
