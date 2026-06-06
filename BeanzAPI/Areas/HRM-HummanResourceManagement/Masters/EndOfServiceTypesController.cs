@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class EndOfServiceTypesController : ControllerBase
     {
-        private readonly IEndOfServiceTypeRepository _endOfServiceTypesRepository;
+        private readonly IEndOfServiceTypeBusiness _endOfServiceTypesBusiness;
 
-        public EndOfServiceTypesController(IEndOfServiceTypeRepository endOfServiceTypesRepository)
+        public EndOfServiceTypesController(IEndOfServiceTypeBusiness endOfServiceTypesBusiness)
         {
-            _endOfServiceTypesRepository = endOfServiceTypesRepository;
+            _endOfServiceTypesBusiness = endOfServiceTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<EndOfServiceTypeDTO>> GetEndOfServiceTypes(BeanzCommonDTO common)
         {
-            var data = await _endOfServiceTypesRepository.GetEndOfServiceTypesAsync(common);
+            var data = await _endOfServiceTypesBusiness.GetEndOfServiceTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesRepository.SetEndOfServiceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesBusiness.SetEndOfServiceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesRepository.PostEndOfServiceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesBusiness.PostEndOfServiceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesRepository.DelEndOfServiceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesBusiness.DelEndOfServiceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpEndOfServiceTypes(BeanzCommonDTO lookup)
         {
-            var data = await _endOfServiceTypesRepository.LookUpEndOfServiceTypesAsync(lookup);
+            var data = await _endOfServiceTypesBusiness.LookUpEndOfServiceTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<EndOfServiceTypeViewModel> GetInfoEndOfServiceTypes(BeanzCommonDTO common)
         {
-            var data = await _endOfServiceTypesRepository.GetInfoEndOfServiceTypesAsync(common);
+            var data = await _endOfServiceTypesBusiness.GetInfoEndOfServiceTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<EndOfServiceTypeViewModel> PrintEndOfServiceTypes(BeanzCommonDTO common)
         {
-            var data = await _endOfServiceTypesRepository.PrintEndOfServiceTypesAsync(common);
+            var data = await _endOfServiceTypesBusiness.PrintEndOfServiceTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesRepository.ApproveEndOfServiceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _endOfServiceTypesBusiness.ApproveEndOfServiceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
