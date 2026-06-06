@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class GradesController : ControllerBase
     {
-        private readonly IGradeRepository _gradesRepository;
+        private readonly IGradeBusiness _gradesBusiness;
 
-        public GradesController(IGradeRepository gradesRepository)
+        public GradesController(IGradeBusiness gradesBusiness)
         {
-            _gradesRepository = gradesRepository;
+            _gradesBusiness = gradesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<GradeDTO>> GetGrades(BeanzCommonDTO common)
         {
-            var data = await _gradesRepository.GetGradesAsync(common);
+            var data = await _gradesBusiness.GetGradesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _gradesRepository.SetGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _gradesBusiness.SetGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _gradesRepository.PostGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _gradesBusiness.PostGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _gradesRepository.DelGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _gradesBusiness.DelGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpGrades(BeanzCommonDTO lookup)
         {
-            var data = await _gradesRepository.LookUpGradesAsync(lookup);
+            var data = await _gradesBusiness.LookUpGradesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<GradeViewModel> GetInfoGrades(BeanzCommonDTO common)
         {
-            var data = await _gradesRepository.GetInfoGradesAsync(common);
+            var data = await _gradesBusiness.GetInfoGradesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<GradeViewModel> PrintGrades(BeanzCommonDTO common)
         {
-            var data = await _gradesRepository.PrintGradesAsync(common);
+            var data = await _gradesBusiness.PrintGradesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _gradesRepository.ApproveGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _gradesBusiness.ApproveGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
