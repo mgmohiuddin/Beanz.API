@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class AllowanceTypesController : ControllerBase
     {
-        private readonly IAllowanceTypeRepository _allowanceTypesRepository;
+        private readonly IAllowanceTypeBusiness _allowanceTypesBusiness;
 
-        public AllowanceTypesController(IAllowanceTypeRepository allowanceTypesRepository)
+        public AllowanceTypesController(IAllowanceTypeBusiness allowanceTypesBusiness)
         {
-            _allowanceTypesRepository = allowanceTypesRepository;
+            _allowanceTypesBusiness = allowanceTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<AllowanceTypeDTO>> GetAllowanceTypes(BeanzCommonDTO common)
         {
-            var data = await _allowanceTypesRepository.GetAllowanceTypesAsync(common);
+            var data = await _allowanceTypesBusiness.GetAllowanceTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesRepository.SetAllowanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesBusiness.SetAllowanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesRepository.PostAllowanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesBusiness.PostAllowanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesRepository.DelAllowanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesBusiness.DelAllowanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpAllowanceTypes(BeanzCommonDTO lookup)
         {
-            var data = await _allowanceTypesRepository.LookUpAllowanceTypesAsync(lookup);
+            var data = await _allowanceTypesBusiness.LookUpAllowanceTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<AllowanceTypeViewModel> GetInfoAllowanceTypes(BeanzCommonDTO common)
         {
-            var data = await _allowanceTypesRepository.GetInfoAllowanceTypesAsync(common);
+            var data = await _allowanceTypesBusiness.GetInfoAllowanceTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<AllowanceTypeViewModel> PrintAllowanceTypes(BeanzCommonDTO common)
         {
-            var data = await _allowanceTypesRepository.PrintAllowanceTypesAsync(common);
+            var data = await _allowanceTypesBusiness.PrintAllowanceTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesRepository.ApproveAllowanceTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowanceTypesBusiness.ApproveAllowanceTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
