@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class TrainingTypesController : ControllerBase
     {
-        private readonly ITrainingTypeRepository _trainingTypesRepository;
+        private readonly ITrainingTypeBusiness _trainingTypesBusiness;
 
-        public TrainingTypesController(ITrainingTypeRepository trainingTypesRepository)
+        public TrainingTypesController(ITrainingTypeBusiness trainingTypesBusiness)
         {
-            _trainingTypesRepository = trainingTypesRepository;
+            _trainingTypesBusiness = trainingTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<TrainingTypeDTO>> GetTrainingTypes(BeanzCommonDTO common)
         {
-            var data = await _trainingTypesRepository.GetTrainingTypesAsync(common);
+            var data = await _trainingTypesBusiness.GetTrainingTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _trainingTypesRepository.SetTrainingTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _trainingTypesBusiness.SetTrainingTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _trainingTypesRepository.PostTrainingTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _trainingTypesBusiness.PostTrainingTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _trainingTypesRepository.DelTrainingTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _trainingTypesBusiness.DelTrainingTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpTrainingTypes(BeanzCommonDTO lookup)
         {
-            var data = await _trainingTypesRepository.LookUpTrainingTypesAsync(lookup);
+            var data = await _trainingTypesBusiness.LookUpTrainingTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<TrainingTypeViewModel> GetInfoTrainingTypes(BeanzCommonDTO common)
         {
-            var data = await _trainingTypesRepository.GetInfoTrainingTypesAsync(common);
+            var data = await _trainingTypesBusiness.GetInfoTrainingTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<TrainingTypeViewModel> PrintTrainingTypes(BeanzCommonDTO common)
         {
-            var data = await _trainingTypesRepository.PrintTrainingTypesAsync(common);
+            var data = await _trainingTypesBusiness.PrintTrainingTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _trainingTypesRepository.ApproveTrainingTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _trainingTypesBusiness.ApproveTrainingTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
