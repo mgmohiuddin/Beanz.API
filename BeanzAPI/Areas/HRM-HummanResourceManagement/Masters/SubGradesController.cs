@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class SubGradesController : ControllerBase
     {
-        private readonly ISubGradeRepository _subGradesRepository;
+        private readonly ISubGradeBusiness _subGradesBusiness;
 
-        public SubGradesController(ISubGradeRepository subGradesRepository)
+        public SubGradesController(ISubGradeBusiness subGradesBusiness)
         {
-            _subGradesRepository = subGradesRepository;
+            _subGradesBusiness = subGradesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<SubGradeDTO>> GetSubGrades(BeanzCommonDTO common)
         {
-            var data = await _subGradesRepository.GetSubGradesAsync(common);
+            var data = await _subGradesBusiness.GetSubGradesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _subGradesRepository.SetSubGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _subGradesBusiness.SetSubGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _subGradesRepository.PostSubGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _subGradesBusiness.PostSubGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _subGradesRepository.DelSubGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _subGradesBusiness.DelSubGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpSubGrades(BeanzCommonDTO lookup)
         {
-            var data = await _subGradesRepository.LookUpSubGradesAsync(lookup);
+            var data = await _subGradesBusiness.LookUpSubGradesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<SubGradeViewModel> GetInfoSubGrades(BeanzCommonDTO common)
         {
-            var data = await _subGradesRepository.GetInfoSubGradesAsync(common);
+            var data = await _subGradesBusiness.GetInfoSubGradesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<SubGradeViewModel> PrintSubGrades(BeanzCommonDTO common)
         {
-            var data = await _subGradesRepository.PrintSubGradesAsync(common);
+            var data = await _subGradesBusiness.PrintSubGradesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _subGradesRepository.ApproveSubGradesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _subGradesBusiness.ApproveSubGradesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
