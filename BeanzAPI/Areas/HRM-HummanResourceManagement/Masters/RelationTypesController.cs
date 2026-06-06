@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class RelationTypesController : ControllerBase
     {
-        private readonly IRelationTypeRepository _relationTypesRepository;
+        private readonly IRelationTypeBusiness _relationTypesBusiness;
 
-        public RelationTypesController(IRelationTypeRepository relationTypesRepository)
+        public RelationTypesController(IRelationTypeBusiness relationTypesBusiness)
         {
-            _relationTypesRepository = relationTypesRepository;
+            _relationTypesBusiness = relationTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<RelationTypeDTO>> GetRelationTypes(BeanzCommonDTO common)
         {
-            var data = await _relationTypesRepository.GetRelationTypesAsync(common);
+            var data = await _relationTypesBusiness.GetRelationTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _relationTypesRepository.SetRelationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _relationTypesBusiness.SetRelationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _relationTypesRepository.PostRelationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _relationTypesBusiness.PostRelationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _relationTypesRepository.DelRelationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _relationTypesBusiness.DelRelationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpRelationTypes(BeanzCommonDTO lookup)
         {
-            var data = await _relationTypesRepository.LookUpRelationTypesAsync(lookup);
+            var data = await _relationTypesBusiness.LookUpRelationTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<RelationTypeViewModel> GetInfoRelationTypes(BeanzCommonDTO common)
         {
-            var data = await _relationTypesRepository.GetInfoRelationTypesAsync(common);
+            var data = await _relationTypesBusiness.GetInfoRelationTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<RelationTypeViewModel> PrintRelationTypes(BeanzCommonDTO common)
         {
-            var data = await _relationTypesRepository.PrintRelationTypesAsync(common);
+            var data = await _relationTypesBusiness.PrintRelationTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _relationTypesRepository.ApproveRelationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _relationTypesBusiness.ApproveRelationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

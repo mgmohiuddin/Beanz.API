@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class VacationTypesController : ControllerBase
     {
-        private readonly IVacationTypeRepository _vacationTypesRepository;
+        private readonly IVacationTypeBusiness _vacationTypesBusiness;
 
-        public VacationTypesController(IVacationTypeRepository vacationTypesRepository)
+        public VacationTypesController(IVacationTypeBusiness vacationTypesBusiness)
         {
-            _vacationTypesRepository = vacationTypesRepository;
+            _vacationTypesBusiness = vacationTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<VacationTypeDTO>> GetVacationTypes(BeanzCommonDTO common)
         {
-            var data = await _vacationTypesRepository.GetVacationTypesAsync(common);
+            var data = await _vacationTypesBusiness.GetVacationTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _vacationTypesRepository.SetVacationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _vacationTypesBusiness.SetVacationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _vacationTypesRepository.PostVacationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _vacationTypesBusiness.PostVacationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _vacationTypesRepository.DelVacationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _vacationTypesBusiness.DelVacationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpVacationTypes(BeanzCommonDTO lookup)
         {
-            var data = await _vacationTypesRepository.LookUpVacationTypesAsync(lookup);
+            var data = await _vacationTypesBusiness.LookUpVacationTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<VacationTypeViewModel> GetInfoVacationTypes(BeanzCommonDTO common)
         {
-            var data = await _vacationTypesRepository.GetInfoVacationTypesAsync(common);
+            var data = await _vacationTypesBusiness.GetInfoVacationTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<VacationTypeViewModel> PrintVacationTypes(BeanzCommonDTO common)
         {
-            var data = await _vacationTypesRepository.PrintVacationTypesAsync(common);
+            var data = await _vacationTypesBusiness.PrintVacationTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _vacationTypesRepository.ApproveVacationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _vacationTypesBusiness.ApproveVacationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

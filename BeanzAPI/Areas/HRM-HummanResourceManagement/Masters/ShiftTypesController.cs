@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class ShiftTypesController : ControllerBase
     {
-        private readonly IShiftTypeRepository _shiftTypesRepository;
+        private readonly IShiftTypeBusiness _shiftTypesBusiness;
 
-        public ShiftTypesController(IShiftTypeRepository shiftTypesRepository)
+        public ShiftTypesController(IShiftTypeBusiness shiftTypesBusiness)
         {
-            _shiftTypesRepository = shiftTypesRepository;
+            _shiftTypesBusiness = shiftTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<ShiftTypeDTO>> GetShiftTypes(BeanzCommonDTO common)
         {
-            var data = await _shiftTypesRepository.GetShiftTypesAsync(common);
+            var data = await _shiftTypesBusiness.GetShiftTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _shiftTypesRepository.SetShiftTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _shiftTypesBusiness.SetShiftTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _shiftTypesRepository.PostShiftTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _shiftTypesBusiness.PostShiftTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _shiftTypesRepository.DelShiftTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _shiftTypesBusiness.DelShiftTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpShiftTypes(BeanzCommonDTO lookup)
         {
-            var data = await _shiftTypesRepository.LookUpShiftTypesAsync(lookup);
+            var data = await _shiftTypesBusiness.LookUpShiftTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<ShiftTypeViewModel> GetInfoShiftTypes(BeanzCommonDTO common)
         {
-            var data = await _shiftTypesRepository.GetInfoShiftTypesAsync(common);
+            var data = await _shiftTypesBusiness.GetInfoShiftTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<ShiftTypeViewModel> PrintShiftTypes(BeanzCommonDTO common)
         {
-            var data = await _shiftTypesRepository.PrintShiftTypesAsync(common);
+            var data = await _shiftTypesBusiness.PrintShiftTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _shiftTypesRepository.ApproveShiftTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _shiftTypesBusiness.ApproveShiftTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class TicketClassTypesController : ControllerBase
     {
-        private readonly ITicketClassTypeRepository _ticketClassTypesRepository;
+        private readonly ITicketClassTypeBusiness _ticketClassTypesBusiness;
 
-        public TicketClassTypesController(ITicketClassTypeRepository ticketClassTypesRepository)
+        public TicketClassTypesController(ITicketClassTypeBusiness ticketClassTypesBusiness)
         {
-            _ticketClassTypesRepository = ticketClassTypesRepository;
+            _ticketClassTypesBusiness = ticketClassTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<TicketClassTypeDTO>> GetTicketClassTypes(BeanzCommonDTO common)
         {
-            var data = await _ticketClassTypesRepository.GetTicketClassTypesAsync(common);
+            var data = await _ticketClassTypesBusiness.GetTicketClassTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesRepository.SetTicketClassTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesBusiness.SetTicketClassTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesRepository.PostTicketClassTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesBusiness.PostTicketClassTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesRepository.DelTicketClassTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesBusiness.DelTicketClassTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpTicketClassTypes(BeanzCommonDTO lookup)
         {
-            var data = await _ticketClassTypesRepository.LookUpTicketClassTypesAsync(lookup);
+            var data = await _ticketClassTypesBusiness.LookUpTicketClassTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<TicketClassTypeViewModel> GetInfoTicketClassTypes(BeanzCommonDTO common)
         {
-            var data = await _ticketClassTypesRepository.GetInfoTicketClassTypesAsync(common);
+            var data = await _ticketClassTypesBusiness.GetInfoTicketClassTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<TicketClassTypeViewModel> PrintTicketClassTypes(BeanzCommonDTO common)
         {
-            var data = await _ticketClassTypesRepository.PrintTicketClassTypesAsync(common);
+            var data = await _ticketClassTypesBusiness.PrintTicketClassTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesRepository.ApproveTicketClassTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _ticketClassTypesBusiness.ApproveTicketClassTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
