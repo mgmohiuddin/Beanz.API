@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class DocumentTypesController : ControllerBase
     {
-        private readonly IDocumentTypeRepository _documentTypesRepository;
+        private readonly IDocumentTypeBusiness _documentTypesBusiness;
 
-        public DocumentTypesController(IDocumentTypeRepository documentTypesRepository)
+        public DocumentTypesController(IDocumentTypeBusiness documentTypesBusiness)
         {
-            _documentTypesRepository = documentTypesRepository;
+            _documentTypesBusiness = documentTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<DocumentTypeDTO>> GetDocumentTypes(BeanzCommonDTO common)
         {
-            var data = await _documentTypesRepository.GetDocumentTypesAsync(common);
+            var data = await _documentTypesBusiness.GetDocumentTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentTypesRepository.SetDocumentTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentTypesBusiness.SetDocumentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentTypesRepository.PostDocumentTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentTypesBusiness.PostDocumentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentTypesRepository.DelDocumentTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentTypesBusiness.DelDocumentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpDocumentTypes(BeanzCommonDTO lookup)
         {
-            var data = await _documentTypesRepository.LookUpDocumentTypesAsync(lookup);
+            var data = await _documentTypesBusiness.LookUpDocumentTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<DocumentTypeViewModel> GetInfoDocumentTypes(BeanzCommonDTO common)
         {
-            var data = await _documentTypesRepository.GetInfoDocumentTypesAsync(common);
+            var data = await _documentTypesBusiness.GetInfoDocumentTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<DocumentTypeViewModel> PrintDocumentTypes(BeanzCommonDTO common)
         {
-            var data = await _documentTypesRepository.PrintDocumentTypesAsync(common);
+            var data = await _documentTypesBusiness.PrintDocumentTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentTypesRepository.ApproveDocumentTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentTypesBusiness.ApproveDocumentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
