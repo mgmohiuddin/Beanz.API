@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beanz.Business", "Libraries
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beanz.Utilities", "Libraries\Beanz.Utilities\Beanz.Utilities.csproj", "{1B8CD9A9-8E8D-41A1-94F1-739B8076DB57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beanz.IBusiness", "Libraries\Beanz.IBusiness\Beanz.IBusiness.csproj", "{AC9C351B-F3BC-4640-9F19-4C984A85F812}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{1B8CD9A9-8E8D-41A1-94F1-739B8076DB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8CD9A9-8E8D-41A1-94F1-739B8076DB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8CD9A9-8E8D-41A1-94F1-739B8076DB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9C351B-F3BC-4640-9F19-4C984A85F812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9C351B-F3BC-4640-9F19-4C984A85F812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9C351B-F3BC-4640-9F19-4C984A85F812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9C351B-F3BC-4640-9F19-4C984A85F812}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{642FD62A-2FBB-7BBB-9E92-F7D11D063709} = {D6FAACF8-EBDE-4FFF-AC4A-C97E913154CB}
 		{AEF56262-8E1A-DED2-5B73-C4A708E53AEC} = {D6FAACF8-EBDE-4FFF-AC4A-C97E913154CB}
 		{1B8CD9A9-8E8D-41A1-94F1-739B8076DB57} = {D6FAACF8-EBDE-4FFF-AC4A-C97E913154CB}
+		{AC9C351B-F3BC-4640-9F19-4C984A85F812} = {D6FAACF8-EBDE-4FFF-AC4A-C97E913154CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C474D30-66E3-4C98-94E1-3C74DD6DE0B4}

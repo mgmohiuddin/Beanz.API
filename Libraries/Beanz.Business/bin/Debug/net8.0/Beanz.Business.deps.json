@@ -11,6 +11,7 @@
           "Beanz.Core": "1.0.0",
           "Beanz.DTOs": "1.0.0",
           "Beanz.Data.Services": "1.0.0",
+          "Beanz.IBusiness": "1.0.0",
           "Beanz.Models": "1.0.0"
         },
         "runtime": {
@@ -278,6 +279,17 @@
           }
         }
       },
+      "Beanz.IBusiness/1.0.0": {
+        "dependencies": {
+          "Beanz.Core": "1.0.0"
+        },
+        "runtime": {
+          "Beanz.IBusiness.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Beanz.Models/1.0.0": {
         "runtime": {
           "Beanz.Models.dll": {
@@ -488,6 +500,11 @@
       "sha512": ""
     },
     "Beanz.DTOs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Beanz.IBusiness/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

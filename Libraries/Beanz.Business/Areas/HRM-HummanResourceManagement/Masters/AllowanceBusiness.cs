@@ -6,6 +6,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
+using Beanz.DTOs.BeanzCommon;
 
 namespace Beanz.Business.Areas.HummanResourceManagement.Masters
 {

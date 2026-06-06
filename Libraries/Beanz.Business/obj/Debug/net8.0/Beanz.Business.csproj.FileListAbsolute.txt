@@ -20,11 +20,13 @@ D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\B
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Core.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Data.Services.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.DTOs.dll
+D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.IBusiness.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Models.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Utilities.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Core.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Data.Services.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.DTOs.pdb
+D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.IBusiness.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Models.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\bin\Debug\net8.0\Beanz.Utilities.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\Libraries\Beanz.Business\obj\Debug\net8.0\Beanz.Business.csproj.AssemblyReference.cache

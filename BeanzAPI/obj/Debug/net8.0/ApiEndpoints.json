@@ -4485,7 +4485,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "ApproveAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/ApproveAdvanceSalaryTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4501,7 +4501,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "DelAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/DelAdvanceSalaryTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4517,7 +4517,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "GetAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/GetAdvanceSalaryTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4543,7 +4543,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "GetInfoAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/GetInfoAdvanceSalaryTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4569,7 +4569,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "LookUpAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/LookUpAdvanceSalaryTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4595,7 +4595,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "PostAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/PostAdvanceSalaryTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4611,7 +4611,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "PrintAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/PrintAdvanceSalaryTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4637,7 +4637,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypesController",
     "Method": "SetAdvanceSalaryTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/SetAdvanceSalaryTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4821,7 +4821,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "ApproveAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/ApproveAllowancesGroups/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4837,7 +4837,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "DelAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/DelAllowancesGroups/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4853,7 +4853,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "GetAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/GetAllowancesGroups/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4879,7 +4879,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "GetInfoAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/GetInfoAllowancesGroups/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4905,7 +4905,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "LookUpAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/LookUpAllowancesGroups/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4931,7 +4931,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "PostAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/PostAllowancesGroups/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4947,7 +4947,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "PrintAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/PrintAllowancesGroups/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4973,7 +4973,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
     "Method": "SetAllowancesGroups",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/SetAllowancesGroups/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowancesGroups/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -4989,7 +4989,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "ApproveAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/ApproveAllowanceTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5005,7 +5005,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "DelAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/DelAllowanceTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5021,7 +5021,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "GetAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/GetAllowanceTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5047,7 +5047,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "GetInfoAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/GetInfoAllowanceTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5073,7 +5073,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "LookUpAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/LookUpAllowanceTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5099,7 +5099,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "PostAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/PostAllowanceTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5115,7 +5115,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "PrintAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/PrintAllowanceTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5141,7 +5141,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowanceTypesController",
     "Method": "SetAllowanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/SetAllowanceTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/AllowanceTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5157,7 +5157,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "ApproveAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/ApproveAssetTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5173,7 +5173,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "DelAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/DelAssetTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5189,7 +5189,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "GetAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/GetAssetTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5215,7 +5215,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "GetInfoAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/GetInfoAssetTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5241,7 +5241,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "LookUpAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/LookUpAssetTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5267,7 +5267,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "PostAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/PostAssetTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5283,7 +5283,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "PrintAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/PrintAssetTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5309,7 +5309,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AssetTypesController",
     "Method": "SetAssetTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/SetAssetTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/AssetTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5325,7 +5325,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "ApproveAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/ApproveAttendanceTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5341,7 +5341,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "DelAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/DelAttendanceTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5357,7 +5357,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "GetAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/GetAttendanceTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5383,7 +5383,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "GetInfoAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/GetInfoAttendanceTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5409,7 +5409,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "LookUpAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/LookUpAttendanceTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5435,7 +5435,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "PostAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/PostAttendanceTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5451,7 +5451,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "PrintAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/PrintAttendanceTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5477,7 +5477,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AttendanceTypesController",
     "Method": "SetAttendanceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/SetAttendanceTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/AttendanceTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5493,7 +5493,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "ApproveBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/ApproveBonusTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5509,7 +5509,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "DelBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/DelBonusTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5525,7 +5525,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "GetBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/GetBonusTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5551,7 +5551,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "GetInfoBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/GetInfoBonusTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5577,7 +5577,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "LookUpBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/LookUpBonusTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5603,7 +5603,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "PostBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/PostBonusTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5619,7 +5619,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "PrintBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/PrintBonusTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5645,7 +5645,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BonusTypesController",
     "Method": "SetBonusTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/SetBonusTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/BonusTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5661,7 +5661,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "ApproveBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/ApproveBusinessTripPayTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5677,7 +5677,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "DelBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/DelBusinessTripPayTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5693,7 +5693,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "GetBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/GetBusinessTripPayTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5719,7 +5719,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "GetInfoBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/GetInfoBusinessTripPayTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5745,7 +5745,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "LookUpBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/LookUpBusinessTripPayTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5771,7 +5771,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "PostBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/PostBusinessTripPayTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5787,7 +5787,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "PrintBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/PrintBusinessTripPayTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5813,7 +5813,175 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripPayTypesController",
     "Method": "SetBusinessTripPayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/SetBusinessTripPayTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripPayTypes/Set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "ApproveBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/Approve",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "DelBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/Del",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "GetBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/Get",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "GetInfoBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "LookUpBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/LookUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lookup",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "PostBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "PrintBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/Print",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.BusinessTripTypesController",
+    "Method": "SetBusinessTripTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/BusinessTripTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5829,7 +5997,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "ApproveDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/ApproveDesignations/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5845,7 +6013,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "DelDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/DelDesignations/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5861,7 +6029,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "GetDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/GetDesignations/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5887,7 +6055,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "GetInfoDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/GetInfoDesignations/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5913,7 +6081,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "LookUpDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/LookUpDesignations/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5939,7 +6107,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "PostDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/PostDesignations/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5955,7 +6123,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "PrintDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/PrintDesignations/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5981,7 +6149,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DesignationsController",
     "Method": "SetDesignations",
-    "RelativePath": "api/HummanResourceManagement/Masters/Designations/SetDesignations/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/Designations/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -5997,7 +6165,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "ApproveDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/ApproveDocumentSubmissionTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6013,7 +6181,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "DelDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/DelDocumentSubmissionTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6029,7 +6197,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "GetDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/GetDocumentSubmissionTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6055,7 +6223,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "GetInfoDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/GetInfoDocumentSubmissionTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6081,7 +6249,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "LookUpDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/LookUpDocumentSubmissionTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6107,7 +6275,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "PostDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/PostDocumentSubmissionTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6123,7 +6291,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "PrintDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/PrintDocumentSubmissionTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6149,7 +6317,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentSubmissionTypesController",
     "Method": "SetDocumentSubmissionTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/SetDocumentSubmissionTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6165,7 +6333,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "ApproveDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/ApproveDocumentTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6181,7 +6349,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "DelDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/DelDocumentTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6197,7 +6365,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "GetDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/GetDocumentTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6223,7 +6391,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "GetInfoDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/GetInfoDocumentTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6249,7 +6417,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "LookUpDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/LookUpDocumentTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6275,7 +6443,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "PostDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/PostDocumentTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6291,7 +6459,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "PrintDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/PrintDocumentTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6317,7 +6485,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.DocumentTypesController",
     "Method": "SetDocumentTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/SetDocumentTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/DocumentTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6333,7 +6501,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "ApproveEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/ApproveEducationTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6349,7 +6517,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "DelEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/DelEducationTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6365,7 +6533,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "GetEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/GetEducationTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6391,7 +6559,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "GetInfoEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/GetInfoEducationTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6417,7 +6585,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "LookUpEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/LookUpEducationTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6443,7 +6611,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "PostEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/PostEducationTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6459,7 +6627,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "PrintEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/PrintEducationTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6485,7 +6653,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EducationTypesController",
     "Method": "SetEducationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/SetEducationTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/EducationTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6501,7 +6669,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "ApproveEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/ApproveEndOfServiceTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6517,7 +6685,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "DelEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/DelEndOfServiceTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6533,7 +6701,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "GetEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/GetEndOfServiceTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6559,7 +6727,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "GetInfoEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/GetInfoEndOfServiceTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6585,7 +6753,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "LookUpEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/LookUpEndOfServiceTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6611,7 +6779,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "PostEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/PostEndOfServiceTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6627,7 +6795,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "PrintEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/PrintEndOfServiceTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6653,7 +6821,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.EndOfServiceTypesController",
     "Method": "SetEndOfServiceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/SetEndOfServiceTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/EndOfServiceTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

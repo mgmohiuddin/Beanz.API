@@ -3,31 +3,47 @@
   "WorkspaceRootPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\areas\\hrm-hummanresourcemanagement\\masters\\allowancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\areas\\hrm-hummanresourcemanagement\\masters\\allowancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\settings\\serviceconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\settings\\serviceconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mohammed\\AppData\\Local\\Temp\\.vsdbgsrc\\e360d1e0340d42cfdde9af3632661dfd2bf8e755a72038cf37dbb5507fdf5ec9\\OptionsServiceCollectionExtensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\startupconfig\\hrm-hummanresourcemanagement\\masters\\hrms-business-masters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\startupconfig\\hrm-hummanresourcemanagement\\masters\\hrms-business-masters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\swagger-check.out.log||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\swagger-check.out.log||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\startupconfig\\hrm-hummanresourcemanagement\\masters\\hrms-masters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\startupconfig\\hrm-hummanresourcemanagement\\masters\\hrms-masters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\areas\\hrm-hummanresourcemanagement\\masters\\allowancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\areas\\hrm-hummanresourcemanagement\\masters\\allowancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEF56262-8E1A-DED2-5B73-C4A708E53AEC}|Libraries\\Beanz.Business\\Beanz.Business.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.business\\areas\\hrm-hummanresourcemanagement\\masters\\allowancebusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEF56262-8E1A-DED2-5B73-C4A708E53AEC}|Libraries\\Beanz.Business\\Beanz.Business.csproj|solutionrelative:libraries\\beanz.business\\areas\\hrm-hummanresourcemanagement\\masters\\allowancebusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC9C351B-F3BC-4640-9F19-4C984A85F812}|Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.ibusiness\\areas\\hrm-hummanresourcemanagement\\masters\\iallowancebusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC9C351B-F3BC-4640-9F19-4C984A85F812}|Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj|solutionrelative:libraries\\beanz.ibusiness\\areas\\hrm-hummanresourcemanagement\\masters\\iallowancebusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC9C351B-F3BC-4640-9F19-4C984A85F812}|Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.ibusiness\\beanz.ibusiness.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AC9C351B-F3BC-4640-9F19-4C984A85F812}|Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj|solutionrelative:libraries\\beanz.ibusiness\\beanz.ibusiness.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\areas\\hrm-hummanresourcemanagement\\masters\\assettypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\areas\\hrm-hummanresourcemanagement\\masters\\assettypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\startupconfig\\hrm-hummanresourcemanagement\\masters\\hrms-masters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\startupconfig\\hrm-hummanresourcemanagement\\masters\\hrms-masters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Mohammed\\AppData\\Local\\Temp\\.vsdbgsrc\\e360d1e0340d42cfdde9af3632661dfd2bf8e755a72038cf37dbb5507fdf5ec9\\OptionsServiceCollectionExtensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\swagger-check.out.log||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\swagger-check.out.log||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\startupconfig\\system\\setup\\ses-setup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,34 +81,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OptionsServiceCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Mohammed\\AppData\\Local\\Temp\\.vsdbgsrc\\e360d1e0340d42cfdde9af3632661dfd2bf8e755a72038cf37dbb5507fdf5ec9\\OptionsServiceCollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\Mohammed\\AppData\\Local\\Temp\\.vsdbgsrc\\e360d1e0340d42cfdde9af3632661dfd2bf8e755a72038cf37dbb5507fdf5ec9\\OptionsServiceCollectionExtensions.cs [Read Only]",
-              "ViewState": "AgIAABoAAAAAAAAAAAAmwCsAAAACAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T20:49:29.774Z",
-              "EditorCaption": " [Read Only]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "hrms-Business-Masters.cs",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Business-Masters.cs",
+              "RelativeDocumentMoniker": "BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Business-Masters.cs",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Business-Masters.cs",
+              "RelativeToolTip": "BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Business-Masters.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T01:40:54.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AllowanceBusiness.cs",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Business\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowanceBusiness.cs",
+              "RelativeDocumentMoniker": "Libraries\\Beanz.Business\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowanceBusiness.cs",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Business\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowanceBusiness.cs",
+              "RelativeToolTip": "Libraries\\Beanz.Business\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowanceBusiness.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwDMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T21:08:58.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Program.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Program.cs",
@@ -105,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AssetTypesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Masters\\AssetTypesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Masters\\AssetTypesController.cs",
@@ -118,46 +137,83 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "hrms-Masters.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Masters.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Masters.cs",
               "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Masters.cs",
               "RelativeToolTip": "BeanzAPI\\StartupConfig\\HRM-HummanResourceManagement\\Masters\\hrms-Masters.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wAoAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAgwDAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-05T20:42:58.64Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AllowancesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowancesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowancesController.cs",
               "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowancesController.cs",
               "RelativeToolTip": "BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Masters\\AllowancesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T20:38:43.042Z",
+              "WhenOpened": "2026-06-05T21:01:11.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ServiceConfig.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Settings\\ServiceConfig.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Settings\\ServiceConfig.cs",
               "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Settings\\ServiceConfig.cs",
               "RelativeToolTip": "BeanzAPI\\Settings\\ServiceConfig.cs",
-              "ViewState": "AgIAAEcBAAAAAAAAAAAAAEoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEcBAAAAAAAAAAAAAE4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-05T20:31:40.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
+              "Title": "OptionsServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Mohammed\\AppData\\Local\\Temp\\.vsdbgsrc\\e360d1e0340d42cfdde9af3632661dfd2bf8e755a72038cf37dbb5507fdf5ec9\\OptionsServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\Users\\Mohammed\\AppData\\Local\\Temp\\.vsdbgsrc\\e360d1e0340d42cfdde9af3632661dfd2bf8e755a72038cf37dbb5507fdf5ec9\\OptionsServiceCollectionExtensions.cs [Read Only]",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwCsAAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T20:49:29.774Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Beanz.IBusiness",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj",
+              "RelativeDocumentMoniker": "Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj",
+              "RelativeToolTip": "Libraries\\Beanz.IBusiness\\Beanz.IBusiness.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-05T21:16:52.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAllowanceBusiness.cs",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.IBusiness\\Areas\\HRM-HummanResourceManagement\\Masters\\IAllowanceBusiness.cs",
+              "RelativeDocumentMoniker": "Libraries\\Beanz.IBusiness\\Areas\\HRM-HummanResourceManagement\\Masters\\IAllowanceBusiness.cs",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.IBusiness\\Areas\\HRM-HummanResourceManagement\\Masters\\IAllowanceBusiness.cs",
+              "RelativeToolTip": "Libraries\\Beanz.IBusiness\\Areas\\HRM-HummanResourceManagement\\Masters\\IAllowanceBusiness.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T21:32:41.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "swagger-check.out.log",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\swagger-check.out.log",
               "RelativeDocumentMoniker": "BeanzAPI\\swagger-check.out.log",
@@ -170,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "SystemScreensController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\System\\Setup\\SystemScreensController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\System\\Setup\\SystemScreensController.cs",
@@ -183,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "SystemScreenEndpointsController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\System\\Setup\\SystemScreenEndpointsController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\System\\Setup\\SystemScreenEndpointsController.cs",
@@ -196,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "EmployeeAssignPoliciesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Employees\\EmployeeAssignPoliciesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Employees\\EmployeeAssignPoliciesController.cs",
@@ -209,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "ses-Setup.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\StartupConfig\\System\\Setup\\ses-Setup.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\StartupConfig\\System\\Setup\\ses-Setup.cs",
@@ -222,7 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "SystemModulesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\System\\Setup\\SystemModulesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\System\\Setup\\SystemModulesController.cs",
@@ -235,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "EmployeeAllowancesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Employees\\EmployeeAllowancesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\HRM-HummanResourceManagement\\Employees\\EmployeeAllowancesController.cs",
@@ -248,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "TaxTypesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\FinancialAccountingSystem\\Masters\\TaxTypesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\FinancialAccountingSystem\\Masters\\TaxTypesController.cs",

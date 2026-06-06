@@ -1,5 +1,7 @@
+using Beanz.Business.Areas.HummanResourceManagement.Masters;
 using Beanz.Core.Areas.HummanResourceManagement.Masters;
 using Beanz.Data.Services.Areas.HummanResourceManagement.Masters;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 
 namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters
 {
@@ -44,6 +46,7 @@ namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters
             services.AddScoped<IVisaTypeRepository, VisaTypeRepository>();
             services.AddScoped<IWeekDayRepository, WeekDayRepository>();
             services.AddScoped<IWorkProfessionRepository, WorkProfessionRepository>();
+            services.AddScoped<IAllowanceBusiness, AllowanceBusiness>();
         }
     }
 }

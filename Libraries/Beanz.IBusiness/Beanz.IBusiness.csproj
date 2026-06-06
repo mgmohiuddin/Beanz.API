@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ADM-Administration\" />
+    <Folder Include="Areas\CRM-CustomerRelationManagement\" />
+    <Folder Include="Areas\ESS-EmployeeSelfService\" />
+    <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
+    <Folder Include="Areas\FinancialAccountingSystem\" />
+    <Folder Include="Areas\HIS-HospitalInformationSystem\" />
+    <Folder Include="Areas\HRM-HummanResourceManagement\" />
+    <Folder Include="Areas\POS-PointOfSales\" />
+    <Folder Include="Areas\SCM-SupplyChainManagement\" />
+    <Folder Include="Areas\System\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Beanz.Core\Beanz.Core.csproj" />
+  </ItemGroup>
+
+</Project>

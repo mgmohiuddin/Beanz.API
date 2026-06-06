@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Beanz.Core\Beanz.Core.csproj" />
     <ProjectReference Include="..\Beanz.Data.Services\Beanz.Data.Services.csproj" />
     <ProjectReference Include="..\Beanz.DTOs\Beanz.DTOs.csproj" />
+    <ProjectReference Include="..\Beanz.IBusiness\Beanz.IBusiness.csproj" />
     <ProjectReference Include="..\Beanz.Models\Beanz.Models.csproj" />
   </ItemGroup>
 

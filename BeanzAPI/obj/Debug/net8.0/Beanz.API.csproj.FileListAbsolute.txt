@@ -543,6 +543,7 @@ D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Business.dl
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Core.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Data.Services.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.DTOs.dll
+D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.IBusiness.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Models.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Utilities.dll
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Zatca.EInvoice.SDK.Contracts.dll
@@ -551,6 +552,7 @@ D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Business.pd
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Core.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Data.Services.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.DTOs.pdb
+D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.IBusiness.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Models.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\bin\Debug\net8.0\Beanz.Utilities.pdb
 D:\BeanzBkp\Beanz\BeanzAPI\Beanz.API\BeanzAPI\obj\Debug\net8.0\Beanz.API.csproj.AssemblyReference.cache

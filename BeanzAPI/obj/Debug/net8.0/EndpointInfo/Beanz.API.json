@@ -1007,7 +1007,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/GetAdvanceSalaryTypes/Get": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Get": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1064,7 +1064,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/SetAdvanceSalaryTypes/Set": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Set": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1095,7 +1095,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/PostAdvanceSalaryTypes/Post": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Post": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1126,7 +1126,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/DelAdvanceSalaryTypes/Del": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Del": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1157,7 +1157,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/LookUpAdvanceSalaryTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/LookUp": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1214,7 +1214,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/GetInfoAdvanceSalaryTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/GetInfo": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1262,7 +1262,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/PrintAdvanceSalaryTypes/Print": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Print": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -1310,7 +1310,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/ApproveAdvanceSalaryTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/AdvanceSalaryTypes/Approve": {
       "post": {
         "tags": [
           "AdvanceSalaryTypes"
@@ -2677,7 +2677,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/GetAllowancesGroups/Get": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/Get": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2734,7 +2734,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/SetAllowancesGroups/Set": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/Set": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2765,7 +2765,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/PostAllowancesGroups/Post": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/Post": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2796,7 +2796,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/DelAllowancesGroups/Del": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/Del": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2827,7 +2827,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/LookUpAllowancesGroups/LookUp": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/LookUp": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2884,7 +2884,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/GetInfoAllowancesGroups/GetInfo": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/GetInfo": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2932,7 +2932,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/PrintAllowancesGroups/Print": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/Print": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -2980,7 +2980,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowancesGroups/ApproveAllowancesGroups/Approve": {
+    "/api/HummanResourceManagement/Masters/AllowancesGroups/Approve": {
       "post": {
         "tags": [
           "AllowancesGroups"
@@ -3011,7 +3011,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/GetAllowanceTypes/Get": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/Get": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3068,7 +3068,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/SetAllowanceTypes/Set": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/Set": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3099,7 +3099,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/PostAllowanceTypes/Post": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/Post": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3130,7 +3130,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/DelAllowanceTypes/Del": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/Del": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3161,7 +3161,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/LookUpAllowanceTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/LookUp": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3218,7 +3218,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/GetInfoAllowanceTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/GetInfo": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3266,7 +3266,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/PrintAllowanceTypes/Print": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/Print": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3314,7 +3314,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AllowanceTypes/ApproveAllowanceTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/AllowanceTypes/Approve": {
       "post": {
         "tags": [
           "AllowanceTypes"
@@ -3345,7 +3345,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/GetAssetTypes/Get": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/Get": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3402,7 +3402,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/SetAssetTypes/Set": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/Set": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3433,7 +3433,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/PostAssetTypes/Post": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/Post": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3464,7 +3464,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/DelAssetTypes/Del": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/Del": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3495,7 +3495,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/LookUpAssetTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/LookUp": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3552,7 +3552,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/GetInfoAssetTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/GetInfo": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3600,7 +3600,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/PrintAssetTypes/Print": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/Print": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -3648,7 +3648,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AssetTypes/ApproveAssetTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/AssetTypes/Approve": {
       "post": {
         "tags": [
           "AssetTypes"
@@ -4681,7 +4681,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/GetAttendanceTypes/Get": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/Get": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4738,7 +4738,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/SetAttendanceTypes/Set": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/Set": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4769,7 +4769,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/PostAttendanceTypes/Post": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/Post": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4800,7 +4800,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/DelAttendanceTypes/Del": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/Del": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4831,7 +4831,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/LookUpAttendanceTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/LookUp": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4888,7 +4888,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/GetInfoAttendanceTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/GetInfo": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4936,7 +4936,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/PrintAttendanceTypes/Print": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/Print": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -4984,7 +4984,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/AttendanceTypes/ApproveAttendanceTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/AttendanceTypes/Approve": {
       "post": {
         "tags": [
           "AttendanceTypes"
@@ -7579,7 +7579,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/GetBonusTypes/Get": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/Get": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7636,7 +7636,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/SetBonusTypes/Set": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/Set": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7667,7 +7667,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/PostBonusTypes/Post": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/Post": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7698,7 +7698,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/DelBonusTypes/Del": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/Del": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7729,7 +7729,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/LookUpBonusTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/LookUp": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7786,7 +7786,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/GetInfoBonusTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/GetInfo": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7834,7 +7834,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/PrintBonusTypes/Print": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/Print": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7882,7 +7882,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BonusTypes/ApproveBonusTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/BonusTypes/Approve": {
       "post": {
         "tags": [
           "BonusTypes"
@@ -7913,7 +7913,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/GetBusinessTripPayTypes/Get": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/Get": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -7970,7 +7970,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/SetBusinessTripPayTypes/Set": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/Set": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -8001,7 +8001,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/PostBusinessTripPayTypes/Post": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/Post": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -8032,7 +8032,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/DelBusinessTripPayTypes/Del": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/Del": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -8063,7 +8063,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/LookUpBusinessTripPayTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/LookUp": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -8120,7 +8120,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/GetInfoBusinessTripPayTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/GetInfo": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -8168,7 +8168,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/PrintBusinessTripPayTypes/Print": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/Print": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -8216,7 +8216,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/ApproveBusinessTripPayTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/BusinessTripPayTypes/Approve": {
       "post": {
         "tags": [
           "BusinessTripPayTypes"
@@ -9249,7 +9249,341 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/GetDesignations/Get": {
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/Get": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/Set": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/Post": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/Del": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/LookUp": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beanz.DTOs.BeanzCommon.BeanzlookupDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/GetInfo": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/Print": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/BusinessTripTypes/Approve": {
+      "post": {
+        "tags": [
+          "BusinessTripTypes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beanz.DTOs.Common.BeanzCommonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HummanResourceManagement/Masters/Designations/Get": {
       "post": {
         "tags": [
           "Designations"
@@ -9306,7 +9640,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/SetDesignations/Set": {
+    "/api/HummanResourceManagement/Masters/Designations/Set": {
       "post": {
         "tags": [
           "Designations"
@@ -9337,7 +9671,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/PostDesignations/Post": {
+    "/api/HummanResourceManagement/Masters/Designations/Post": {
       "post": {
         "tags": [
           "Designations"
@@ -9368,7 +9702,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/DelDesignations/Del": {
+    "/api/HummanResourceManagement/Masters/Designations/Del": {
       "post": {
         "tags": [
           "Designations"
@@ -9399,7 +9733,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/LookUpDesignations/LookUp": {
+    "/api/HummanResourceManagement/Masters/Designations/LookUp": {
       "post": {
         "tags": [
           "Designations"
@@ -9456,7 +9790,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/GetInfoDesignations/GetInfo": {
+    "/api/HummanResourceManagement/Masters/Designations/GetInfo": {
       "post": {
         "tags": [
           "Designations"
@@ -9504,7 +9838,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/PrintDesignations/Print": {
+    "/api/HummanResourceManagement/Masters/Designations/Print": {
       "post": {
         "tags": [
           "Designations"
@@ -9552,7 +9886,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/Designations/ApproveDesignations/Approve": {
+    "/api/HummanResourceManagement/Masters/Designations/Approve": {
       "post": {
         "tags": [
           "Designations"
@@ -9583,7 +9917,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/GetDocumentSubmissionTypes/Get": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Get": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9640,7 +9974,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/SetDocumentSubmissionTypes/Set": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Set": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9671,7 +10005,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/PostDocumentSubmissionTypes/Post": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Post": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9702,7 +10036,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/DelDocumentSubmissionTypes/Del": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Del": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9733,7 +10067,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/LookUpDocumentSubmissionTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/LookUp": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9790,7 +10124,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/GetInfoDocumentSubmissionTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/GetInfo": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9838,7 +10172,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/PrintDocumentSubmissionTypes/Print": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Print": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9886,7 +10220,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/ApproveDocumentSubmissionTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/DocumentSubmissionTypes/Approve": {
       "post": {
         "tags": [
           "DocumentSubmissionTypes"
@@ -9917,7 +10251,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/GetDocumentTypes/Get": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/Get": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -9974,7 +10308,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/SetDocumentTypes/Set": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/Set": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10005,7 +10339,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/PostDocumentTypes/Post": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/Post": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10036,7 +10370,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/DelDocumentTypes/Del": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/Del": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10067,7 +10401,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/LookUpDocumentTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/LookUp": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10124,7 +10458,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/GetInfoDocumentTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/GetInfo": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10172,7 +10506,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/PrintDocumentTypes/Print": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/Print": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10220,7 +10554,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/DocumentTypes/ApproveDocumentTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/DocumentTypes/Approve": {
       "post": {
         "tags": [
           "DocumentTypes"
@@ -10251,7 +10585,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/GetEducationTypes/Get": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/Get": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10308,7 +10642,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/SetEducationTypes/Set": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/Set": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10339,7 +10673,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/PostEducationTypes/Post": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/Post": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10370,7 +10704,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/DelEducationTypes/Del": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/Del": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10401,7 +10735,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/LookUpEducationTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/LookUp": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10458,7 +10792,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/GetInfoEducationTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/GetInfo": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10506,7 +10840,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/PrintEducationTypes/Print": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/Print": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -10554,7 +10888,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EducationTypes/ApproveEducationTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/EducationTypes/Approve": {
       "post": {
         "tags": [
           "EducationTypes"
@@ -18444,7 +18778,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/GetEndOfServiceTypes/Get": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/Get": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18501,7 +18835,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/SetEndOfServiceTypes/Set": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/Set": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18532,7 +18866,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/PostEndOfServiceTypes/Post": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/Post": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18563,7 +18897,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/DelEndOfServiceTypes/Del": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/Del": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18594,7 +18928,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/LookUpEndOfServiceTypes/LookUp": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/LookUp": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18651,7 +18985,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/GetInfoEndOfServiceTypes/GetInfo": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/GetInfo": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18699,7 +19033,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/PrintEndOfServiceTypes/Print": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/Print": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -18747,7 +19081,7 @@
         }
       }
     },
-    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/ApproveEndOfServiceTypes/Approve": {
+    "/api/HummanResourceManagement/Masters/EndOfServiceTypes/Approve": {
       "post": {
         "tags": [
           "EndOfServiceTypes"
@@ -45656,6 +45990,104 @@
           },
           "businessTripPayType": {
             "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripPayTypeDTO"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO": {
+        "type": "object",
+        "properties": {
+          "businessTripTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "businessTripTypeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessTripTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessTripTypeAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "modifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "approvedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approvedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "postedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "postedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deletedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletedBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isApproved": {
+            "type": "boolean"
+          },
+          "isPosted": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeViewModel": {
+        "type": "object",
+        "properties": {
+          "businessTripTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO"
+            },
+            "nullable": true
+          },
+          "businessTripType": {
+            "$ref": "#/components/schemas/Beanz.DTOs.Areas.HummanResourceManagement.Masters.BusinessTripTypeDTO"
           }
         },
         "additionalProperties": false

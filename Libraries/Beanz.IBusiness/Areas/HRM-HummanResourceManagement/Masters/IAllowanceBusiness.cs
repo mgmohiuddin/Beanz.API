@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
+using Beanz.DTOs.BeanzCommon;
 
 namespace Beanz.IBusiness.Areas.HummanResourceManagement.Masters
 {

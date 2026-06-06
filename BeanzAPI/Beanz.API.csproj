@@ -136,6 +136,7 @@
     <ProjectReference Include="..\Libraries\Beanz.Core\Beanz.Core.csproj" />
     <ProjectReference Include="..\Libraries\Beanz.Data.Services\Beanz.Data.Services.csproj" />
     <ProjectReference Include="..\Libraries\Beanz.DTOs\Beanz.DTOs.csproj" />
+    <ProjectReference Include="..\Libraries\Beanz.IBusiness\Beanz.IBusiness.csproj" />
     <ProjectReference Include="..\Libraries\Beanz.Models\Beanz.Models.csproj" />
     <ProjectReference Include="..\Libraries\Beanz.Utilities\Beanz.Utilities.csproj" />
   </ItemGroup>
