@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class ResidenceIDTypesController : ControllerBase
     {
-        private readonly IResidenceIDTypeRepository _residenceIDTypesRepository;
+        private readonly IResidenceIDTypeBusiness _residenceIDTypesBusiness;
 
-        public ResidenceIDTypesController(IResidenceIDTypeRepository residenceIDTypesRepository)
+        public ResidenceIDTypesController(IResidenceIDTypeBusiness residenceIDTypesBusiness)
         {
-            _residenceIDTypesRepository = residenceIDTypesRepository;
+            _residenceIDTypesBusiness = residenceIDTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<ResidenceIDTypeDTO>> GetResidenceIDTypes(BeanzCommonDTO common)
         {
-            var data = await _residenceIDTypesRepository.GetResidenceIDTypesAsync(common);
+            var data = await _residenceIDTypesBusiness.GetResidenceIDTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesRepository.SetResidenceIDTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesBusiness.SetResidenceIDTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesRepository.PostResidenceIDTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesBusiness.PostResidenceIDTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesRepository.DelResidenceIDTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesBusiness.DelResidenceIDTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpResidenceIDTypes(BeanzCommonDTO lookup)
         {
-            var data = await _residenceIDTypesRepository.LookUpResidenceIDTypesAsync(lookup);
+            var data = await _residenceIDTypesBusiness.LookUpResidenceIDTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<ResidenceIDTypeViewModel> GetInfoResidenceIDTypes(BeanzCommonDTO common)
         {
-            var data = await _residenceIDTypesRepository.GetInfoResidenceIDTypesAsync(common);
+            var data = await _residenceIDTypesBusiness.GetInfoResidenceIDTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<ResidenceIDTypeViewModel> PrintResidenceIDTypes(BeanzCommonDTO common)
         {
-            var data = await _residenceIDTypesRepository.PrintResidenceIDTypesAsync(common);
+            var data = await _residenceIDTypesBusiness.PrintResidenceIDTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesRepository.ApproveResidenceIDTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _residenceIDTypesBusiness.ApproveResidenceIDTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
