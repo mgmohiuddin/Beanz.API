@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class BusinessTripTypesController : ControllerBase
     {
-        private readonly IBusinessTripTypeRepository _businessTripTypesRepository;
+        private readonly IBusinessTripTypeBusiness _businessTripTypesBusiness;
 
-        public BusinessTripTypesController(IBusinessTripTypeRepository businessTripTypesRepository)
+        public BusinessTripTypesController(IBusinessTripTypeBusiness businessTripTypesBusiness)
         {
-            _businessTripTypesRepository = businessTripTypesRepository;
+            _businessTripTypesBusiness = businessTripTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<BusinessTripTypeDTO>> GetBusinessTripTypes(BeanzCommonDTO common)
         {
-            var data = await _businessTripTypesRepository.GetBusinessTripTypesAsync(common);
+            var data = await _businessTripTypesBusiness.GetBusinessTripTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.SetBusinessTripTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesBusiness.SetBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.PostBusinessTripTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesBusiness.PostBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.DelBusinessTripTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesBusiness.DelBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpBusinessTripTypes(BeanzCommonDTO lookup)
         {
-            var data = await _businessTripTypesRepository.LookUpBusinessTripTypesAsync(lookup);
+            var data = await _businessTripTypesBusiness.LookUpBusinessTripTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<BusinessTripTypeViewModel> GetInfoBusinessTripTypes(BeanzCommonDTO common)
         {
-            var data = await _businessTripTypesRepository.GetInfoBusinessTripTypesAsync(common);
+            var data = await _businessTripTypesBusiness.GetInfoBusinessTripTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<BusinessTripTypeViewModel> PrintBusinessTripTypes(BeanzCommonDTO common)
         {
-            var data = await _businessTripTypesRepository.PrintBusinessTripTypesAsync(common);
+            var data = await _businessTripTypesBusiness.PrintBusinessTripTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesRepository.ApproveBusinessTripTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _businessTripTypesBusiness.ApproveBusinessTripTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

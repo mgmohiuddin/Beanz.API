@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class PositionsController : ControllerBase
     {
-        private readonly IPositionRepository _positionsRepository;
+        private readonly IPositionBusiness _positionsBusiness;
 
-        public PositionsController(IPositionRepository positionsRepository)
+        public PositionsController(IPositionBusiness positionsBusiness)
         {
-            _positionsRepository = positionsRepository;
+            _positionsBusiness = positionsBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<PositionDTO>> GetPositions(BeanzCommonDTO common)
         {
-            var data = await _positionsRepository.GetPositionsAsync(common);
+            var data = await _positionsBusiness.GetPositionsAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _positionsRepository.SetPositionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _positionsBusiness.SetPositionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _positionsRepository.PostPositionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _positionsBusiness.PostPositionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _positionsRepository.DelPositionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _positionsBusiness.DelPositionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpPositions(BeanzCommonDTO lookup)
         {
-            var data = await _positionsRepository.LookUpPositionsAsync(lookup);
+            var data = await _positionsBusiness.LookUpPositionsAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<PositionViewModel> GetInfoPositions(BeanzCommonDTO common)
         {
-            var data = await _positionsRepository.GetInfoPositionsAsync(common);
+            var data = await _positionsBusiness.GetInfoPositionsAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<PositionViewModel> PrintPositions(BeanzCommonDTO common)
         {
-            var data = await _positionsRepository.PrintPositionsAsync(common);
+            var data = await _positionsBusiness.PrintPositionsAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _positionsRepository.ApprovePositionsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _positionsBusiness.ApprovePositionsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

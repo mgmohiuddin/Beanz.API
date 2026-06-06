@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class EducationTypesController : ControllerBase
     {
-        private readonly IEducationTypeRepository _educationTypesRepository;
+        private readonly IEducationTypeBusiness _educationTypesBusiness;
 
-        public EducationTypesController(IEducationTypeRepository educationTypesRepository)
+        public EducationTypesController(IEducationTypeBusiness educationTypesBusiness)
         {
-            _educationTypesRepository = educationTypesRepository;
+            _educationTypesBusiness = educationTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<EducationTypeDTO>> GetEducationTypes(BeanzCommonDTO common)
         {
-            var data = await _educationTypesRepository.GetEducationTypesAsync(common);
+            var data = await _educationTypesBusiness.GetEducationTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _educationTypesRepository.SetEducationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _educationTypesBusiness.SetEducationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _educationTypesRepository.PostEducationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _educationTypesBusiness.PostEducationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _educationTypesRepository.DelEducationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _educationTypesBusiness.DelEducationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpEducationTypes(BeanzCommonDTO lookup)
         {
-            var data = await _educationTypesRepository.LookUpEducationTypesAsync(lookup);
+            var data = await _educationTypesBusiness.LookUpEducationTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<EducationTypeViewModel> GetInfoEducationTypes(BeanzCommonDTO common)
         {
-            var data = await _educationTypesRepository.GetInfoEducationTypesAsync(common);
+            var data = await _educationTypesBusiness.GetInfoEducationTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<EducationTypeViewModel> PrintEducationTypes(BeanzCommonDTO common)
         {
-            var data = await _educationTypesRepository.PrintEducationTypesAsync(common);
+            var data = await _educationTypesBusiness.PrintEducationTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _educationTypesRepository.ApproveEducationTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _educationTypesBusiness.ApproveEducationTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

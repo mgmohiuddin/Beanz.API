@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class DocumentSubmissionTypesController : ControllerBase
     {
-        private readonly IDocumentSubmissionTypeRepository _documentSubmissionTypesRepository;
+        private readonly IDocumentSubmissionTypeBusiness _documentSubmissionTypesBusiness;
 
-        public DocumentSubmissionTypesController(IDocumentSubmissionTypeRepository documentSubmissionTypesRepository)
+        public DocumentSubmissionTypesController(IDocumentSubmissionTypeBusiness documentSubmissionTypesBusiness)
         {
-            _documentSubmissionTypesRepository = documentSubmissionTypesRepository;
+            _documentSubmissionTypesBusiness = documentSubmissionTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<DocumentSubmissionTypeDTO>> GetDocumentSubmissionTypes(BeanzCommonDTO common)
         {
-            var data = await _documentSubmissionTypesRepository.GetDocumentSubmissionTypesAsync(common);
+            var data = await _documentSubmissionTypesBusiness.GetDocumentSubmissionTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesRepository.SetDocumentSubmissionTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesBusiness.SetDocumentSubmissionTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesRepository.PostDocumentSubmissionTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesBusiness.PostDocumentSubmissionTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesRepository.DelDocumentSubmissionTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesBusiness.DelDocumentSubmissionTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpDocumentSubmissionTypes(BeanzCommonDTO lookup)
         {
-            var data = await _documentSubmissionTypesRepository.LookUpDocumentSubmissionTypesAsync(lookup);
+            var data = await _documentSubmissionTypesBusiness.LookUpDocumentSubmissionTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<DocumentSubmissionTypeViewModel> GetInfoDocumentSubmissionTypes(BeanzCommonDTO common)
         {
-            var data = await _documentSubmissionTypesRepository.GetInfoDocumentSubmissionTypesAsync(common);
+            var data = await _documentSubmissionTypesBusiness.GetInfoDocumentSubmissionTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<DocumentSubmissionTypeViewModel> PrintDocumentSubmissionTypes(BeanzCommonDTO common)
         {
-            var data = await _documentSubmissionTypesRepository.PrintDocumentSubmissionTypesAsync(common);
+            var data = await _documentSubmissionTypesBusiness.PrintDocumentSubmissionTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesRepository.ApproveDocumentSubmissionTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _documentSubmissionTypesBusiness.ApproveDocumentSubmissionTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class PayrollTypesController : ControllerBase
     {
-        private readonly IPayrollTypeRepository _payrollTypesRepository;
+        private readonly IPayrollTypeBusiness _payrollTypesBusiness;
 
-        public PayrollTypesController(IPayrollTypeRepository payrollTypesRepository)
+        public PayrollTypesController(IPayrollTypeBusiness payrollTypesBusiness)
         {
-            _payrollTypesRepository = payrollTypesRepository;
+            _payrollTypesBusiness = payrollTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<PayrollTypeDTO>> GetPayrollTypes(BeanzCommonDTO common)
         {
-            var data = await _payrollTypesRepository.GetPayrollTypesAsync(common);
+            var data = await _payrollTypesBusiness.GetPayrollTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _payrollTypesRepository.SetPayrollTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _payrollTypesBusiness.SetPayrollTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _payrollTypesRepository.PostPayrollTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _payrollTypesBusiness.PostPayrollTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _payrollTypesRepository.DelPayrollTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _payrollTypesBusiness.DelPayrollTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpPayrollTypes(BeanzCommonDTO lookup)
         {
-            var data = await _payrollTypesRepository.LookUpPayrollTypesAsync(lookup);
+            var data = await _payrollTypesBusiness.LookUpPayrollTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<PayrollTypeViewModel> GetInfoPayrollTypes(BeanzCommonDTO common)
         {
-            var data = await _payrollTypesRepository.GetInfoPayrollTypesAsync(common);
+            var data = await _payrollTypesBusiness.GetInfoPayrollTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<PayrollTypeViewModel> PrintPayrollTypes(BeanzCommonDTO common)
         {
-            var data = await _payrollTypesRepository.PrintPayrollTypesAsync(common);
+            var data = await _payrollTypesBusiness.PrintPayrollTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _payrollTypesRepository.ApprovePayrollTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _payrollTypesBusiness.ApprovePayrollTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

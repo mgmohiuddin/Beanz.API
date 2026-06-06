@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Beanz.Core.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 
 namespace Beanz.Business.Areas.HummanResourceManagement.Masters
 {
-    public class PermitTypeBusiness
+    public class PermitTypeBusiness : IPermitTypeBusiness
     {
         private readonly IPermitTypeRepository _repository;
 
@@ -16,22 +18,102 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
             _repository = repository;
         }
 
-        public Task<List<PermitTypeDTO>> GetPermitTypesAsync(BeanzCommonDTO common)
-            => _repository.GetPermitTypesAsync(common);
+        // ---------- Validation Helpers ----------
+        private static BeanzResponseDTO Fail(string code, string message)
+            => new BeanzResponseDTO { ErrorCode = code, ErrorMessage = message };
 
-        public Task<BeanzResponseDTO> SetPermitTypesAsync(BeanzCommonDTO common)
-            => _repository.SetPermitTypesAsync(common);
+        private static BeanzResponseDTO ValidateContext(BeanzCommonDTO common)
+        {
+            if (common == null)
+                return Fail("ERR001", "Request payload is required.");
+            if (common.CompanyID <= 0)
+                return Fail("ERR002", "CompanyID is required.");
+            if (common.UserID <= 0)
+                return Fail("ERR003", "UserID is required.");
+            return null;
+        }
+
+        private static BeanzResponseDTO ValidateKey(BeanzCommonDTO common)
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return ctx;
+            if (common.PrimaryKeyID <= 0)
+                return Fail("ERR010", "PrimaryKeyID is required.");
+            return null;
+        }
+
+        // ---------- Methods ----------
+        public Task<List<PermitTypeDTO>> GetPermitTypesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return Task.FromResult(new List<PermitTypeDTO>());
+            return _repository.GetPermitTypesAsync(common);
+        }
+
+        public async Task<BeanzResponseDTO> SetPermitTypesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return ctx;
+
+            if (string.IsNullOrWhiteSpace(common.Json))
+                return Fail("ERR011", "Request data (Json) is required.");
+
+            PermitTypeDTO dto;
+            try
+            {
+                dto = JsonConvert.DeserializeObject<PermitTypeDTO>(common.Json);
+            }
+            catch
+            {
+                return Fail("ERR012", "Invalid request payload format.");
+            }
+
+            if (dto == null)
+                return Fail("ERR012", "Invalid request payload.");
+            if (string.IsNullOrWhiteSpace(dto.PermitTypeCode))
+                return Fail("ERR013", "PermitType Code is required.");
+            if (string.IsNullOrWhiteSpace(dto.PermitTypeName))
+                return Fail("ERR014", "PermitType Name is required.");
+
+            return await _repository.SetPermitTypesAsync(common);
+        }
 
         public Task<BeanzResponseDTO> PostPermitTypesAsync(BeanzCommonDTO common)
-            => _repository.PostPermitTypesAsync(common);
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(ctx);
+            return _repository.PostPermitTypesAsync(common);
+        }
 
         public Task<BeanzResponseDTO> DelPermitTypesAsync(BeanzCommonDTO common)
-            => _repository.DelPermitTypesAsync(common);
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(ctx);
+            return _repository.DelPermitTypesAsync(common);
+        }
 
         public Task<PermitTypeViewModel> GetInfoPermitTypesAsync(BeanzCommonDTO common)
-            => _repository.GetInfoPermitTypesAsync(common);
+        {
+            var ctx = ValidateContext(common);
+            if (ctx != null) return Task.FromResult(new PermitTypeViewModel());
+            return _repository.GetInfoPermitTypesAsync(common);
+        }
+
+        public Task<List<BeanzlookupDTO>> LookUpPermitTypesAsync(BeanzCommonDTO lookup)
+            => _repository.LookUpPermitTypesAsync(lookup);
+
+        public Task<PermitTypeViewModel> PrintPermitTypesAsync(BeanzCommonDTO common)
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(new PermitTypeViewModel());
+            return _repository.PrintPermitTypesAsync(common);
+        }
 
         public Task<BeanzResponseDTO> ApprovePermitTypesAsync(BeanzCommonDTO common)
-            => _repository.ApprovePermitTypesAsync(common);
+        {
+            var ctx = ValidateKey(common);
+            if (ctx != null) return Task.FromResult(ctx);
+            return _repository.ApprovePermitTypesAsync(common);
+        }
     }
 }

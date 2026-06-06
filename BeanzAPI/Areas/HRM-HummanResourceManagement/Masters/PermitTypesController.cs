@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class PermitTypesController : ControllerBase
     {
-        private readonly IPermitTypeRepository _permitTypesRepository;
+        private readonly IPermitTypeBusiness _permitTypesBusiness;
 
-        public PermitTypesController(IPermitTypeRepository permitTypesRepository)
+        public PermitTypesController(IPermitTypeBusiness permitTypesBusiness)
         {
-            _permitTypesRepository = permitTypesRepository;
+            _permitTypesBusiness = permitTypesBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<PermitTypeDTO>> GetPermitTypes(BeanzCommonDTO common)
         {
-            var data = await _permitTypesRepository.GetPermitTypesAsync(common);
+            var data = await _permitTypesBusiness.GetPermitTypesAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _permitTypesRepository.SetPermitTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _permitTypesBusiness.SetPermitTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _permitTypesRepository.PostPermitTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _permitTypesBusiness.PostPermitTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _permitTypesRepository.DelPermitTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _permitTypesBusiness.DelPermitTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpPermitTypes(BeanzCommonDTO lookup)
         {
-            var data = await _permitTypesRepository.LookUpPermitTypesAsync(lookup);
+            var data = await _permitTypesBusiness.LookUpPermitTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<PermitTypeViewModel> GetInfoPermitTypes(BeanzCommonDTO common)
         {
-            var data = await _permitTypesRepository.GetInfoPermitTypesAsync(common);
+            var data = await _permitTypesBusiness.GetInfoPermitTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<PermitTypeViewModel> PrintPermitTypes(BeanzCommonDTO common)
         {
-            var data = await _permitTypesRepository.PrintPermitTypesAsync(common);
+            var data = await _permitTypesBusiness.PrintPermitTypesAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _permitTypesRepository.ApprovePermitTypesAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _permitTypesBusiness.ApprovePermitTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
