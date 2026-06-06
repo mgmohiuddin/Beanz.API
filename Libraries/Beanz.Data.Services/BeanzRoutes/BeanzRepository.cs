@@ -1,6 +1,6 @@
 using AutoMapper;
 using Beanz.Core.BeanzRoutes;
-using Beanz.DTOs.BeanzCommon;
+//using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common; 
 
@@ -27,7 +27,7 @@ namespace Beanz.Data.Services.BeanzRoutes
 			_mapper = mapper;
 		}
 
-        public async Task<List<dynamic>> GetAsync(BeanzRequestDTO dto)
+        public async Task<List<dynamic>> GetAsync(BeanzRoutesRequestDTO dto)
         {
            
             string sp = GetProcedure(dto.system, dto.area, dto.module, "Get");
@@ -43,7 +43,7 @@ namespace Beanz.Data.Services.BeanzRoutes
             return data.ToList();
         }
 
-        public async Task<BeanzResponseDTO> SetAsync(BeanzRequestDTO dto)
+        public async Task<BeanzRoutesResponseDTO> SetAsync(BeanzRoutesRequestDTO dto)
         {
      
             string sp = GetProcedure(dto.system, dto.area, dto.module, "Set");
@@ -69,7 +69,7 @@ namespace Beanz.Data.Services.BeanzRoutes
                 commandType: CommandType.StoredProcedure
             );
 
-            return new BeanzResponseDTO
+            return new BeanzRoutesResponseDTO
             {
                 ResponseID = parameters.Get<int?>("@ResponseID"),
                 ResponseCode = parameters.Get<string>("@ResponseCode"),
@@ -80,7 +80,7 @@ namespace Beanz.Data.Services.BeanzRoutes
             //return parameters.Get<string>("@ReturnValue") ?? "";
         }
 
-        public async Task<BeanzResponseDTO> PostAsync(BeanzRequestDTO dto)
+        public async Task<BeanzRoutesResponseDTO> PostAsync(BeanzRoutesRequestDTO dto)
         {
  
             string sp = GetProcedure(dto.system, dto.area, dto.module, "Post");
@@ -108,7 +108,7 @@ namespace Beanz.Data.Services.BeanzRoutes
                 commandType: CommandType.StoredProcedure
             );
 
-            return new BeanzResponseDTO
+            return new BeanzRoutesResponseDTO
             {
                 ResponseID = parameters.Get<int?>("@ResponseID"),
                 ResponseCode = parameters.Get<string>("@ResponseCode"),
@@ -120,7 +120,7 @@ namespace Beanz.Data.Services.BeanzRoutes
             //return parameters.Get<string>("@ReturnValue") ?? "";
         }
 
-        public async Task<BeanzResponseDTO> DelAsync(BeanzRequestDTO dto)
+        public async Task<BeanzRoutesResponseDTO> DelAsync(BeanzRoutesRequestDTO dto)
         {
             
 
@@ -148,7 +148,7 @@ namespace Beanz.Data.Services.BeanzRoutes
                 commandType: CommandType.StoredProcedure
             );
 
-            return new BeanzResponseDTO
+            return new BeanzRoutesResponseDTO
             {
                 ResponseID = parameters.Get<int?>("@ResponseID"),
                 ResponseCode = parameters.Get<string>("@ResponseCode"),
@@ -158,7 +158,7 @@ namespace Beanz.Data.Services.BeanzRoutes
             };
         }
 
-        public async Task<List<BeanzlookupDTO>> LookupAsync(BeanzRequestDTO dto)
+        public async Task<List<BeanzlookupDTO>> LookupAsync(BeanzRoutesRequestDTO dto)
         {
             
             string sp = GetProcedure(dto.system, dto.area, dto.module, "Lookup");
@@ -175,7 +175,7 @@ namespace Beanz.Data.Services.BeanzRoutes
             return data.ToList();
         }
         
-        public async Task<dynamic> GetInfoAsync(BeanzRequestDTO dto)
+        public async Task<dynamic> GetInfoAsync(BeanzRoutesRequestDTO dto)
         {
             string sp = GetProcedure(dto.system, dto.area, dto.module, "GetInfo");
             var parameters = GetCommonParameters(dto);
@@ -209,7 +209,7 @@ namespace Beanz.Data.Services.BeanzRoutes
             return result;
         }
 
-        public async Task<dynamic> PrintAsync(BeanzRequestDTO dto)
+        public async Task<dynamic> PrintAsync(BeanzRoutesRequestDTO dto)
         {
             string sp = GetProcedure(dto.system, dto.area, dto.module, "Print");
             var parameters = GetCommonParameters(dto);
@@ -244,7 +244,7 @@ namespace Beanz.Data.Services.BeanzRoutes
         }
 
          
-        private DynamicParameters GetCommonParameters(BeanzRequestDTO dto)
+        private DynamicParameters GetCommonParameters(BeanzRoutesRequestDTO dto)
         {
             var parameters = new DynamicParameters();
             

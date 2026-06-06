@@ -29,7 +29,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/Get")]
         [HttpPost("{system}/{area}/{module}/Get")]
-        public async Task<IActionResult> Get(            string system,            string? area,            string module,            [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> Get(            string system,            string? area,            string module,            [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;
@@ -54,7 +54,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/Set")]
         [HttpPost("{system}/{area}/{module}/Set")]
-        public async Task<IActionResult> Set(string system,            string? area,            string module, [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> Set(string system,            string? area,            string module, [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;
@@ -71,7 +71,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/Post")]
         [HttpPost("{system}/{area}/{module}/Post")]
-        public async Task<IActionResult> Post(string system,            string? area,            string module,            [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> Post(string system,            string? area,            string module,            [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;
@@ -87,7 +87,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/Del")]
         [HttpPost("{system}/{area}/{module}/Del")]
-        public async Task<IActionResult> Del(string system,            string? area,            string module,             [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> Del(string system,            string? area,            string module,             [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;
@@ -103,7 +103,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/Lookup")]
         [HttpPost("{system}/{area}/{module}/Lookup")]
-        public async Task<IActionResult> Lookup(string system,            string? area,            string module,             [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> Lookup(string system,            string? area,            string module,             [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;
@@ -116,7 +116,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/GetInfo")]
         [HttpPost("{system}/{area}/{module}/GetInfo")]
-        public async Task<IActionResult> GetInfo(string system,            string? area,            string module,             [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> GetInfo(string system,            string? area,            string module,             [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;
@@ -128,7 +128,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
 
         [HttpPost("{system}/{module}/Print")]
         [HttpPost("{system}/{area}/{module}/Print")]
-        public async Task<IActionResult> Print(string system,            string? area,            string module,            [FromBody] BeanzRequestDTO dto)
+        public async Task<IActionResult> Print(string system,            string? area,            string module,            [FromBody] BeanzRoutesRequestDTO dto)
         {
             dto.system = system;
             dto.area = area;

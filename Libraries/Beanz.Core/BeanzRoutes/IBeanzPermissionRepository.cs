@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 
@@ -9,7 +6,7 @@ namespace Beanz.Core.BeanzRoutes
 
 		public interface IBeanzPermissionRepository
         {
-        Task<List<BeanzPermissionDTO>> GetBeanzPermissionsAsync(BeanzRequestDTO common);
+        Task<List<BeanzPermissionDTO>> GetBeanzPermissionsAsync(BeanzRoutesRequestDTO common);
 
         Task<string> SetBeanzPermissionsAsync(BeanzPermissionDTO common);
 

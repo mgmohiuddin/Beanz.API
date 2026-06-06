@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Beanz.DTOs.BeanzCommon
+namespace Beanz.DTOs.Common
 {
     
     public class BeanzlookupDTO //: BeanzCommonDTO

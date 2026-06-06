@@ -79,7 +79,7 @@ namespace Beanz.API
                         );
 
                     return new BadRequestObjectResult(
-                        ResponseDTO<object>.Fail("Invalid input", "VALIDATION", 400, errors));
+                        ResponseObjectDTO<object>.Fail("Invalid input", "VALIDATION", 400, errors));
                 };
             });
 

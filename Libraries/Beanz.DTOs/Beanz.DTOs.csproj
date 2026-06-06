@@ -87,6 +87,8 @@
     <Compile Remove="AuthModule\RequestResponse\Request\EmailVerificationTokenRequestDTO.cs" />
     <Compile Remove="AuthModule\RequestResponse\Response\GoogleResponseDTO.cs" />
     <Compile Remove="AuthModule\SignUpServiceResult.cs" />
+    <Compile Remove="BeanzRoutes\BeanzRequestDTO.cs" />
+    <Compile Remove="BeanzRoutes\BeanzResponseDTO.cs" />
     <Compile Remove="Common\BeanzCommonDTO.cs" />
     <Compile Remove="Common\BeanzHISCommonDTO.cs" />
     <Compile Remove="Common\BeanzLoginDTO.cs" />

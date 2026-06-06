@@ -1,6 +1,6 @@
 using Beanz.Core.Areas.HummanResourceManagement.Statuses;
 using Beanz.DTOs.Areas.HummanResourceManagement.Statuses;
-using Beanz.DTOs.BeanzCommon;
+//using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 using Microsoft.AspNetCore.Mvc;

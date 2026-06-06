@@ -157,7 +157,7 @@ namespace Beanz.API.Controllers.AuthModule
                     var ensureData = await _authEnsureRepository.EnsureUsersTableAsync();
 
                     if (ensureData.Success == false)
-                        return BadRequest(ResponseDTO<object>.Fail(
+                        return BadRequest(ResponseObjectDTO<object>.Fail(
                             "Auth schema setup failed: " + ensureData.Message, "", 500));
 
                     // retry signup after schema is ready
@@ -166,7 +166,7 @@ namespace Beanz.API.Controllers.AuthModule
 
                 if (data.Success == false)
                 {
-                    return BadRequest(ResponseDTO<object>.Fail(data.Message, "Fail", 400));
+                    return BadRequest(ResponseObjectDTO<object>.Fail(data.Message, "Fail", 400));
                 }
                 else
                 {
@@ -189,13 +189,13 @@ namespace Beanz.API.Controllers.AuthModule
                     if (dataEmail.Success == false)
                     {
 
-                        return BadRequest(ResponseDTO<object>.Fail(dataEmail.Message, "Fail", 400));
+                        return BadRequest(ResponseObjectDTO<object>.Fail(dataEmail.Message, "Fail", 400));
                     }
                     else
                     {
                         var link = $"{_settings.WebAppBaseUrl}/verify-email?token={Uri.EscapeDataString(token)}";
                         await _email.SendEmailVerificationAsync(authSingupDTO.EmailAddress, authSingupDTO.FullName, link);
-                        return Ok(ResponseDTO<object>.Ok(new { data.UserID }, data.Message));
+                        return Ok(ResponseObjectDTO<object>.Ok(new { data.UserID }, data.Message));
                     }
 
                 }
@@ -227,7 +227,7 @@ namespace Beanz.API.Controllers.AuthModule
                 if (!ensureResult.Success)
                 {
                     //await RollbackAuthSchemaAsync();
-                    return StatusCode(500, ResponseDTO<object>.Fail(
+                    return StatusCode(500, ResponseObjectDTO<object>.Fail(
                         "Failed to initialize auth schema: " + ensureResult.Message,"FAIL",500));
                 }
 
@@ -238,7 +238,7 @@ namespace Beanz.API.Controllers.AuthModule
                 catch (Exception retryEx)
                 {
                    // await RollbackAuthSchemaAsync();
-                    return StatusCode(500, ResponseDTO<object>.Fail(
+                    return StatusCode(500, ResponseObjectDTO<object>.Fail(
                         "SignUp failed after schema init: " + retryEx.Message,"FAIL",500));
                 }
             }
@@ -284,7 +284,7 @@ namespace Beanz.API.Controllers.AuthModule
 
                 var data = await _authRepository.SignUpAsync(userModel);
                 if (!data.Success)
-                    return BadRequest(ResponseDTO<object>.Fail(data.Message, "Fail", 400));
+                    return BadRequest(ResponseObjectDTO<object>.Fail(data.Message, "Fail", 400));
 
                 // Assign default "User" role
                 await _roleRepo.AssignRoleToUserByNameAsync(data.UserID, "User");
@@ -306,13 +306,13 @@ namespace Beanz.API.Controllers.AuthModule
                 if (dataEmail.Success == false)
                 {
 
-                    return BadRequest(ResponseDTO<object>.Fail(dataEmail.Message, "Fail", 400));
+                    return BadRequest(ResponseObjectDTO<object>.Fail(dataEmail.Message, "Fail", 400));
                 }
                 else
                 {
                     var link = $"{_settings.WebAppBaseUrl}/verify-email?token={Uri.EscapeDataString(token)}";
                     await _email.SendEmailVerificationAsync(authSingupDTO.EmailAddress, authSingupDTO.FullName, link);
-                    return Ok(ResponseDTO<object>.Ok(new { data.UserID }, data.Message));
+                    return Ok(ResponseObjectDTO<object>.Ok(new { data.UserID }, data.Message));
                 }
             }
             catch (Exception)
@@ -373,14 +373,14 @@ namespace Beanz.API.Controllers.AuthModule
         {
             var record = await _userRepo.GetEmailVerificationTokenAsync(token.Token);
             if (record is null)
-                return BadRequest(ResponseDTO<object>.Fail("Invalid verification token.", "TOKEN_INVALID", 400));
+                return BadRequest(ResponseObjectDTO<object>.Fail("Invalid verification token.", "TOKEN_INVALID", 400));
             if (record.IsUsed)
-                return BadRequest(ResponseDTO<object>.Fail("Verification link already used.", "TOKEN_USED", 400));
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link already used.", "TOKEN_USED", 400));
             if (record.ExpireDate < DateTime.UtcNow)
-                return BadRequest(ResponseDTO<object>.Fail("Verification link has expired.", "TOKEN_EXPIRED", 400));
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link has expired.", "TOKEN_EXPIRED", 400));
 
             await _userRepo.MarkEmailVerifiedAsync(record.UserID, record.TokenID);
-            return Ok(ResponseDTO<object>.Ok(new { record.UserID }, "Email verified successfully."));
+            return Ok(ResponseObjectDTO<object>.Ok(new { record.UserID }, "Email verified successfully."));
         }
 
         // -------- SIGN IN --------
@@ -392,7 +392,7 @@ namespace Beanz.API.Controllers.AuthModule
 
             var user = await _userRepo.GetByIdentifierAsync(dto.Username);
             if (user is null)
-                return Unauthorized(ResponseDTO<object>.Fail("Invalid credentials.", "INVALID_CREDENTIALS", 401));
+                return Unauthorized(ResponseObjectDTO<object>.Fail("Invalid credentials.", "INVALID_CREDENTIALS", 401));
 
             if (user is null || string.IsNullOrEmpty(user.PasswordHash))
             {
@@ -404,11 +404,11 @@ namespace Beanz.API.Controllers.AuthModule
                     IsSuccess = false,
                     FailureReason = "User not found"
                 });
-                return Unauthorized(ResponseDTO<object>.Fail("Invalid credentials.", "INVALID_CREDENTIALS", 401));
+                return Unauthorized(ResponseObjectDTO<object>.Fail("Invalid credentials.", "INVALID_CREDENTIALS", 401));
             }
 
             if (user.IsLocked && user.LockoutEndDate > DateTime.UtcNow)
-                return Unauthorized(ResponseDTO<object>.Fail("Account locked. Try again later.", "ACCOUNT_LOCKED", 423));
+                return Unauthorized(ResponseObjectDTO<object>.Fail("Account locked. Try again later.", "ACCOUNT_LOCKED", 423));
 
             if (!user.IsActive || !user.EmailVerified)
             {
@@ -425,11 +425,11 @@ namespace Beanz.API.Controllers.AuthModule
 
                 if (dataEmail.Success == false)
                 {
-                    return BadRequest(ResponseDTO<object>.Fail(dataEmail.Message, "Fail", 400));
+                    return BadRequest(ResponseObjectDTO<object>.Fail(dataEmail.Message, "Fail", 400));
                 }
                 else
                 {
-                    return Ok(ResponseDTO<object>.Ok(new { user.UserID }, dataEmail.Message));
+                    return Ok(ResponseObjectDTO<object>.Ok(new { user.UserID }, dataEmail.Message));
                 }
                 //return Unauthorized(ResponseDTO<object>.Fail("Email not verified.", "EMAIL_NOT_VERIFIED", 403));
             }
@@ -454,7 +454,7 @@ namespace Beanz.API.Controllers.AuthModule
                     lockoutMinutes = _settings.LockoutMinutes
                 });
 
-                return Unauthorized(ResponseDTO<object>.Fail("Invalid credentials.", "INVALID_CREDENTIALS", 401));
+                return Unauthorized(ResponseObjectDTO<object>.Fail("Invalid credentials.", "INVALID_CREDENTIALS", 401));
 
             }
             // ============ MFA GATE ============
@@ -465,7 +465,7 @@ namespace Beanz.API.Controllers.AuthModule
             {
                 var mfaConfig = await _mfaRepo.GetUserMFAAsync(user.UserID);
                 if (mfaConfig is null || !mfaConfig.IsActive)
-                    return Unauthorized(ResponseDTO<object>.Fail(
+                    return Unauthorized(ResponseObjectDTO<object>.Fail(
                         "MFA is enabled but not configured.", "MFA_NOT_CONFIGURED", 401));
 
                 var mfaToken = Helpers.TokenGenerator.CreateSecureToken();
@@ -507,7 +507,7 @@ namespace Beanz.API.Controllers.AuthModule
                     });
                 }
                 // STOP here — do NOT issue the JWT. Client must call POST /api/MFA/verify-otp.
-                return Ok(ResponseDTO<MFAChallengeDTO>.Ok(new MFAChallengeDTO
+                return Ok(ResponseObjectDTO<MFAChallengeDTO>.Ok(new MFAChallengeDTO
                 {
                     MfaRequired = true,
                     MFAToken = mfaToken,
@@ -574,7 +574,7 @@ namespace Beanz.API.Controllers.AuthModule
                     //Roles = roles,
                 },
             };
-            return Ok(ResponseDTO<TokenResponseDTO>.Ok(response, "Login successful"));
+            return Ok(ResponseObjectDTO<TokenResponseDTO>.Ok(response, "Login successful"));
 
             //// ✅ SIGN IN
             //[HttpPost("signin")]
@@ -1034,7 +1034,7 @@ namespace Beanz.API.Controllers.AuthModule
             var roles = await _roleRepo.GetUserRoleNamesAsync(user.UserID);
             var access = _jwt.IssueAccessToken(user, Guid.NewGuid(), roles);
             var refresh = _jwt.GenerateRefreshToken();
-            return Ok(ResponseDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
+            return Ok(ResponseObjectDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
         }
 
         [HttpPost("external/microsoft")]
@@ -1047,7 +1047,7 @@ namespace Beanz.API.Controllers.AuthModule
             var roles = await _roleRepo.GetUserRoleNamesAsync(user.UserID);
             var access = _jwt.IssueAccessToken(user, Guid.NewGuid(), roles);
             var refresh = _jwt.GenerateRefreshToken();
-            return Ok(ResponseDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
+            return Ok(ResponseObjectDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
         }
 
         [HttpPost("external/facebook")]
@@ -1060,7 +1060,7 @@ namespace Beanz.API.Controllers.AuthModule
             var roles = await _roleRepo.GetUserRoleNamesAsync(user.UserID);
             var access = _jwt.IssueAccessToken(user, Guid.NewGuid(), roles);
             var refresh = _jwt.GenerateRefreshToken();
-            return Ok(ResponseDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
+            return Ok(ResponseObjectDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
         }
 
         [HttpPost("external/apple/callback")]
@@ -1110,7 +1110,7 @@ namespace Beanz.API.Controllers.AuthModule
             var roles = await _roleRepo.GetUserRoleNamesAsync(user.UserID);
             var access = _jwt.IssueAccessToken(user, Guid.NewGuid(), roles);
             var refresh = _jwt.GenerateRefreshToken();
-            return Ok(ResponseDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
+            return Ok(ResponseObjectDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
         }
 
         [HttpGet("external/linkedin/callback")]

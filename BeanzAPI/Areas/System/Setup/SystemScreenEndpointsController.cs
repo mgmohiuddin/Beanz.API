@@ -1,7 +1,5 @@
 using Beanz.Core.Areas.BeanzSystem.Setup;
 using Beanz.DTOs.Areas.BeanzSystem.Setup;
-using Beanz.DTOs.BeanzCommon;
-using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 using Microsoft.AspNetCore.Mvc;
 

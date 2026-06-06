@@ -1,8 +1,5 @@
-using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Beanz.Core.BeanzRoutes
 {
@@ -10,14 +7,14 @@ namespace Beanz.Core.BeanzRoutes
 		public interface IBeanzRepository
     {
 
-        Task<List<dynamic>> GetAsync(BeanzRequestDTO dto);
-        Task<BeanzResponseDTO> SetAsync(BeanzRequestDTO dto);
-        Task<BeanzResponseDTO> PostAsync(BeanzRequestDTO dto);
-        Task<BeanzResponseDTO> DelAsync(BeanzRequestDTO dto);
-        Task<List<BeanzlookupDTO>> LookupAsync(BeanzRequestDTO dto);
-        Task<dynamic> GetInfoAsync(BeanzRequestDTO dto);
+        Task<List<dynamic>> GetAsync(BeanzRoutesRequestDTO dto);
+        Task<BeanzRoutesResponseDTO> SetAsync(BeanzRoutesRequestDTO dto);
+        Task<BeanzRoutesResponseDTO> PostAsync(BeanzRoutesRequestDTO dto);
+        Task<BeanzRoutesResponseDTO> DelAsync(BeanzRoutesRequestDTO dto);
+        Task<List<BeanzlookupDTO>> LookupAsync(BeanzRoutesRequestDTO dto);
+        Task<dynamic> GetInfoAsync(BeanzRoutesRequestDTO dto);
 
-        Task<dynamic> PrintAsync(BeanzRequestDTO dto);
+        Task<dynamic> PrintAsync(BeanzRoutesRequestDTO dto);
 
     }
 	}

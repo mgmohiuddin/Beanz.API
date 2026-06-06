@@ -1,6 +1,4 @@
 using Beanz.DTOs.Areas.HummanResourceManagement.Statuses;
-using Beanz.DTOs.BeanzCommon;
-using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 
 namespace Beanz.Core.Areas.HummanResourceManagement.Statuses

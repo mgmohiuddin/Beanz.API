@@ -13,7 +13,7 @@ using System;
 using Beanz.Core.BeanzRoutes;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.Data.Services.DataAccessLayer.DAL;
-using Beanz.DTOs.BeanzCommon;
+//using Beanz.DTOs.BeanzCommon;
 
 namespace Beanz.Data.Services.BeanzRoutes
 {
@@ -28,7 +28,7 @@ namespace Beanz.Data.Services.BeanzRoutes
                 _mapper = mapper;
             }
 
-            public async Task<List<BeanzPermissionDTO>> GetBeanzPermissionsAsync(BeanzRequestDTO common)
+            public async Task<List<BeanzPermissionDTO>> GetBeanzPermissionsAsync(BeanzRoutesRequestDTO common)
             {
                 string _sql = "sec.GetUserRoutePermission";
             SqlParameter[] _parameters =

@@ -1,5 +1,5 @@
 ﻿using Beanz.Core.BeanzRoutes;
-using Beanz.DTOs.BeanzCommon;
+ 
 
 //using Beanz.Core.HospitalInformationSystem.Masters;
 using Beanz.DTOs.BeanzRoutes;
@@ -22,7 +22,7 @@ namespace Beanz.API.Controllers.BeanzRoutes
         }
 
         [HttpPost]
-        public async Task<List<BeanzPermissionDTO>> GetBeanzPermission(BeanzRequestDTO common)
+        public async Task<List<BeanzPermissionDTO>> GetBeanzPermission(BeanzRoutesRequestDTO common)
         {
             var data = await _BeanzPermissionRepository.GetBeanzPermissionsAsync(common);
             return data;
