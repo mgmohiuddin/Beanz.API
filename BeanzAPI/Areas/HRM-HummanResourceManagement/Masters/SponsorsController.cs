@@ -3,26 +3,27 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
 {
-    [Route("api/[area]/Masters/[controller]/[action]")]
+    [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("HummanResourceManagement")]
     public class SponsorsController : ControllerBase
     {
-        private readonly ISponsorRepository _sponsorsRepository;
+        private readonly ISponsorBusiness _sponsorsBusiness;
 
-        public SponsorsController(ISponsorRepository sponsorsRepository)
+        public SponsorsController(ISponsorBusiness sponsorsBusiness)
         {
-            _sponsorsRepository = sponsorsRepository;
+            _sponsorsBusiness = sponsorsBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<SponsorDTO>> GetSponsors(BeanzCommonDTO common)
         {
-            var data = await _sponsorsRepository.GetSponsorsAsync(common);
+            var data = await _sponsorsBusiness.GetSponsorsAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _sponsorsRepository.SetSponsorsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _sponsorsBusiness.SetSponsorsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _sponsorsRepository.PostSponsorsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _sponsorsBusiness.PostSponsorsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _sponsorsRepository.DelSponsorsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _sponsorsBusiness.DelSponsorsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpSponsors(BeanzCommonDTO lookup)
         {
-            var data = await _sponsorsRepository.LookUpSponsorsAsync(lookup);
+            var data = await _sponsorsBusiness.LookUpSponsorsAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<SponsorViewModel> GetInfoSponsors(BeanzCommonDTO common)
         {
-            var data = await _sponsorsRepository.GetInfoSponsorsAsync(common);
+            var data = await _sponsorsBusiness.GetInfoSponsorsAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<SponsorViewModel> PrintSponsors(BeanzCommonDTO common)
         {
-            var data = await _sponsorsRepository.PrintSponsorsAsync(common);
+            var data = await _sponsorsBusiness.PrintSponsorsAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _sponsorsRepository.ApproveSponsorsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _sponsorsBusiness.ApproveSponsorsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
