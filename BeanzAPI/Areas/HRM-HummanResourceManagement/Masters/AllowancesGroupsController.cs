@@ -3,6 +3,7 @@ using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
 using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
+using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Beanz.API.Areas.HummanResourceManagement.Masters
@@ -12,17 +13,17 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
     [Area("HummanResourceManagement")]
     public class AllowancesGroupsController : ControllerBase
     {
-        private readonly IAllowancesGroupRepository _allowancesGroupsRepository;
+        private readonly IAllowancesGroupBusiness _allowancesGroupsBusiness;
 
-        public AllowancesGroupsController(IAllowancesGroupRepository allowancesGroupsRepository)
+        public AllowancesGroupsController(IAllowancesGroupBusiness allowancesGroupsBusiness)
         {
-            _allowancesGroupsRepository = allowancesGroupsRepository;
+            _allowancesGroupsBusiness = allowancesGroupsBusiness;
         }
 
         [HttpPost("Get")]
         public async Task<List<AllowancesGroupDTO>> GetAllowancesGroups(BeanzCommonDTO common)
         {
-            var data = await _allowancesGroupsRepository.GetAllowancesGroupsAsync(common);
+            var data = await _allowancesGroupsBusiness.GetAllowancesGroupsAsync(common);
             return data;
         }
 
@@ -31,7 +32,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsRepository.SetAllowancesGroupsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsBusiness.SetAllowancesGroupsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -48,7 +49,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsRepository.PostAllowancesGroupsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsBusiness.PostAllowancesGroupsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -65,7 +66,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsRepository.DelAllowancesGroupsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsBusiness.DelAllowancesGroupsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -80,21 +81,21 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         [HttpPost("LookUp")]
         public async Task<List<BeanzlookupDTO>> LookUpAllowancesGroups(BeanzCommonDTO lookup)
         {
-            var data = await _allowancesGroupsRepository.LookUpAllowancesGroupsAsync(lookup);
+            var data = await _allowancesGroupsBusiness.LookUpAllowancesGroupsAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
         public async Task<AllowancesGroupViewModel> GetInfoAllowancesGroups(BeanzCommonDTO common)
         {
-            var data = await _allowancesGroupsRepository.GetInfoAllowancesGroupsAsync(common);
+            var data = await _allowancesGroupsBusiness.GetInfoAllowancesGroupsAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
         public async Task<AllowancesGroupViewModel> PrintAllowancesGroups(BeanzCommonDTO common)
         {
-            var data = await _allowancesGroupsRepository.PrintAllowancesGroupsAsync(common);
+            var data = await _allowancesGroupsBusiness.PrintAllowancesGroupsAsync(common);
             return data;
         }
 
@@ -103,7 +104,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsRepository.ApproveAllowancesGroupsAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _allowancesGroupsBusiness.ApproveAllowancesGroupsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
