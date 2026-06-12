@@ -15,7 +15,6 @@
     <Folder Include="Areas\CRM-CustomerRelationManagement\" />
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
-    <Folder Include="Areas\FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
     <Folder Include="Areas\HRM-HummanResourceManagement\" />
     <Folder Include="Areas\POS-PointOfSales\" />

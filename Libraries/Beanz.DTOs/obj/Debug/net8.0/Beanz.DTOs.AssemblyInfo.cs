@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Beanz.DTOs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c5e1f9a0837eced66def1844d4319580ba95c88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a569503fae93ae6932aaf96c1d6ecd6984821fbc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Beanz.DTOs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Beanz.DTOs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
