@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+namespace Beanz.DTOs.Areas.FinancialAccountingSystem.Masters
+{
+    public class FiscalYearDTO
+    {
+        public int FiscalYearID { get; set; }
+        public string FiscalYearCode { get; set; }
+        public string FiscalYearName { get; set; }
+        public string FiscalYearAlias { get; set; }
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
+        public bool IsLocked { get; set; }
+        public int CompanyID { get; set; }
+        public int UserID { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public DateTime ApprovedDate { get; set; }
+        public int ApprovedBy { get; set; }
+        public DateTime PostedDate { get; set; }
+        public int PostedBy { get; set; }
+        public DateTime DeletedDate { get; set; }
+        public int DeletedBy { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsPosted { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+
+    public class FiscalYearViewModel
+    {
+        public List<FiscalYearDTO> FiscalYears { get; set; }
+        public FiscalYearDTO FiscalYear { get; set; }
+    }
+}
