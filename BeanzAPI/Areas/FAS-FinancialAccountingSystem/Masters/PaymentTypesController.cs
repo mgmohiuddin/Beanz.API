@@ -10,28 +10,28 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
     [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("FinancialAccountingSystem")]
-    public class CostCentersController : ControllerBase
+    public class PaymentTypesController : ControllerBase
     {
-        private readonly ICostCenterBusiness _costCentersBusiness;
+        private readonly IPaymentTypeBusiness _paymentTypesBusiness;
 
-        public CostCentersController(ICostCenterBusiness costCentersBusiness)
+        public PaymentTypesController(IPaymentTypeBusiness paymentTypesBusiness)
         {
-            _costCentersBusiness = costCentersBusiness;
+            _paymentTypesBusiness = paymentTypesBusiness;
         }
 
         [HttpPost("Get")]
-        public async Task<List<CostCenterDTO>> GetCostCenters(BeanzCommonDTO common)
+        public async Task<List<PaymentTypeDTO>> GetPaymentTypes(BeanzCommonDTO common)
         {
-            var data = await _costCentersBusiness.GetCostCentersAsync(common);
+            var data = await _paymentTypesBusiness.GetPaymentTypesAsync(common);
             return data;
         }
 
         [HttpPost("Set")]
-        public async Task<ActionResult> SetCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> SetPaymentTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.SetCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paymentTypesBusiness.SetPaymentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -44,11 +44,11 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
         }
 
         [HttpPost("Post")]
-        public async Task<ActionResult> PostCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> PostPaymentTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.PostCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paymentTypesBusiness.PostPaymentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -61,11 +61,11 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
         }
 
         [HttpPost("Del")]
-        public async Task<ActionResult> DelCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> DelPaymentTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.DelCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paymentTypesBusiness.DelPaymentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -78,32 +78,32 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
         }
 
         [HttpPost("LookUp")]
-        public async Task<List<BeanzlookupDTO>> LookUpCostCenters(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpPaymentTypes(BeanzCommonDTO lookup)
         {
-            var data = await _costCentersBusiness.LookUpCostCentersAsync(lookup);
+            var data = await _paymentTypesBusiness.LookUpPaymentTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
-        public async Task<CostCenterViewModel> GetInfoCostCenters(BeanzCommonDTO common)
+        public async Task<PaymentTypeViewModel> GetInfoPaymentTypes(BeanzCommonDTO common)
         {
-            var data = await _costCentersBusiness.GetInfoCostCentersAsync(common);
+            var data = await _paymentTypesBusiness.GetInfoPaymentTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
-        public async Task<CostCenterViewModel> PrintCostCenters(BeanzCommonDTO common)
+        public async Task<PaymentTypeViewModel> PrintPaymentTypes(BeanzCommonDTO common)
         {
-            var data = await _costCentersBusiness.PrintCostCentersAsync(common);
+            var data = await _paymentTypesBusiness.PrintPaymentTypesAsync(common);
             return data;
         }
 
         [HttpPost("Approve")]
-        public async Task<ActionResult> ApproveCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> ApprovePaymentTypes(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.ApproveCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _paymentTypesBusiness.ApprovePaymentTypesAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else

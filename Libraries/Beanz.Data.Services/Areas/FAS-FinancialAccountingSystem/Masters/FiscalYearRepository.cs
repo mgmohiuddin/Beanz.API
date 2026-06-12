@@ -12,18 +12,18 @@ using System.Data.SqlClient;
 
 namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
 {
-    public class CostCenterRepository : ICostCenterRepository
+    public class FiscalYearRepository : IFiscalYearRepository
     {
         private readonly IMapper _mapper;
 
-        public CostCenterRepository(IMapper mapper)
+        public FiscalYearRepository(IMapper mapper)
         {
             _mapper = mapper;
         }
 
-        public async Task<List<CostCenterDTO>> GetCostCentersAsync(BeanzCommonDTO common)
+        public async Task<List<FiscalYearDTO>> GetFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.GetMS_CostCenters";
+            string _sql = "fas.GetMS_FiscalYears";
             SqlParameter[] _parameters =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
@@ -31,15 +31,15 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID }
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
-            var data = await DAL.GetObjectListWithParametersAsync<CostCenterDTO>(_sql, _parameters);
+            var data = await DAL.GetObjectListWithParametersAsync<FiscalYearDTO>(_sql, _parameters);
             return data;
         }
 
-        public async Task<BeanzResponseDTO> SetCostCentersAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> SetFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.SetMS_CostCenters";
+            string _sql = "fas.SetMS_FiscalYears";
             SqlParameter[] _parameters =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
@@ -47,7 +47,7 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@Json", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
@@ -57,16 +57,16 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<BeanzResponseDTO> PostCostCentersAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> PostFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.PostMS_CostCenters";
+            string _sql = "fas.PostMS_FiscalYears";
             SqlParameter[] _parameters =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
@@ -76,16 +76,16 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<BeanzResponseDTO> DelCostCentersAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> DelFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.DelMS_CostCenters";
+            string _sql = "fas.DelMS_FiscalYears";
             SqlParameter[] _parameters =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
@@ -95,24 +95,24 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<List<BeanzlookupDTO>> LookUpCostCentersAsync(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpFiscalYearsAsync(BeanzCommonDTO lookup)
         {
-            string _sql = "fas.LookupMS_CostCenters";
+            string _sql = "fas.LookupMS_FiscalYears";
             SqlParameter[] _parameters =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = lookup.CompanyID },
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = lookup.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = lookup.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = lookup.LanguageID },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = lookup.PrimaryKeyID }
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = lookup.PrimaryKeyID }
             };
             var data = await DAL.GetObjectListWithParametersAsync<BeanzlookupDTO>(_sql, _parameters);
             return data;
         }
 
-        public async Task<CostCenterViewModel> GetInfoCostCentersAsync(BeanzCommonDTO common)
+        public async Task<FiscalYearViewModel> GetInfoFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.GetInfoMS_CostCenters";
+            string _sql = "fas.GetInfoMS_FiscalYears";
             SqlParameter[] paramList =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
@@ -120,7 +120,7 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID }
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
 
             DynamicParameters p = new DynamicParameters();
@@ -128,8 +128,8 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
             {
                 p.Add(param.ParameterName, param.Value);
             }
-            var _costCenterDTOList = new List<CostCenterDTO>();
-            bool _isCostCentersConsumed = false;
+            var _fiscalYearDTOList = new List<FiscalYearDTO>();
+            bool _isFiscalYearsConsumed = false;
             using (SqlConnection _sqlConnection = new SqlConnection(Utilities.Configuration.ConnectionString))
             {
                 using (var objRecord = await SqlMapper.QueryMultipleAsync(_sqlConnection, _sql, p, commandType: CommandType.StoredProcedure))
@@ -137,28 +137,28 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
                     while (!objRecord.IsConsumed)
                     {
                         var objTemp = objRecord.Read<dynamic>();
-                        var costCenterData = objTemp.Where(c => c.TableName == "MS_CostCenters");
-                        if (costCenterData.Count() > 0 && !_isCostCentersConsumed)
+                        var fiscalYearData = objTemp.Where(c => c.TableName == "MS_FiscalYears");
+                        if (fiscalYearData.Count() > 0 && !_isFiscalYearsConsumed)
                         {
-                            _costCenterDTOList = _mapper.Map<List<CostCenterDTO>>(costCenterData);
-                            _isCostCentersConsumed = true;
+                            _fiscalYearDTOList = _mapper.Map<List<FiscalYearDTO>>(fiscalYearData);
+                            _isFiscalYearsConsumed = true;
                             continue;
                         }
                     }
                 }
-                var _costCenterDTO = _costCenterDTOList.Where(x => x.CostCenterID == common.PrimaryKeyID).FirstOrDefault();
-                var result = new CostCenterViewModel
+                var _fiscalYearDTO = _fiscalYearDTOList.Where(x => x.FiscalYearID == common.PrimaryKeyID).FirstOrDefault();
+                var result = new FiscalYearViewModel
                 {
-                    CostCenters = _costCenterDTOList,
-                    CostCenter = _costCenterDTO
+                    FiscalYears = _fiscalYearDTOList,
+                    FiscalYear = _fiscalYearDTO
                 };
                 return result;
             }
         }
 
-        public async Task<CostCenterViewModel> PrintCostCentersAsync(BeanzCommonDTO common)
+        public async Task<FiscalYearViewModel> PrintFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.PrintMS_CostCenters";
+            string _sql = "fas.PrintMS_FiscalYears";
             SqlParameter[] paramList =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
@@ -166,7 +166,7 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID }
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
 
             DynamicParameters p = new DynamicParameters();
@@ -174,8 +174,8 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
             {
                 p.Add(param.ParameterName, param.Value);
             }
-            var _costCenterDTOList = new List<CostCenterDTO>();
-            bool _isCostCentersConsumed = false;
+            var _fiscalYearDTOList = new List<FiscalYearDTO>();
+            bool _isFiscalYearsConsumed = false;
             using (SqlConnection _sqlConnection = new SqlConnection(Utilities.Configuration.ConnectionString))
             {
                 using (var objRecord = await SqlMapper.QueryMultipleAsync(_sqlConnection, _sql, p, commandType: CommandType.StoredProcedure))
@@ -183,35 +183,35 @@ namespace Beanz.Data.Services.Areas.FinancialAccountingSystem.Masters
                     while (!objRecord.IsConsumed)
                     {
                         var objTemp = objRecord.Read<dynamic>();
-                        var costCenterData = objTemp.Where(c => c.TableName == "MS_CostCenters");
-                        if (costCenterData.Count() > 0 && !_isCostCentersConsumed)
+                        var fiscalYearData = objTemp.Where(c => c.TableName == "MS_FiscalYears");
+                        if (fiscalYearData.Count() > 0 && !_isFiscalYearsConsumed)
                         {
-                            _costCenterDTOList = _mapper.Map<List<CostCenterDTO>>(costCenterData);
-                            _isCostCentersConsumed = true;
+                            _fiscalYearDTOList = _mapper.Map<List<FiscalYearDTO>>(fiscalYearData);
+                            _isFiscalYearsConsumed = true;
                             continue;
                         }
                     }
                 }
-                var _costCenterDTO = _costCenterDTOList.Where(x => x.CostCenterID == common.PrimaryKeyID).FirstOrDefault();
-                var result = new CostCenterViewModel
+                var _fiscalYearDTO = _fiscalYearDTOList.Where(x => x.FiscalYearID == common.PrimaryKeyID).FirstOrDefault();
+                var result = new FiscalYearViewModel
                 {
-                    CostCenters = _costCenterDTOList,
-                    CostCenter = _costCenterDTO
+                    FiscalYears = _fiscalYearDTOList,
+                    FiscalYear = _fiscalYearDTO
                 };
                 return result;
             }
         }
 
-        public async Task<BeanzResponseDTO> ApproveCostCentersAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> ApproveFiscalYearsAsync(BeanzCommonDTO common)
         {
-            string _sql = "fas.ApproveMS_CostCenters";
+            string _sql = "fas.ApproveMS_FiscalYears";
             SqlParameter[] _parameters =
             {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@CostCenterID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@FiscalYearID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },

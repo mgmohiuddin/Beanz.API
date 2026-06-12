@@ -10,28 +10,28 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
     [Route("api/[area]/Masters/[controller]")]
     [ApiController]
     [Area("FinancialAccountingSystem")]
-    public class CostCentersController : ControllerBase
+    public class FiscalYearsController : ControllerBase
     {
-        private readonly ICostCenterBusiness _costCentersBusiness;
+        private readonly IFiscalYearBusiness _fiscalYearsBusiness;
 
-        public CostCentersController(ICostCenterBusiness costCentersBusiness)
+        public FiscalYearsController(IFiscalYearBusiness fiscalYearsBusiness)
         {
-            _costCentersBusiness = costCentersBusiness;
+            _fiscalYearsBusiness = fiscalYearsBusiness;
         }
 
         [HttpPost("Get")]
-        public async Task<List<CostCenterDTO>> GetCostCenters(BeanzCommonDTO common)
+        public async Task<List<FiscalYearDTO>> GetFiscalYears(BeanzCommonDTO common)
         {
-            var data = await _costCentersBusiness.GetCostCentersAsync(common);
+            var data = await _fiscalYearsBusiness.GetFiscalYearsAsync(common);
             return data;
         }
 
         [HttpPost("Set")]
-        public async Task<ActionResult> SetCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> SetFiscalYears(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.SetCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _fiscalYearsBusiness.SetFiscalYearsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -44,11 +44,11 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
         }
 
         [HttpPost("Post")]
-        public async Task<ActionResult> PostCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> PostFiscalYears(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.PostCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _fiscalYearsBusiness.PostFiscalYearsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -61,11 +61,11 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
         }
 
         [HttpPost("Del")]
-        public async Task<ActionResult> DelCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> DelFiscalYears(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.DelCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _fiscalYearsBusiness.DelFiscalYearsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
@@ -78,32 +78,32 @@ namespace Beanz.API.Areas.FinancialAccountingSystem.Masters
         }
 
         [HttpPost("LookUp")]
-        public async Task<List<BeanzlookupDTO>> LookUpCostCenters(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpFiscalYears(BeanzCommonDTO lookup)
         {
-            var data = await _costCentersBusiness.LookUpCostCentersAsync(lookup);
+            var data = await _fiscalYearsBusiness.LookUpFiscalYearsAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
-        public async Task<CostCenterViewModel> GetInfoCostCenters(BeanzCommonDTO common)
+        public async Task<FiscalYearViewModel> GetInfoFiscalYears(BeanzCommonDTO common)
         {
-            var data = await _costCentersBusiness.GetInfoCostCentersAsync(common);
+            var data = await _fiscalYearsBusiness.GetInfoFiscalYearsAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
-        public async Task<CostCenterViewModel> PrintCostCenters(BeanzCommonDTO common)
+        public async Task<FiscalYearViewModel> PrintFiscalYears(BeanzCommonDTO common)
         {
-            var data = await _costCentersBusiness.PrintCostCentersAsync(common);
+            var data = await _fiscalYearsBusiness.PrintFiscalYearsAsync(common);
             return data;
         }
 
         [HttpPost("Approve")]
-        public async Task<ActionResult> ApproveCostCenters(BeanzCommonDTO common)
+        public async Task<ActionResult> ApproveFiscalYears(BeanzCommonDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _costCentersBusiness.ApproveCostCentersAsync(common);
+                BeanzResponseDTO beanzResponseDTO = await _fiscalYearsBusiness.ApproveFiscalYearsAsync(common);
                 if (beanzResponseDTO.ErrorCode != "")
                     return BadRequest(beanzResponseDTO);
                 else
