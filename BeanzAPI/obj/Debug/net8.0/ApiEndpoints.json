@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/auth/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.DTOs.Auth.AuthChangePasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
     "Method": "AppleCallback",
     "RelativePath": "api/auth/external/apple/callback",
     "HttpMethod": "POST",
@@ -128,6 +144,22 @@
   },
   {
     "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "ForgetPasswordRequest",
+    "RelativePath": "api/auth/forget-password-request",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Beanz.DTOs.Auth.ForgetPasswordRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
     "Method": "Disable",
     "RelativePath": "api/auth/mfa/totp/disable",
     "HttpMethod": "POST",
@@ -173,6 +205,22 @@
       {
         "Name": "dto",
         "Type": "Beanz.DTOs.AuthModule.TotpDTOs.TotpVerifyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "ForgetPassword",
+    "RelativePath": "api/auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Beanz.DTOs.Auth.ResetPasswordRequestDTO",
         "IsRequired": true
       }
     ],
@@ -260,7 +308,23 @@
   },
   {
     "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
-    "Method": "VerifyEmail",
+    "Method": "UserManu",
+    "RelativePath": "api/auth/user-menu",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "VerifyPostEmail",
     "RelativePath": "api/auth/verify-email",
     "HttpMethod": "POST",
     "IsController": true,
@@ -270,6 +334,54 @@
         "Name": "token",
         "Type": "Beanz.DTOs.AuthModule.EmailDTOs.VerifyEmailDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "VerifyEmail",
+    "RelativePath": "api/auth/verify-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "VerifyResetPassword",
+    "RelativePath": "api/auth/verify-token-reset",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Beanz.DTOs.Auth.ResetPasswordVerifyDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.AuthModule.AuthController",
+    "Method": "VerifyResetPassword",
+    "RelativePath": "api/auth/verify-token-reset",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Token",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -299,7 +411,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -330,7 +442,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -361,7 +473,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -392,7 +504,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -423,7 +535,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -454,7 +566,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -485,7 +597,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -511,7 +623,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -537,7 +649,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -563,7 +675,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -589,7 +701,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -615,7 +727,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -641,7 +753,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -667,7 +779,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -699,7 +811,7 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRoutesRequestDTO",
         "IsRequired": true
       }
     ],
@@ -731,7 +843,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -937,7 +1049,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1105,7 +1217,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1273,7 +1385,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1558,7 +1670,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1726,7 +1838,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1894,7 +2006,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2062,7 +2174,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2230,7 +2342,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2398,7 +2510,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2566,7 +2678,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2734,7 +2846,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2902,7 +3014,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -3070,7 +3182,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -3238,7 +3350,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -3406,7 +3518,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -3574,7 +3686,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -3742,7 +3854,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -3910,7 +4022,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4078,7 +4190,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4246,7 +4358,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4414,7 +4526,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4492,7 +4604,7 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
@@ -4508,7 +4620,7 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
@@ -4524,13 +4636,13 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypeDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Beanz.DTOs.Common.BeanzResponseObjectDTO\u00601[[System.Collections.Generic.List\u00601[[Beanz.DTOs.Areas.HummanResourceManagement.Masters.AdvanceSalaryTypeDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4550,7 +4662,7 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
@@ -4576,13 +4688,13 @@
     "Parameters": [
       {
         "Name": "lookup",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4602,7 +4714,7 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
@@ -4618,7 +4730,7 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
@@ -4644,61 +4756,13 @@
     "Parameters": [
       {
         "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "ApproveAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/Approve",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "DelAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/Del",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "GetAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/Get",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "Type": "Beanz.DTOs.Common.BeanzRequestDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Beanz.DTOs.Common.BeanzResponseObjectDTO\u00601[[System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -4707,116 +4771,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "GetInfoAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "LookUpAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/LookUp",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "lookup",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "PostAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/Post",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "PrintAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/Print",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.AllowanceViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesController",
-    "Method": "SetAllowances",
-    "RelativePath": "api/HummanResourceManagement/Masters/Allowances/Set",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.AllowancesGroupsController",
@@ -4918,7 +4872,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -5086,7 +5040,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -5254,7 +5208,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -5422,7 +5376,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -5590,7 +5544,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -5758,7 +5712,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -5926,7 +5880,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6094,7 +6048,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6262,7 +6216,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6430,7 +6384,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6598,7 +6552,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6766,7 +6720,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6837,7 +6791,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "ApproveGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/ApproveGosiTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6853,7 +6807,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "DelGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/DelGosiTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6869,7 +6823,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "GetGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/GetGosiTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6895,7 +6849,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "GetInfoGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/GetInfoGosiTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6921,7 +6875,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "LookUpGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/LookUpGosiTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6934,7 +6888,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -6947,7 +6901,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "PostGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/PostGosiTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6963,7 +6917,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "PrintGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/PrintGosiTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -6989,7 +6943,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GosiTypesController",
     "Method": "SetGosiTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/SetGosiTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/GosiTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7005,7 +6959,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "ApproveGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/ApproveGrades/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7021,7 +6975,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "DelGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/DelGrades/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7037,7 +6991,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "GetGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/GetGrades/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7063,7 +7017,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "GetInfoGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/GetInfoGrades/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7089,7 +7043,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "LookUpGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/LookUpGrades/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7102,7 +7056,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -7115,7 +7069,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "PostGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/PostGrades/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7131,7 +7085,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "PrintGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/PrintGrades/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7157,7 +7111,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.GradesController",
     "Method": "SetGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/Grades/SetGrades/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/Grades/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7173,7 +7127,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "ApproveHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/ApproveHolidayTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7189,7 +7143,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "DelHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/DelHolidayTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7205,7 +7159,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "GetHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/GetHolidayTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7231,7 +7185,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "GetInfoHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/GetInfoHolidayTypes/GetInfo",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/GetInfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7257,7 +7211,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "LookUpHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/LookUpHolidayTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7270,7 +7224,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -7283,7 +7237,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "PostHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/PostHolidayTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7299,7 +7253,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "PrintHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/PrintHolidayTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7325,7 +7279,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.HolidayTypesController",
     "Method": "SetHolidayTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/SetHolidayTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/HolidayTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7341,7 +7295,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "ApproveInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/ApproveInsuranceTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7357,7 +7311,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "DelInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/DelInsuranceTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7372,34 +7326,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
-    "Method": "GetInfoInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/GetInfoInsuranceTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.InsuranceTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "GetInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/GetInsuranceTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7424,8 +7352,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
+    "Method": "GetInfoInsuranceTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.InsuranceTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "LookUpInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/LookUpInsuranceTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7438,7 +7392,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -7451,7 +7405,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "PostInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/PostInsuranceTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7467,7 +7421,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "PrintInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/PrintInsuranceTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7493,7 +7447,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.InsuranceTypesController",
     "Method": "SetInsuranceTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/SetInsuranceTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/InsuranceTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7509,7 +7463,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "ApproveLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/ApproveLeaveTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7525,7 +7479,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "DelLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/DelLeaveTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7540,34 +7494,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
-    "Method": "GetInfoLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/GetInfoLeaveTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.LeaveTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "GetLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/GetLeaveTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7592,8 +7520,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
+    "Method": "GetInfoLeaveTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.LeaveTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "LookUpLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/LookUpLeaveTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7606,7 +7560,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -7619,7 +7573,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "PostLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/PostLeaveTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7635,7 +7589,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "PrintLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/PrintLeaveTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7661,7 +7615,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LeaveTypesController",
     "Method": "SetLeaveTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/SetLeaveTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/LeaveTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7677,7 +7631,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "ApproveLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/ApproveLoanTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7693,7 +7647,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "DelLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/DelLoanTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7708,34 +7662,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
-    "Method": "GetInfoLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/GetInfoLoanTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.LoanTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "GetLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/GetLoanTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7760,8 +7688,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
+    "Method": "GetInfoLoanTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.LoanTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "LookUpLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/LookUpLoanTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7774,7 +7728,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -7787,7 +7741,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "PostLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/PostLoanTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7803,7 +7757,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "PrintLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/PrintLoanTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7829,7 +7783,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.LoanTypesController",
     "Method": "SetLoanTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/SetLoanTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/LoanTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7845,7 +7799,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "ApproveOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/ApproveOvertimeTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7861,7 +7815,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "DelOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/DelOvertimeTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7876,34 +7830,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
-    "Method": "GetInfoOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/GetInfoOvertimeTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.OvertimeTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "GetOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/GetOvertimeTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7928,8 +7856,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
+    "Method": "GetInfoOvertimeTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.OvertimeTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "LookUpOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/LookUpOvertimeTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7942,7 +7896,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -7955,7 +7909,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "PostOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/PostOvertimeTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7971,7 +7925,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "PrintOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/PrintOvertimeTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -7997,7 +7951,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.OvertimeTypesController",
     "Method": "SetOvertimeTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/SetOvertimeTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/OvertimeTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8013,7 +7967,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "ApprovePaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/ApprovePaidTimeOffTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8029,7 +7983,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "DelPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/DelPaidTimeOffTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8044,34 +7998,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
-    "Method": "GetInfoPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/GetInfoPaidTimeOffTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PaidTimeOffTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "GetPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/GetPaidTimeOffTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8096,8 +8024,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
+    "Method": "GetInfoPaidTimeOffTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PaidTimeOffTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "LookUpPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/LookUpPaidTimeOffTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8110,7 +8064,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -8123,7 +8077,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "PostPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/PostPaidTimeOffTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8139,7 +8093,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "PrintPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/PrintPaidTimeOffTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8165,7 +8119,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PaidTimeOffTypesController",
     "Method": "SetPaidTimeOffTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/SetPaidTimeOffTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/PaidTimeOffTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8181,7 +8135,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "ApprovePayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/ApprovePayrollTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8197,7 +8151,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "DelPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/DelPayrollTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8212,34 +8166,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
-    "Method": "GetInfoPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/GetInfoPayrollTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PayrollTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "GetPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/GetPayrollTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8264,8 +8192,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
+    "Method": "GetInfoPayrollTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PayrollTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "LookUpPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/LookUpPayrollTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8278,7 +8232,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -8291,7 +8245,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "PostPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/PostPayrollTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8307,7 +8261,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "PrintPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/PrintPayrollTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8333,7 +8287,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PayrollTypesController",
     "Method": "SetPayrollTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/SetPayrollTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/PayrollTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8349,7 +8303,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "ApprovePermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/ApprovePermitTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8365,7 +8319,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "DelPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/DelPermitTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8380,34 +8334,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
-    "Method": "GetInfoPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/GetInfoPermitTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PermitTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "GetPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/GetPermitTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8432,8 +8360,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
+    "Method": "GetInfoPermitTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PermitTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "LookUpPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/LookUpPermitTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8446,7 +8400,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -8459,7 +8413,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "PostPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/PostPermitTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8475,7 +8429,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "PrintPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/PrintPermitTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8501,7 +8455,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PermitTypesController",
     "Method": "SetPermitTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/SetPermitTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/PermitTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8517,7 +8471,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "ApprovePositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/ApprovePositions/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8533,7 +8487,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "DelPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/DelPositions/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8548,34 +8502,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
-    "Method": "GetInfoPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/GetInfoPositions/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PositionViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "GetPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/GetPositions/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8600,8 +8528,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
+    "Method": "GetInfoPositions",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.PositionViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "LookUpPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/LookUpPositions/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8614,7 +8568,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -8627,7 +8581,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "PostPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/PostPositions/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8643,7 +8597,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "PrintPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/PrintPositions/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8669,7 +8623,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.PositionsController",
     "Method": "SetPositions",
-    "RelativePath": "api/HummanResourceManagement/Masters/Positions/SetPositions/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/Positions/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8685,7 +8639,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "ApproveRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/ApproveRelationTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8701,7 +8655,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "DelRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/DelRelationTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8716,34 +8670,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
-    "Method": "GetInfoRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/GetInfoRelationTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.RelationTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "GetRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/GetRelationTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8768,8 +8696,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
+    "Method": "GetInfoRelationTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.RelationTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "LookUpRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/LookUpRelationTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8782,7 +8736,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -8795,7 +8749,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "PostRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/PostRelationTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8811,7 +8765,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "PrintRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/PrintRelationTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8837,7 +8791,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.RelationTypesController",
     "Method": "SetRelationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/SetRelationTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/RelationTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8853,7 +8807,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "ApproveResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/ApproveResidenceIDTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8869,7 +8823,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "DelResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/DelResidenceIDTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8884,34 +8838,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
-    "Method": "GetInfoResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/GetInfoResidenceIDTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.ResidenceIDTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "GetResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/GetResidenceIDTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8936,8 +8864,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
+    "Method": "GetInfoResidenceIDTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.ResidenceIDTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "LookUpResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/LookUpResidenceIDTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8950,7 +8904,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -8963,7 +8917,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "PostResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/PostResidenceIDTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -8979,7 +8933,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "PrintResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/PrintResidenceIDTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9005,7 +8959,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ResidenceIDTypesController",
     "Method": "SetResidenceIDTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/SetResidenceIDTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/ResidenceIDTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9021,7 +8975,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "ApproveShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/ApproveShiftTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9037,7 +8991,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "DelShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/DelShiftTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9052,34 +9006,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
-    "Method": "GetInfoShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/GetInfoShiftTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.ShiftTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "GetShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/GetShiftTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9104,8 +9032,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
+    "Method": "GetInfoShiftTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.ShiftTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "LookUpShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/LookUpShiftTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9118,7 +9072,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -9131,7 +9085,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "PostShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/PostShiftTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9147,7 +9101,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "PrintShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/PrintShiftTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9173,7 +9127,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.ShiftTypesController",
     "Method": "SetShiftTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/SetShiftTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/ShiftTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9189,7 +9143,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "ApproveSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/ApproveSponsors/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9205,7 +9159,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "DelSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/DelSponsors/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9220,34 +9174,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
-    "Method": "GetInfoSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/GetInfoSponsors/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.SponsorViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "GetSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/GetSponsors/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9272,8 +9200,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
+    "Method": "GetInfoSponsors",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.SponsorViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "LookUpSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/LookUpSponsors/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9286,7 +9240,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -9299,7 +9253,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "PostSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/PostSponsors/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9315,7 +9269,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "PrintSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/PrintSponsors/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9341,7 +9295,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SponsorsController",
     "Method": "SetSponsors",
-    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/SetSponsors/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/Sponsors/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9357,7 +9311,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "ApproveSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/ApproveSubGrades/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9373,7 +9327,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "DelSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/DelSubGrades/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9388,34 +9342,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
-    "Method": "GetInfoSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/GetInfoSubGrades/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.SubGradeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "GetSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/GetSubGrades/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9440,8 +9368,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
+    "Method": "GetInfoSubGrades",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.SubGradeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "LookUpSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/LookUpSubGrades/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9454,7 +9408,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -9467,7 +9421,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "PostSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/PostSubGrades/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9483,7 +9437,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "PrintSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/PrintSubGrades/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9509,7 +9463,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.SubGradesController",
     "Method": "SetSubGrades",
-    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/SetSubGrades/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/SubGrades/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9525,7 +9479,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "ApproveTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/ApproveTicketClassTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9541,7 +9495,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "DelTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/DelTicketClassTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9556,34 +9510,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
-    "Method": "GetInfoTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/GetInfoTicketClassTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TicketClassTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "GetTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/GetTicketClassTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9608,8 +9536,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
+    "Method": "GetInfoTicketClassTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TicketClassTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "LookUpTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/LookUpTicketClassTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9622,7 +9576,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -9635,7 +9589,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "PostTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/PostTicketClassTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9651,7 +9605,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "PrintTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/PrintTicketClassTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9677,7 +9631,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketClassTypesController",
     "Method": "SetTicketClassTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/SetTicketClassTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketClassTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9693,7 +9647,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "ApproveTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/ApproveTicketTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9709,7 +9663,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "DelTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/DelTicketTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9724,34 +9678,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
-    "Method": "GetInfoTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/GetInfoTicketTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TicketTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "GetTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/GetTicketTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9776,8 +9704,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
+    "Method": "GetInfoTicketTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TicketTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "LookUpTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/LookUpTicketTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9790,7 +9744,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -9803,7 +9757,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "PostTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/PostTicketTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9819,7 +9773,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "PrintTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/PrintTicketTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9845,7 +9799,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TicketTypesController",
     "Method": "SetTicketTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/SetTicketTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/TicketTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9861,7 +9815,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "ApproveTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/ApproveTrainingTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9877,7 +9831,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "DelTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/DelTrainingTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9892,34 +9846,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
-    "Method": "GetInfoTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/GetInfoTrainingTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TrainingTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "GetTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/GetTrainingTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9944,8 +9872,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
+    "Method": "GetInfoTrainingTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TrainingTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "LookUpTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/LookUpTrainingTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9958,7 +9912,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -9971,7 +9925,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "PostTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/PostTrainingTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -9987,7 +9941,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "PrintTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/PrintTrainingTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10013,7 +9967,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TrainingTypesController",
     "Method": "SetTrainingTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/SetTrainingTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/TrainingTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10029,7 +9983,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "ApproveTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/ApproveTravelTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10045,7 +9999,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "DelTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/DelTravelTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10060,34 +10014,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
-    "Method": "GetInfoTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/GetInfoTravelTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TravelTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "GetTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/GetTravelTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10112,8 +10040,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
+    "Method": "GetInfoTravelTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.TravelTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "LookUpTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/LookUpTravelTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10126,7 +10080,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -10139,7 +10093,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "PostTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/PostTravelTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10155,7 +10109,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "PrintTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/PrintTravelTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10181,7 +10135,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.TravelTypesController",
     "Method": "SetTravelTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/SetTravelTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/TravelTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10197,7 +10151,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "ApproveVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/ApproveVacationTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10213,7 +10167,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "DelVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/DelVacationTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10228,34 +10182,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
-    "Method": "GetInfoVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/GetInfoVacationTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.VacationTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "GetVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/GetVacationTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10280,8 +10208,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
+    "Method": "GetInfoVacationTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.VacationTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "LookUpVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/LookUpVacationTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10294,7 +10248,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -10307,7 +10261,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "PostVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/PostVacationTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10323,7 +10277,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "PrintVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/PrintVacationTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10349,7 +10303,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VacationTypesController",
     "Method": "SetVacationTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/SetVacationTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/VacationTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10365,7 +10319,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "ApproveVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/ApproveVisaTypes/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10381,7 +10335,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "DelVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/DelVisaTypes/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10396,34 +10350,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
-    "Method": "GetInfoVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/GetInfoVisaTypes/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.VisaTypeViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "GetVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/GetVisaTypes/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10448,8 +10376,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
+    "Method": "GetInfoVisaTypes",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.VisaTypeViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "LookUpVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/LookUpVisaTypes/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10462,7 +10416,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -10475,7 +10429,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "PostVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/PostVisaTypes/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10491,7 +10445,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "PrintVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/PrintVisaTypes/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10517,7 +10471,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.VisaTypesController",
     "Method": "SetVisaTypes",
-    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/SetVisaTypes/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/VisaTypes/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10533,7 +10487,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "ApproveWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/ApproveWeekDays/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10549,7 +10503,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "DelWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/DelWeekDays/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10564,34 +10518,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
-    "Method": "GetInfoWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/GetInfoWeekDays/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.WeekDayViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "GetWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/GetWeekDays/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10616,8 +10544,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
+    "Method": "GetInfoWeekDays",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.WeekDayViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "LookUpWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/LookUpWeekDays/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10630,7 +10584,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -10643,7 +10597,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "PostWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/PostWeekDays/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10659,7 +10613,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "PrintWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/PrintWeekDays/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10685,7 +10639,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WeekDaysController",
     "Method": "SetWeekDays",
-    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/SetWeekDays/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/WeekDays/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10701,7 +10655,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "ApproveWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/ApproveWorkProfessions/Approve",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/Approve",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10717,7 +10671,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "DelWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/DelWorkProfessions/Del",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/Del",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10732,34 +10686,8 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
-    "Method": "GetInfoWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/GetInfoWorkProfessions/GetInfo",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "common",
-        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.WorkProfessionViewModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "GetWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/GetWorkProfessions/Get",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/Get",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10784,8 +10712,34 @@
   },
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
+    "Method": "GetInfoWorkProfessions",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/GetInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "common",
+        "Type": "Beanz.DTOs.Common.BeanzCommonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.DTOs.Areas.HummanResourceManagement.Masters.WorkProfessionViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "LookUpWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/LookUpWorkProfessions/LookUp",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/LookUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10798,7 +10752,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -10811,7 +10765,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "PostWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/PostWorkProfessions/Post",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/Post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10827,7 +10781,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "PrintWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/PrintWorkProfessions/Print",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/Print",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10853,7 +10807,7 @@
   {
     "ContainingType": "Beanz.API.Areas.HummanResourceManagement.Masters.WorkProfessionsController",
     "Method": "SetWorkProfessions",
-    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/SetWorkProfessions/Set",
+    "RelativePath": "api/HummanResourceManagement/Masters/WorkProfessions/Set",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10966,7 +10920,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -11134,7 +11088,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -11302,7 +11256,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -11470,7 +11424,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -11638,7 +11592,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -11806,7 +11760,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -11974,7 +11928,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -12142,7 +12096,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -12310,7 +12264,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -12478,7 +12432,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -12646,7 +12600,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -12814,7 +12768,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -12982,7 +12936,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -13150,7 +13104,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -13318,7 +13272,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -13486,7 +13440,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -13654,7 +13608,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -13822,7 +13776,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -13990,7 +13944,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -14158,7 +14112,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -14326,7 +14280,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -14494,7 +14448,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -14662,7 +14616,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -14830,7 +14784,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -14998,7 +14952,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -15166,7 +15120,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -15334,7 +15288,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -15502,7 +15456,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -15670,7 +15624,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -15838,7 +15792,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -16006,7 +15960,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -16174,7 +16128,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -16342,7 +16296,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -16510,7 +16464,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -16678,7 +16632,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -16846,7 +16800,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -17014,7 +16968,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -17182,7 +17136,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -17350,7 +17304,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -17518,7 +17472,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -17686,7 +17640,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -17854,7 +17808,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -18022,7 +17976,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -18190,7 +18144,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -18358,7 +18312,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -18526,7 +18480,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -18694,7 +18648,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -18862,7 +18816,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -19030,7 +18984,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -19198,7 +19152,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -19366,7 +19320,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -19534,7 +19488,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -19702,7 +19656,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -19870,7 +19824,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20038,7 +19992,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20206,7 +20160,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20374,7 +20328,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20542,7 +20496,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20710,7 +20664,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20878,7 +20832,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -21046,7 +21000,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.BeanzCommon.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Beanz.DTOs.Common.BeanzlookupDTO, Beanz.DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -21223,7 +21177,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Beanz.DTOs.BeanzCommon.BeanzlookupDTO",
+        "Type": "Beanz.DTOs.Common.BeanzlookupDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -21232,6 +21186,42 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.UISettingController",
+    "Method": "GetUISetting",
+    "RelativePath": "api/UISetting/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Beanz.API.Controllers.UISettingController\u002BUISettingDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Beanz.API.Controllers.UISettingController",
+    "Method": "SetUISetting",
+    "RelativePath": "api/UISetting/set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Beanz.API.Controllers.UISettingController\u002BUISettingDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Beanz.API.Controllers.ValuesController",

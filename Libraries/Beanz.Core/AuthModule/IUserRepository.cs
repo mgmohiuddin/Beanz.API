@@ -1,4 +1,5 @@
-﻿using Beanz.DTOs.AuthModule.RequestResponse.Response;
+﻿using Beanz.DTOs.Auth;
+using Beanz.DTOs.AuthModule.RequestResponse.Response;
 using Beanz.Models.AuthModule;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,11 @@ namespace Beanz.Core.AuthModule
 
         Task<User?> GetByIdentifierAsync(string identifier);
         Task<User?> GetByIdAsync(int userId);
-        
+        Task<User?> GetByEmailAsync(string _email);
+        Task<AuthSignupResponseDTO> ChangePasswordAsync(int? userId, string passwordHash);
+
+        Task<ForgetPasswordRequestResponseDTO> SavePasswordResetTokenAsync(SavePasswordResetTokenDTO token);
+
+        Task<PasswordResetToken?> GetPasswordResetTokenAsync(string token);
     }
 }

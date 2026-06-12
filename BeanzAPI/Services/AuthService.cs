@@ -1,10 +1,14 @@
-﻿using Beanz.Core.AuthModule;
+﻿using Beanz.API.Helpers;
+using Beanz.API.Interfaces;
+using Beanz.Core.AuthModule;
+using Beanz.Data.Services.AuthModule;
+using Beanz.DTOs.Auth;
 using Beanz.DTOs.AuthModule.RequestResponse.Request;
 using Beanz.Models.AuthModule;
-using Beanz.API.Helpers;
-using Beanz.API.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Beanz.API.Services
 {
@@ -17,6 +21,7 @@ namespace Beanz.API.Services
     public interface IAuthService
     {
         Task<SignUpServiceResult> SignUpAsync(AuthSignupRequestDTO dto, string? ipAddress = null);
+        //Task<ForgetPasswordRequestResponseDTO> ForgetPasswordRequestAsync(string email, int langId);
     }
     public class AuthService : IAuthService
     {
@@ -26,12 +31,14 @@ namespace Beanz.API.Services
         private readonly IUserRepository _userRepo;
         private readonly IEmailService _email;
         private readonly AuthSettings _settings;
+        private readonly IPasswordResetTokenRepository _passwordResetTokenRepository;
         public AuthService(
        IPasswordHasherService hasher,
        IAuthRepository authRepository,
        IRoleRepository roleRepo,
        IUserRepository userRepo,
        IEmailService email,
+       IPasswordResetTokenRepository passwordResetTokenRepository,
        IOptions<AuthSettings> options)
         {
             _hasher = hasher;
@@ -40,6 +47,7 @@ namespace Beanz.API.Services
             _userRepo = userRepo;
             _email = email;
             _settings = options.Value;
+            _passwordResetTokenRepository= passwordResetTokenRepository;
         }
         public async Task<SignUpServiceResult> SignUpAsync(
         AuthSignupRequestDTO authSingupDTO,
@@ -118,5 +126,11 @@ namespace Beanz.API.Services
                 Message = data.Message
             };
         }
+
+
+       
+
     }
+
+
 }

@@ -10,6 +10,7 @@ namespace Beanz.API.StartupConfig.BeanzSystem.Setup
             services.AddScoped<ISystemModuleRepository, SystemModuleRepository>();
             services.AddScoped<ISystemScreenEndpointRepository, SystemScreenEndpointRepository>();
             services.AddScoped<ISystemScreenRepository, SystemScreenRepository>();
+
         }
     }
 }

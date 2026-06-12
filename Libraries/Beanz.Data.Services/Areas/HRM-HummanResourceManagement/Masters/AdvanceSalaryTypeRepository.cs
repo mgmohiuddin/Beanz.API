@@ -22,43 +22,116 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             _mapper = mapper;
         }
 
-        public async Task<List<AdvanceSalaryTypeDTO>> GetAdvanceSalaryTypesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseObjectDTO<List<AdvanceSalaryTypeDTO>>> GetAdvanceSalaryTypesAsync(BeanzRequestDTO common)
         {
-            string _sql = "hrms.GetMS_AdvanceSalaryTypes";
-            SqlParameter[] _parameters =
+            try
             {
-                new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
-                new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
-                new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
-                new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@AdvanceSalaryTypeID", SqlDbType.Int) { Value = common.PrimaryKeyID }
-            };
-            var data = await DAL.GetObjectListWithParametersAsync<AdvanceSalaryTypeDTO>(_sql, _parameters);
-            return data;
-        }
-
-        public async Task<BeanzResponseDTO> SetAdvanceSalaryTypesAsync(BeanzCommonDTO common)
-        {
-            string _sql = "hrms.SetMS_AdvanceSalaryTypes";
-            SqlParameter[] _parameters =
-            {
+                string _sql = "hrms.GetMS_AdvanceSalaryTypes";
+                SqlParameter[] _parameters =
+                {
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@Json", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@AdvanceSalaryTypeID", SqlDbType.Int) { Value = common.PrimaryKeyID },
-                new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
-                new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
-                new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
-                new SqlParameter("@ErrorCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
-                new SqlParameter("@ErrorMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output }
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
-            return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
+                var data = await DAL.GetObjectListWithParametersAsync<AdvanceSalaryTypeDTO>(_sql, _parameters);
+                return new BeanzResponseObjectDTO<List<AdvanceSalaryTypeDTO>>
+                {
+                    Success = true,
+                    Message = "OK",
+                    ErrorCode = "",
+                    Data = data,
+                    StatusCode = 200,
+                    Errors = null
+                };
+                //return data;
+            }
+            catch (SqlException sqlEx)
+            {
+                return new BeanzResponseObjectDTO<List<AdvanceSalaryTypeDTO>>
+                {
+                    Success = false,
+                    ErrorCode = "SQL_" + sqlEx.Number,
+                    Message = sqlEx.Message,
+                    Data = null,
+                    StatusCode = 500,
+                    Errors = new List<string> { sqlEx.ToString() }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BeanzResponseObjectDTO<List<AdvanceSalaryTypeDTO>>
+                {
+                    Success = false,
+                    ErrorCode = "EX001",
+                    Message = ex.Message,
+                    Data = null,
+                    StatusCode = 500,
+                    Errors = new List<string> { ex.ToString() }
+                };
+            }
+
         }
 
-        public async Task<BeanzResponseDTO> PostAdvanceSalaryTypesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseObjectDTO<int?>> SetAdvanceSalaryTypesAsync(BeanzRequestDTO common)
+        {
+            string _sql = "hrms.SetMS_AdvanceSalaryTypes";
+            SqlParameter[] _parameters =
+            {
+                new SqlParameter("@CompanyID",       SqlDbType.Int)           { Value = common.CompanyID },
+                new SqlParameter("@UserID",          SqlDbType.Int)           { Value = common.UserID },
+                new SqlParameter("@Type",            SqlDbType.Int)           { Value = common.Type },
+                new SqlParameter("@LanguageID",      SqlDbType.Int)           { Value = common.LanguageID },
+                new SqlParameter("@Json",            SqlDbType.NVarChar)      { Value = (object?)common.Json ?? DBNull.Value },
+                new SqlParameter("@PrimaryKeyID",    SqlDbType.Int)           { Value = common.PrimaryKeyID },
+                new SqlParameter("@ResponseID",      SqlDbType.NVarChar, 50)  { Direction = ParameterDirection.Output },
+                new SqlParameter("@ResponseCode",    SqlDbType.NVarChar, 50)  { Direction = ParameterDirection.Output },
+                new SqlParameter("@ResponseMessage", SqlDbType.NVarChar, 500) { Direction = ParameterDirection.Output },
+                new SqlParameter("@ErrorCode",       SqlDbType.NVarChar, 50)  { Direction = ParameterDirection.Output },
+                new SqlParameter("@ErrorMessage",    SqlDbType.NVarChar, 500) { Direction = ParameterDirection.Output }
+            };
+
+            var sp = await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
+
+            if (sp == null)
+                return BeanzResponseObjectDTO<int?>.Fail("No response from procedure.", "ERR-02", 500);
+
+            if (!string.IsNullOrEmpty(sp.ErrorCode))
+                return BeanzResponseObjectDTO<int?>.Fail(
+                    sp.ErrorMessage ?? "Operation failed.",
+                    sp.ErrorCode,
+                    400);
+
+            return BeanzResponseObjectDTO<int?>.Ok(
+                sp.ResponseID,
+                string.IsNullOrEmpty(sp.ResponseMessage) ? "Success" : sp.ResponseMessage,
+                200);
+        }
+
+
+        //public async Task<BeanzResponseDTO> SetAdvanceSalaryTypesAsync(BeanzRequestDTO common)
+        //{
+        //    string _sql = "hrms.SetMS_AdvanceSalaryTypes";
+        //    SqlParameter[] _parameters =
+        //    {
+        //        new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
+        //        new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
+        //        new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
+        //        new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
+        //        new SqlParameter("@Json", SqlDbType.NVarChar) { Value = common.Json },
+        //        new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+        //        new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+        //        new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+        //        new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+        //        new SqlParameter("@ErrorCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+        //        new SqlParameter("@ErrorMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output }
+        //    };
+        //    return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
+        //}
+
+        public async Task<BeanzResponseDTO> PostAdvanceSalaryTypesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.PostMS_AdvanceSalaryTypes";
             SqlParameter[] _parameters =
@@ -77,7 +150,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<BeanzResponseDTO> DelAdvanceSalaryTypesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> DelAdvanceSalaryTypesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.DelMS_AdvanceSalaryTypes";
             SqlParameter[] _parameters =
@@ -96,7 +169,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<List<BeanzlookupDTO>> LookUpAdvanceSalaryTypesAsync(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpAdvanceSalaryTypesAsync(BeanzRequestDTO lookup)
         {
             string _sql = "hrms.LookupMS_AdvanceSalaryTypes";
             SqlParameter[] _parameters =
@@ -111,7 +184,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return data;
         }
 
-        public async Task<AdvanceSalaryTypeViewModel> GetInfoAdvanceSalaryTypesAsync(BeanzCommonDTO common)
+        public async Task<AdvanceSalaryTypeViewModel> GetInfoAdvanceSalaryTypesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.GetInfoMS_AdvanceSalaryTypes";
             SqlParameter[] paramList =
@@ -157,7 +230,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             }
         }
 
-        public async Task<AdvanceSalaryTypeViewModel> PrintAdvanceSalaryTypesAsync(BeanzCommonDTO common)
+        public async Task<AdvanceSalaryTypeViewModel> PrintAdvanceSalaryTypesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.PrintMS_AdvanceSalaryTypes";
             SqlParameter[] paramList =
@@ -203,7 +276,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             }
         }
 
-        public async Task<BeanzResponseDTO> ApproveAdvanceSalaryTypesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> ApproveAdvanceSalaryTypesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.ApproveMS_AdvanceSalaryTypes";
             SqlParameter[] _parameters =

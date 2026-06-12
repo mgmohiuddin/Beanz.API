@@ -15,10 +15,10 @@ namespace Beanz.DTOs.Common
         public string Json
         {
             get => _json;
-            set => _json = ConvertJsonToUpperCamelCase(value);
+            set => _json = ConvertJsonToLowCase(value);
 
         }
-        //public string Json        { get; set; }
+        public string Json2        { get; set; }
         public long? PrimaryKeyID { get; set; }
         public long? ForeignKeyID { get; set; }
         public long? CompanyID { get; set; }
@@ -53,6 +53,56 @@ namespace Beanz.DTOs.Common
             return newObj.ToString();
         }
 
+
+        private string ConvertJsonToLowCase(string json)
+        {
+            if (string.IsNullOrWhiteSpace(json))
+                return json;
+
+            JToken token = JToken.Parse(json);
+            RenameLowKeys(token);
+            return token.ToString();
+        }
+
+        private void RenameLowKeys(JToken token)
+        {
+            if (token is JObject obj)
+            {
+                var properties = obj.Properties().ToList();
+                foreach (var prop in properties)
+                {
+                    string newName = ToLowCase(prop.Name);
+                    if (newName != prop.Name)
+                    {
+                        var newProp = new JProperty(newName, prop.Value);
+                        prop.Replace(newProp);
+                        RenameLowKeys(newProp.Value);
+                    }
+                    else
+                    {
+                        RenameLowKeys(prop.Value);
+                    }
+                }
+            }
+            else if (token is JArray arr)
+            {
+                foreach (var item in arr)
+                    RenameLowKeys(item);
+            }
+        }
+        private string ToLowCase(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return name;
+            return name.ToLowerInvariant();
+        }
+        //private string ToLowCase(string name)
+        //{
+        //    if (string.IsNullOrEmpty(name) || char.IsLower(name[0]))
+        //        return name;
+
+        //    return char.ToLowerInvariant(name[0]) + name.Substring(1);
+        //}
 
         private string ConvertJsonToUpperCamelCase(string json)
         {

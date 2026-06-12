@@ -59,10 +59,20 @@ builder.Services.AddCors(o => o.AddPolicy("Open", p =>
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>()!;
 
+//// 👇 Resolve secret: appsettings.json → env var → throw
+//var secret = builder.Configuration["JwtSettings:Secret"]
+//    ?? Environment.GetEnvironmentVariable("JWT_SECRET")
+//    ?? throw new InvalidOperationException("JWT secret not configured");
+
+
+//jwtSettings.Secret = secret; // keep the bound object in sync
+
 var key = Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]!);
 
 builder.Services.AddSingleton<IJWTService, JWTService>();
 var keyBytes = Encoding.UTF8.GetBytes(jwtSettings.Secret);
+
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
       .AddJwtBearer(options =>
@@ -96,8 +106,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
- 
 
+ 
 
 
 ServiceConfig.Register(builder);
@@ -156,6 +166,8 @@ using (var scope = app.Services.CreateScope())
         var steps = new (string Name, Func<Task<GeneralResponseDTO>> Run)[]
         {
             ("Schema",                  () => ensureRepo.EnsureAuthSchemaAsync()),
+            ("AudSchema",               () => ensureRepo.EnsureAudSchemaAsync()),
+            ("AuditLog",                () => ensureRepo.EnsureAuditLogsTableAsync()),
             ("Users",                   () => ensureRepo.EnsureUsersTableAsync()),
             ("Roles",                   () => ensureRepo.EnsureRolesTableAsync()),
             ("UserRoles",               () => ensureRepo.EnsureUserRolesTableAsync()),
@@ -170,6 +182,7 @@ using (var scope = app.Services.CreateScope())
             ("UserCompanies",           () => ensureRepo.EnsureUserCompaniesTableAsync()),
             ("DefaultCompany",          () => ensureRepo.SeedDefaultCompanyAsync()),
             ("EndPointTable",           () => ensureRepo.EnsureSystemEndpointsTableAsync()),
+            ("EnsureUserTrigger",       () => ensureRepo.EnsureUsersEmailChangedTriggerAsync()),
 
         };
 

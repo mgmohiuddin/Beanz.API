@@ -185,6 +185,8 @@ namespace Beanz.Data.Services.AuthModule
                       END
                 
                 BEGIN
+                     DELETE [auth].[MFAOTPs] WHERE UserID= @UserID
+
                      INSERT INTO auth.MFAOTPs
                         (UserID, MFAToken, OTPHash, MFAType, Purpose, ExpireDate, IPAddress)
                     VALUES
@@ -224,29 +226,46 @@ namespace Beanz.Data.Services.AuthModule
             
              
         }
-        public async Task<UserMFA?> GetByUserIdAsync(int userId)
+        public async Task<UserMFA?> GetByUserIdAsync(int userId )
         {
-            string _sql = @"   
+            try
+            {
+                string _sql = @"   
                 BEGIN
                     SELECT TOP 1 UserMFAID, UserID, MFAType, SecretKey, IsEnabled, CreatedDate, ModifiedDate
-                            FROM auth.UserMFA WHERE IsEnabled=1 and IsActive=1 UserID = @UserID; 
+                            FROM auth.UserMFA WHERE    UserID = @UserID; 
                 END";
-            SqlParameter[] parameters =
-               {
-                    new SqlParameter("@UserID", SqlDbType.Int) { Value = userId }   
+                SqlParameter[] parameters =
+                   {
+                    new SqlParameter("@UserID", SqlDbType.Int) { Value = userId }
                 };
-            return await SQLDataAccessLayer.SingleBySqlAsync<UserMFA>(_sql, parameters);
-        }
 
+                return await SQLDataAccessLayer.SingleBySqlAsync<UserMFA>(
+                   _sql,
+                   new
+                   {
+                       UserID = userId
+                   });
+
+                //var result= await SQLDataAccessLayer.SingleBySqlAsync<UserMFA?>(_sql, parameters);
+
+                //return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
+        }
+        
         // Insert if missing, else update SecretKey + MFAType (does NOT auto-enable)
         public async Task<MFAOTPResponseDTO> UpsertAsync(UserMFA mfa)
         {
 
             try
             {
-                string _sql = @"  
- 
-                set @LanguageID= IsNull(@LanguageID,1)
+                string _sql = @"   
                 DECLARE                 
                 @MsgUserNotExists NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'User does not exist' ELSE N'المستخدم غير موجود' END,
                 @MsgEmailNotExists NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'Email address does not exist' ELSE N'أو الأفضل والأكثر استخدامًا في الأنظمة' END,
@@ -280,8 +299,8 @@ namespace Beanz.Data.Services.AuthModule
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("@UserID", SqlDbType.Int) { Value = mfa.UserID },
-                    new SqlParameter("@MFAToken", SqlDbType.NVarChar) { Value = mfa.SecretKey },
-                    new SqlParameter("@OTPHash", SqlDbType.NVarChar) { Value = mfa.IsEnabled },
+                    new SqlParameter("@SecretKey", SqlDbType.NVarChar) { Value = mfa.SecretKey },
+                    new SqlParameter("@IsEnabled", SqlDbType.NVarChar) { Value = mfa.IsEnabled },
                     new SqlParameter("@MFAType", SqlDbType.NVarChar) { Value = mfa.MFAType },
                     //new SqlParameter("@Purpose", SqlDbType.NVarChar) { Value = mfa.Purpose },
                     //new SqlParameter("@ExpireDate", SqlDbType.DateTime) { Value = mfa.ExpireDate },
@@ -332,7 +351,12 @@ namespace Beanz.Data.Services.AuthModule
             const string sql = @"
                                 UPDATE auth.UserMFA
                                    SET IsEnabled = @Enabled, ModifiedDate = SYSUTCDATETIME()
-                                 WHERE UserID = @UserID;";
+                                 WHERE UserID = @UserID;
+                                
+                                UPDATE auth.[Users]
+                                   SET [MFAEnabled] = @Enabled, ModifiedDate = SYSUTCDATETIME()
+                                 WHERE UserID = @UserID;
+                            ";
             SqlParameter[] parameters =
                {
                     new SqlParameter("@UserID", SqlDbType.Int) { Value = userId },

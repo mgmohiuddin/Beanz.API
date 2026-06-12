@@ -5,6 +5,7 @@ namespace Beanz.DTOs.Areas.BeanzSystem.Setup
 {
     public class SystemModuleDTO
     {
+        public string SystemType { get; set; }
         public int SystemModuleID { get; set; }
         public string SystemModuleCode { get; set; }
         public string SystemModuleName { get; set; }

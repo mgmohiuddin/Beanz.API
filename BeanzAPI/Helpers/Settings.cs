@@ -28,5 +28,6 @@
         public int LockoutMinutes { get; set; } = 15;
         public int OtpExpiryMinutes { get; set; } = 5;
         public int OtpMaxRetries { get; set; } = 3;
+        public string frontend { get;set; } = "";
     }
 }

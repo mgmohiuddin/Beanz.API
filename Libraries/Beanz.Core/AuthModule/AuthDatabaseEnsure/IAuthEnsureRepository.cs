@@ -13,7 +13,10 @@ namespace Beanz.Core.AuthModule.AuthDatabaseEnsure
     public interface IAuthEnsureRepository
     {
         Task<GeneralResponseDTO> EnsureAuthSchemaAsync();
-        Task<GeneralResponseDTO> EnsureUsersTableAsync();
+
+        Task<GeneralResponseDTO> EnsureAudSchemaAsync();
+        Task<GeneralResponseDTO> EnsureUsersTableAsync(); 
+        Task<GeneralResponseDTO> EnsureAuditLogsTableAsync();
         Task<GeneralResponseDTO> EnsureUserSessionsTableAsync();
         Task<GeneralResponseDTO> EnsureUserTokensTableAsync();
         Task<GeneralResponseDTO> EnsureRolesTableAsync();
@@ -30,7 +33,10 @@ namespace Beanz.Core.AuthModule.AuthDatabaseEnsure
 
         Task<GeneralResponseDTO> EnsureSystemEndpointsTableAsync();
         Task<GeneralResponseDTO> SeedDefaultCompanyAsync();
-        
+
+        Task<GeneralResponseDTO> EnsureUsersEmailChangedTriggerAsync();
+
+
 
     }
 }

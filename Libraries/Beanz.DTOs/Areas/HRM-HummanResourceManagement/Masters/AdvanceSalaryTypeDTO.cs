@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Beanz.DTOs.Areas.HummanResourceManagement.Masters
 {
     public class AdvanceSalaryTypeDTO
     {
         public int AdvanceSalaryTypeID { get; set; }
+        [Required] 
         public string AdvanceSalaryTypeCode { get; set; }
+
+        [Required]
         public string AdvanceSalaryTypeName { get; set; }
         public string AdvanceSalaryTypeAlias { get; set; }
         public int CompanyID { get; set; }

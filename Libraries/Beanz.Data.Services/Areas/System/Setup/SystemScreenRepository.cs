@@ -30,9 +30,8 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@CompanyID", SqlDbType.Int) { Value = common.CompanyID },
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
-                new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID }
+                new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID }, 
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
             var data = await DAL.GetObjectListWithParametersAsync<SystemScreenDTO>(_sql, _parameters);
             return data;
@@ -48,7 +47,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@Json", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
@@ -67,7 +66,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
@@ -86,7 +85,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
@@ -105,7 +104,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = lookup.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = lookup.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = lookup.LanguageID },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = lookup.PrimaryKeyID }
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = lookup.PrimaryKeyID }
             };
             var data = await DAL.GetObjectListWithParametersAsync<BeanzlookupDTO>(_sql, _parameters);
             return data;
@@ -121,7 +120,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID }
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
 
             DynamicParameters p = new DynamicParameters();
@@ -167,7 +166,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
                 new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID }
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
 
             DynamicParameters p = new DynamicParameters();
@@ -212,7 +211,7 @@ namespace Beanz.Data.Services.Areas.BeanzSystem.Setup
                 new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID },
                 new SqlParameter("@Type", SqlDbType.Int) { Value = common.Type },
                 new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID },
-                new SqlParameter("@SystemScreenID", SqlDbType.Int) { Value = common.PrimaryKeyID },
+                new SqlParameter("@PrimaryKeyID", SqlDbType.Int) { Value = common.PrimaryKeyID },
                 new SqlParameter("@ResponseID", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseCode", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
                 new SqlParameter("@ResponseMessage", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },

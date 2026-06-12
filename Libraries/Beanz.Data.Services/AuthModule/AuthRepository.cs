@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Beanz.Data.Services.AuthModule
@@ -70,6 +72,7 @@ namespace Beanz.Data.Services.AuthModule
                     IF (@UserName = 'Administrator')
                     BEGIN
                         UPDATE [auth].[Users] SET [EmailVerified]=1 WHERE UserID= @UserID
+
                         INSERT INTO [auth].[UserCompanies] (UserID,CompanyID,CreatedBy) Values (@UserID, 1 ,@UserID )
                     END
 
@@ -212,7 +215,27 @@ namespace Beanz.Data.Services.AuthModule
             WHERE UserID = @userId;",
                 new { userId, maxFailedAttempts, lockoutMinutes });
         }
-       
+
+
+        public async Task<IEnumerable<UserMenu>> GetUserMenuAsync(BeanzRequestDTO common)
+        {
+            string sql = @"ses.GetMenuTree";
+
+            return await SQLDataAccessLayer.ListBySpAsync<UserMenu>(
+               sql,
+               new
+               {
+                   UserID = common.UserID
+               });
+
+            //return (await SQLDataAccessLayer.ListBySqlAsync<UserCompanies>(
+            //       sql,
+            //       new
+            //       {
+            //           UserID = common.UserID
+            //       })).ToList();
+        }
+
         //public async Task<AuthSignInResponseDTO> SignInAsync(AuthSignInRequestDTO authSignInRequestDTO)
         //{
         //    try
@@ -236,7 +259,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = SignIn.CompanyID
         //        },
-        //          new SqlParameter("@UserID", SqlDbType.BigInt)
+        //          new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = SignIn.UserID
         //        },
@@ -282,7 +305,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = common.CompanyID
         //        },
-        //        new SqlParameter("@UserID", SqlDbType.BigInt)
+        //        new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = common.UserID
         //        },
@@ -309,7 +332,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = SignIn.CompanyID
         //        },
-        //          new SqlParameter("@UserID", SqlDbType.BigInt)
+        //          new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = SignIn.UserID
         //        },
@@ -336,7 +359,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = common.CompanyID
         //        },
-        //          new SqlParameter("@UserID", SqlDbType.BigInt)
+        //          new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = common.UserID
         //        },
@@ -377,7 +400,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = common.CompanyID
         //        },
-        //          new SqlParameter("@UserID", SqlDbType.BigInt)
+        //          new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = common.UserID
         //        },
@@ -423,7 +446,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = common.CompanyID
         //        },
-        //        new SqlParameter("@UserID", SqlDbType.BigInt)
+        //        new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = common.UserID
         //        },
@@ -458,7 +481,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = SignIn.CompanyID
         //        },
-        //          new SqlParameter("@UserID", SqlDbType.BigInt)
+        //          new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = SignIn.UserID
         //        },
@@ -485,7 +508,7 @@ namespace Beanz.Data.Services.AuthModule
         //        {
         //            Value = common.CompanyID
         //        },
-        //        new SqlParameter("@UserID", SqlDbType.BigInt)
+        //        new SqlParameter("@UserID", SqlDbType.INT)
         //        {
         //            Value = common.UserID
         //        },
@@ -505,7 +528,30 @@ namespace Beanz.Data.Services.AuthModule
 
         //}
 
+        //public async Task<ForgetPasswordRequestResponseDTO> ForgetPasswordRequestAsync(string email, int langId)
+        //{
+        //    var lookup = await _passwordResetTokenRepository.ForgetPasswordRequestAsync(email, langId);
+        //    if (!lookup.Success) return lookup;
 
+        //    // generate raw token + hash
+        //    var rawBytes = RandomNumberGenerator.GetBytes(48);
+        //    var rawToken = Convert.ToBase64String(rawBytes).Replace("+", "-").Replace("/", "_").TrimEnd('=');
+        //    var hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes(rawToken));
+        //    var tokenHash = Convert.ToBase64String(hashBytes);
+
+        //    await _passwordResetTokenRepository.SavePasswordResetTokenAsync(new SavePasswordResetTokenDTO
+        //    {
+        //        UserID = lookup.UserID,
+        //        TokenHash = tokenHash,
+        //        ExpiresAt = DateTime.UtcNow.AddHours(1),
+        //        LanguageID = langId
+        //    });
+
+        //    var link = $"{_uiBaseUrl}/reset-password?email={Uri.EscapeDataString(email)}&token={rawToken}";
+        //    await _emailService.SendPasswordResetAsync(email, lookup.FullName, link);
+
+        //    return lookup;
+        //}
 
 
     }

@@ -12,6 +12,9 @@ namespace Beanz.DTOs.AuthModule.TotpDTOs
         [Required]
         public int UserID { get; set; }
 
+        [Required]
+        public string mfaToken { get; set; }
+
         [Required, RegularExpression("^[0-9]{6}$", ErrorMessage = "Code must be 6 digits.")]
         public string Code { get; set; } = "";
     }

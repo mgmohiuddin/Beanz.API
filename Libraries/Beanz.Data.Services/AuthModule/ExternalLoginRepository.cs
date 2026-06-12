@@ -15,7 +15,7 @@ namespace Beanz.Data.Services.AuthModule
     {
         private readonly string _cs;
         public ExternalLoginRepository(IConfiguration cfg)
-            => _cs = cfg.GetConnectionString("DefaultConnection")!;
+            => _cs = cfg.GetConnectionString("SqlConnectionString")!;
 
         public async Task<(User user, bool isNew)> UpsertExternalUserAsync(
             string provider, string providerUserId,
@@ -29,20 +29,21 @@ namespace Beanz.Data.Services.AuthModule
             const string findByLink = @"
             SELECT u.*
             FROM   auth.Users u
-            JOIN   auth.ExternalLogins e ON e.UserID = u.UserID
-            WHERE  e.Provider = @provider AND e.ProviderUserId = @providerUserId
+            JOIN   auth.ExternalLogins e ON e.UserID = u.UserID and e.email=u.EmailAddress
+            WHERE  e.Provider = @provider AND e.ProviderUserId = @providerUserId and e.email=@email
               AND  u.IsDeleted = 0;";
             var linked = await c.QuerySingleOrDefaultAsync<User>(findByLink,
-                new { provider, providerUserId }, tx);
+                new { provider, providerUserId ,email}, tx);
 
             if (linked is not null)
             {
                 await c.ExecuteAsync(@"UPDATE auth.ExternalLogins
-                                   SET UpdatedAtUtc = SYSUTCDATETIME(),
+                                   SET ModifiedDate = SYSUTCDATETIME(),
                                        Email        = COALESCE(@email,       Email),
                                        DisplayName  = COALESCE(@displayName, DisplayName),
                                        PictureUrl   = COALESCE(@pictureUrl,  PictureUrl)
-                                   WHERE Provider = @provider AND ProviderUserId = @providerUserId;",
+                                   WHERE Provider = @provider AND ProviderUserId = @providerUserId
+                                        AND Email = @email    ;",
                     new { provider, providerUserId, email, displayName, pictureUrl }, tx);
                 tx.Commit();
                 return (linked, false);
@@ -84,7 +85,7 @@ namespace Beanz.Data.Services.AuthModule
                 // Assign default 'User' role
                 await c.ExecuteAsync(@"
                 INSERT INTO auth.UserRoles (UserID, RoleID)
-                SELECT @uid, RoleID FROM auth.Roles WHERE Name = 'User';",
+                SELECT @uid, RoleID FROM auth.Roles WHERE RoleName = 'User';",
                     new { uid = user.UserID }, tx);
             }
 
@@ -92,7 +93,7 @@ namespace Beanz.Data.Services.AuthModule
             await c.ExecuteAsync(@"
             INSERT INTO auth.ExternalLogins
                 (UserID, Provider, ProviderUserId, Email, DisplayName, PictureUrl,
-                 CreatedAtUtc, UpdatedAtUtc)
+                 CreatedDate, ModifiedDate)
             VALUES
                 (@uid, @provider, @providerUserId, @email, @displayName, @pictureUrl,
                  SYSUTCDATETIME(), SYSUTCDATETIME());",

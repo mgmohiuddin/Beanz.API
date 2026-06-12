@@ -22,7 +22,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             _mapper = mapper;
         }
 
-        public async Task<List<AllowanceDTO>> GetAllowancesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseObjectDTO<List<AllowanceDTO>>> GetAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.GetMS_Allowances";
             SqlParameter[] _parameters =
@@ -34,11 +34,21 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
                 new SqlParameter("@JSon", SqlDbType.NVarChar) { Value = common.Json },
                 new SqlParameter("@AllowanceID", SqlDbType.Int) { Value = common.PrimaryKeyID }
             };
-            var data = await DAL.GetObjectListWithParametersAsync<AllowanceDTO>(_sql, _parameters);
-            return data;
+            //try
+            //{
+                var data = await DAL.GetObjectListWithParametersAsync<AllowanceDTO>(_sql, _parameters);
+                return BeanzResponseObjectDTO<List<AllowanceDTO>>.Ok(data ?? new List<AllowanceDTO>());
+            //}
+            //catch (Exception ex)
+            //{
+              //  return BeanzResponseObjectDTO<List<AllowanceDTO>>.Fail(ex.Message, "ERR_DB", 500);
+            //}
+            //var data = await DAL.GetObjectListWithParametersAsync<AllowanceDTO>(_sql, _parameters);
+            //return BeanzResponseObjectDTO<List<AllowanceDTO>>.Ok(data ?? new List<AllowanceDTO>());
+            //return data;
         }
 
-        public async Task<BeanzResponseDTO> SetAllowancesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> SetAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.SetMS_Allowances";
             SqlParameter[] _parameters =
@@ -58,7 +68,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<BeanzResponseDTO> PostAllowancesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> PostAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.PostMS_Allowances";
             SqlParameter[] _parameters =
@@ -77,7 +87,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<BeanzResponseDTO> DelAllowancesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> DelAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.DelMS_Allowances";
             SqlParameter[] _parameters =
@@ -96,7 +106,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return await SQLDataAccessLayer.MultipleOutputBySpAsync<BeanzResponseDTO>(_sql, _parameters);
         }
 
-        public async Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzRequestDTO lookup)
         {
             string _sql = "hrms.LookupMS_Allowances";
             SqlParameter[] _parameters =
@@ -111,7 +121,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             return data;
         }
 
-        public async Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzCommonDTO common)
+        public async Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.GetInfoMS_Allowances";
             SqlParameter[] paramList =
@@ -157,7 +167,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             }
         }
 
-        public async Task<AllowanceViewModel> PrintAllowancesAsync(BeanzCommonDTO common)
+        public async Task<AllowanceViewModel> PrintAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.PrintMS_Allowances";
             SqlParameter[] paramList =
@@ -203,7 +213,7 @@ namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
             }
         }
 
-        public async Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzRequestDTO common)
         {
             string _sql = "hrms.ApproveMS_Allowances";
             SqlParameter[] _parameters =

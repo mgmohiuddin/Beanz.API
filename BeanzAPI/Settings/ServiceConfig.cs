@@ -1,23 +1,23 @@
 ﻿ 
-using Beanz.Core.AuthModule;
-using Beanz.Core.AuthModule.AuthDatabaseEnsure;
-using Beanz.Core.BeanzRoutes;
-using Beanz.Data.Services.AuthModule;
-using Beanz.Data.Services.AuthModule.AuthDatabaseEnsure;
-using Beanz.Data.Services.BeanzRoutes;
-using Beanz.DTOs.Common; 
 using Beanz.API.Filters;
 using Beanz.API.Helpers;
 using Beanz.API.Interfaces;
 using Beanz.API.Mapper; 
 using Beanz.API.Security;
-using Beanz.API.Settings; 
 using Beanz.API.Services;
 using Beanz.API.Services.ExternalServices;
+using Beanz.API.Settings; 
 using Beanz.API.StartupConfig;
-
-
-
+using Beanz.Core.Areas.BeanzSystem.Setup;
+using Beanz.Core.AuthModule;
+using Beanz.Core.AuthModule.AuthDatabaseEnsure;
+using Beanz.Core.BeanzRoutes;
+using Beanz.Data.Services.Areas.BeanzSystem.Setup;
+using Beanz.Data.Services.AuthModule;
+using Beanz.Data.Services.AuthModule.AuthDatabaseEnsure;
+using Beanz.Data.Services.BeanzRoutes;
+using Beanz.DTOs.Common; 
+using Beanz.Models.Areas.BeanzSystem.Setup.Objects;
 //using Beanz.API.StartupConfig.ExertERP.Reports;
 using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
@@ -144,6 +144,8 @@ namespace Beanz.API
             services.AddScoped<IBeanzRepository, BeanzRepository>();
             services.AddScoped<IBeanzPermissionRepository, BeanzPermissionRepository>();
             services.AddScoped<ITotpService, TotpService>();
+            services.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
+            
 
             StartupConfig.BeanzSystem.Setup.ses_Setup.Register(services);
 
@@ -151,6 +153,8 @@ namespace Beanz.API
             StartupConfig.HummanResourceManagement.Masters.hrms_Masters.Register(services);
             StartupConfig.HummanResourceManagement.Policies.hrms_Policies.Register(services);
             StartupConfig.HummanResourceManagement.Statuses.hrms_Statuses.Register(services);
+
+            StartupConfig.HummanResourceManagement.Masters.Business.hrms_Masters_Business.Register(services);
         }
 
         public static void Registerd(WebApplicationBuilder builder)

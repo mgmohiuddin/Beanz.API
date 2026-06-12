@@ -81,6 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceDTO.cs" />
     <Compile Remove="AuthModule\ExternalDTOs\AppleSignInDTO.cs" />
     <Compile Remove="AuthModule\ExternalDTOs\ExternalAccessTokenDTO.cs" />
     <Compile Remove="AuthModule\ExternalDTOs\ExternalIdTokenDTO.cs" />

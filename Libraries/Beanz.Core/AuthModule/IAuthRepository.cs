@@ -20,7 +20,6 @@ namespace Beanz.Core.AuthModule
         Task UpdateLoginFailureAsync(int? userId, int maxFailedAttempts, int lockoutMinutes);
 
         Task<IEnumerable<UserCompanies>> GetUserCompanyAsync(User user);
-       
         //Task SignUp(SignUpDTO signUpDTO);
         //Task<AuthResponseDTO> SignOutAsync(AuthSignOutDTO common);
         //Task<AuthResponseDTO> ForgetPasswordAsync(AuthForgetPasswordDTO common);
@@ -30,6 +29,8 @@ namespace Beanz.Core.AuthModule
         //Task<AuthResponseDTO> UnLockUserAsync(AuthForgetPasswordDTO common);
         //Task<AuthResponseDTO> LoginAttemptsAsync(AuthSignInDTO common);
 
+
+        Task<IEnumerable<UserMenu>> GetUserMenuAsync(BeanzRequestDTO user);
 
     }
 }

@@ -57,7 +57,8 @@ namespace Beanz.API.Services
             var totp = new Totp(secretBytes, step: 30, mode: OtpHashMode.Sha1, totpSize: 6);
 
             // VerificationWindow(1,1) = allow ±30s clock drift between server and phone.
-            return totp.VerifyTotp(code, out _, new VerificationWindow(previous: 1, future: 1));
+            return totp.VerifyTotp(code, out _, new VerificationWindow(previous: 1, future: 0));
+            //return totp.VerifyTotp(code, out _, new VerificationWindow.RfcSpecifiedNetworkDelay);
         }
     }
 }

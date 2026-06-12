@@ -43,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceRepository.cs" />
     <Compile Remove="AuthModule\AuthService.cs" />
     <Compile Remove="AuthModule\ExternalLoginRepositoryOld.cs" />
   </ItemGroup>

@@ -66,6 +66,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowancesController.cs" />
     <Compile Remove="Controllers\CodeGeneratorController.cs" />
     <Compile Remove="Controllers\General\UISettingController.cs" />
     <Compile Remove="Controllers\LoginController.cs" />
@@ -87,6 +88,10 @@
     <Compile Remove="Validations\BrandValidations.cs" />
     <Compile Remove="Validations\SCMCommonValidations.cs" />
     <Compile Remove="Validations\ValidationRules.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".config\ui-settings.json" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,7 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
         private static BeanzResponseDTO Fail(string code, string message)
             => new BeanzResponseDTO { ErrorCode = code, ErrorMessage = message };
 
-        private static BeanzResponseDTO ValidateContext(BeanzCommonDTO common)
+        private static BeanzResponseDTO ValidateContext(BeanzRequestDTO common)
         {
             if (common == null)
                 return Fail("ERR001", "Request payload is required.");
@@ -33,7 +33,7 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
             return null;
         }
 
-        private static BeanzResponseDTO ValidateKey(BeanzCommonDTO common)
+        private static BeanzResponseDTO ValidateKey(BeanzRequestDTO common)
         {
             var ctx = ValidateContext(common);
             if (ctx != null) return ctx;
@@ -43,14 +43,14 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
         }
 
         // ---------- Methods ----------
-        public Task<List<AllowanceDTO>> GetAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseObjectDTO<List<AllowanceDTO>>> GetAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateContext(common);
-            if (ctx != null) return Task.FromResult(new List<AllowanceDTO>());
+            if (ctx != null) return Task.FromResult(new BeanzResponseObjectDTO<List<AllowanceDTO>>());
             return _repository.GetAllowancesAsync(common);
         }
 
-        public async Task<BeanzResponseDTO> SetAllowancesAsync(BeanzCommonDTO common)
+        public async Task<BeanzResponseDTO> SetAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateContext(common);
             if (ctx != null) return ctx;
@@ -78,38 +78,38 @@ namespace Beanz.Business.Areas.HummanResourceManagement.Masters
             return await _repository.SetAllowancesAsync(common);
         }
 
-        public Task<BeanzResponseDTO> PostAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseDTO> PostAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateKey(common);
             if (ctx != null) return Task.FromResult(ctx);
             return _repository.PostAllowancesAsync(common);
         }
 
-        public Task<BeanzResponseDTO> DelAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseDTO> DelAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateKey(common);
             if (ctx != null) return Task.FromResult(ctx);
             return _repository.DelAllowancesAsync(common);
         }
 
-        public Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzCommonDTO common)
+        public Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateContext(common);
             if (ctx != null) return Task.FromResult(new AllowanceViewModel());
             return _repository.GetInfoAllowancesAsync(common);
         }
 
-        public Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzCommonDTO lookup)
+        public Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzRequestDTO lookup)
             => _repository.LookUpAllowancesAsync(lookup);
 
-        public Task<AllowanceViewModel> PrintAllowancesAsync(BeanzCommonDTO common)
+        public Task<AllowanceViewModel> PrintAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateKey(common);
             if (ctx != null) return Task.FromResult(new AllowanceViewModel());
             return _repository.PrintAllowancesAsync(common);
         }
 
-        public Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzCommonDTO common)
+        public Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzRequestDTO common)
         {
             var ctx = ValidateKey(common);
             if (ctx != null) return Task.FromResult(ctx);

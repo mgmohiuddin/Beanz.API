@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Beanz.Core.AuthModule;
 using Beanz.Data.Services.DataAccessLayer;
+using Beanz.DTOs.Auth;
 using Beanz.DTOs.AuthModule.RequestResponse.Response;
+using Beanz.DTOs.Common;
 using Beanz.Models.AuthModule;
 using Beanz.Utilities;
 using Newtonsoft.Json.Linq;
@@ -172,6 +174,150 @@ namespace Beanz.Data.Services.AuthModule
             return await SQLDataAccessLayer.SingleBySqlAsync<User>(
                 "SELECT TOP 1 * FROM auth.Users WHERE UserID = @userId AND IsDeleted = 0;",
                 new { userId=_userId });
+        }
+
+        
+        public async Task<User?> GetByEmailAsync(string _email)
+        {
+
+            return await SQLDataAccessLayer.SingleBySqlAsync<User>(
+                "SELECT TOP 1 * FROM auth.Users WHERE EmailAddress = @EmailAddress AND IsDeleted = 0;",
+                new { EmailAddress = _email });
+        }
+
+        public async Task<AuthSignupResponseDTO> ChangePasswordAsync(int? userId, string passwordHash)
+        {
+            //using var conn = Connection;
+            //const string sql = @"
+            //INSERT INTO auth.EmailVerificationTokens
+            //    (UserID, Token, EmailAddress, ExpireDate, IPAddress)
+            //VALUES (@UserID, @Token, @EmailAddress, @ExpireDate, @IPAddress);";
+            //return await conn.ExecuteAsync(sql, token);
+
+            try
+            {
+                string _sql = @"                
+                set @LanguageID= IsNull(@LanguageID,1)
+                DECLARE                 
+                @MsgUserNotExists NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'User does not exist' ELSE N'المستخدم غير موجود' END,
+                @MsgEmailNotExists NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'Email address does not exist' ELSE N'أو الأفضل والأكثر استخدامًا في الأنظمة' END,
+                @MsgEmailVerificationTokenSuccess NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'Verification token has been generated and sent to the email successfully' ELSE N'تم إنشاء رمز التحقق وإرساله بنجاح' END;
+                
+                IF NOT EXISTS (SELECT 1 FROM auth.Users WHERE  UserID=@UserID)
+                      BEGIN
+                        set @Success=0
+                        set @Message=@MsgUserNotExists
+                        RETURN;
+                      END
+              
+                BEGIN
+                    UPDATE auth.Users
+                    SET 
+                        PasswordHash = @PasswordHash,
+                        LastPasswordChangedDate = SYSUTCDATETIME(),
+                        ModifiedDate = SYSUTCDATETIME(),
+                        FailedLoginAttempts = 0,
+                        IsLocked = 0,
+                        LockoutEndDate = NULL
+                    WHERE UserID = @UserID
+                      AND IsDeleted = 0;
+
+                    SET @EmailVerificationTokenID = SCOPE_IDENTITY();
+                    set @Success=1 
+                    SET @Message =@MsgEmailVerificationTokenSuccess
+                END";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@UserID", SqlDbType.Int) { Value = userId },
+                    new SqlParameter("@PasswordHash",SqlDbType.NVarChar){Value=passwordHash},
+                    new SqlParameter("@LanguageID", SqlDbType.Int) { Value = 1 } ,
+
+                    // output params: set Direction and (recommended) Size for nvarchar
+                    new SqlParameter("@Success", SqlDbType.Bit, 50) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@Message", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@EmailVerificationTokenID", SqlDbType.Int) { Direction = ParameterDirection.Output }
+                };
+                return await SQLDataAccessLayer.MultipleOutputBySqlAsync<AuthSignupResponseDTO>(_sql, parameters);
+
+
+            }
+            catch (Exception ex)
+            {
+                AuthSignupResponseDTO authSignupResponseDTO = new AuthSignupResponseDTO();
+                authSignupResponseDTO.Success = false;
+                authSignupResponseDTO.Message = ex.Message;
+                return authSignupResponseDTO;
+            }
+        }
+
+     
+        public async Task<ForgetPasswordRequestResponseDTO> SavePasswordResetTokenAsync(SavePasswordResetTokenDTO common)
+        {
+           
+            try
+            {
+                string _sql = @"                
+                set @LanguageID= IsNull(@LanguageID,1)
+                DECLARE                 
+                @MsgUserNotExists NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'User does not exist' ELSE N'المستخدم غير موجود' END,
+                @MsgEmailNotExists NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'Email address does not exist' ELSE N'أو الأفضل والأكثر استخدامًا في الأنظمة' END,
+                @MsgEmailVerificationTokenSuccess NVARCHAR(200) = CASE WHEN @LanguageID = 1 THEN N'Verification token has been generated and sent to the email successfully' ELSE N'تم إنشاء رمز التحقق وإرساله بنجاح' END;
+                
+                
+                IF NOT EXISTS (SELECT 1 FROM auth.Users WHERE  UserID=@UserID)
+                      BEGIN
+                        set @Success=0
+                        set @Message=@MsgUserNotExists
+                        RETURN;
+                      END
+                IF NOT EXISTS (SELECT 1 FROM auth.Users WHERE EmailAddress = @EmailAddress)
+                    BEGIN
+                        set @Success=0 
+                        set @Message=@MsgEmailNotExists
+                        RETURN
+                    END
+                BEGIN
+                    DELETE [auth].[PasswordResetTokens] where EmailAddress=@EmailAddress
+                    INSERT INTO [auth].[PasswordResetTokens]
+                        (UserID, Token, EmailAddress, ExpireDate)
+                    VALUES
+                        (@UserID, @Token, @EmailAddress, @ExpireDate)
+
+                    SET @TokenID = SCOPE_IDENTITY();
+                    set @Success=1 
+                    SET @Message =@MsgEmailVerificationTokenSuccess
+                END";
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter("@UserID", SqlDbType.Int) { Value = common.UserID }, 
+                    new SqlParameter("@Token", SqlDbType.NVarChar) { Value = common.TokenHash },
+                    new SqlParameter("@EmailAddress", SqlDbType.NVarChar) { Value = common.EmailAddress },
+                    new SqlParameter("@ExpireDate", SqlDbType.NVarChar) { Value = common.ExpiresAt }, 
+                    new SqlParameter("@LanguageID", SqlDbType.Int) { Value = common.LanguageID } ,
+
+                    // output params: set Direction and (recommended) Size for nvarchar
+                    new SqlParameter("@Success", SqlDbType.Bit, 50) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@Message", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@TokenID", SqlDbType.Int) { Direction = ParameterDirection.Output }
+                };
+                return await SQLDataAccessLayer.MultipleOutputBySqlAsync<ForgetPasswordRequestResponseDTO>(_sql, parameters);
+
+
+            }
+            catch (Exception ex)
+            {
+                ForgetPasswordRequestResponseDTO authSignupResponseDTO = new ForgetPasswordRequestResponseDTO();
+                authSignupResponseDTO.Success = false;
+                authSignupResponseDTO.Message = ex.Message;
+                return authSignupResponseDTO;
+            }
+        }
+
+
+        public async Task<PasswordResetToken?> GetPasswordResetTokenAsync(string token)
+        {
+            return await SQLDataAccessLayer.SingleBySqlAsync<PasswordResetToken>(
+                "SELECT TOP 1 * FROM auth.PasswordResetTokens WHERE IsDeleted=0 and IsActive=1 and Token = @token;", new { token });
         }
     }
 }

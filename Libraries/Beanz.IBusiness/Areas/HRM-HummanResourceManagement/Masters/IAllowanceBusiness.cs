@@ -8,13 +8,13 @@ namespace Beanz.IBusiness.Areas.HummanResourceManagement.Masters
 {
     public interface IAllowanceBusiness
     {
-        Task<List<AllowanceDTO>> GetAllowancesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> SetAllowancesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> PostAllowancesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> DelAllowancesAsync(BeanzCommonDTO common);
-        Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzCommonDTO common);
-        Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzCommonDTO lookup);
-        Task<AllowanceViewModel> PrintAllowancesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzCommonDTO common);
+        Task<BeanzResponseObjectDTO<List<AllowanceDTO>>> GetAllowancesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> SetAllowancesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> PostAllowancesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> DelAllowancesAsync(BeanzRequestDTO common);
+        Task<AllowanceViewModel> GetInfoAllowancesAsync(BeanzRequestDTO common);
+        Task<List<BeanzlookupDTO>> LookUpAllowancesAsync(BeanzRequestDTO lookup);
+        Task<AllowanceViewModel> PrintAllowancesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> ApproveAllowancesAsync(BeanzRequestDTO common);
     }
 }

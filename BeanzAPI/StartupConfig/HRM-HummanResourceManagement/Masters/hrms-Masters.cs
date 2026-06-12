@@ -10,7 +10,7 @@ namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters
         public static void Register(IServiceCollection services)
         {
             services.AddScoped<IAdvanceSalaryTypeRepository, AdvanceSalaryTypeRepository>();
-            services.AddScoped<IAllowanceRepository, AllowanceRepository>();
+            //services.AddScoped<IAllowanceRepository, AllowanceRepository>();
             services.AddScoped<IAllowancesGroupRepository, AllowancesGroupRepository>();
             services.AddScoped<IAllowanceTypeRepository, AllowanceTypeRepository>();
             services.AddScoped<IAssetTypeRepository, AssetTypeRepository>();
@@ -46,7 +46,7 @@ namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters
             services.AddScoped<IVisaTypeRepository, VisaTypeRepository>();
             services.AddScoped<IWeekDayRepository, WeekDayRepository>();
             services.AddScoped<IWorkProfessionRepository, WorkProfessionRepository>();
-            services.AddScoped<IAllowanceBusiness, AllowanceBusiness>();
+            //services.AddScoped<IAllowanceBusiness, AllowanceBusiness>();
         }
     }
 }

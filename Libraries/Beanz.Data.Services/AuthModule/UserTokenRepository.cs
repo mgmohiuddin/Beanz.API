@@ -31,7 +31,7 @@ namespace Beanz.Data.Services.AuthModule
             VALUES
                 (@UserID, @JWTID, @AccessToken, @RefreshToken, @IssueDate, @ExpireDate,
                  0, 0, @DeviceInfo, @IPAddress);
-            SELECT CAST(SCOPE_IDENTITY() AS BIGINT);";
+            SELECT CAST(SCOPE_IDENTITY() AS INT);";
             return await conn.ExecuteScalarAsync<long>(sql, token);
         }
 

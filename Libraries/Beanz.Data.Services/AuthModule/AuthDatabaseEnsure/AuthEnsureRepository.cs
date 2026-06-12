@@ -52,6 +52,178 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
             }
         }
 
+        public async Task<GeneralResponseDTO> EnsureAudSchemaAsync()
+        {
+            try
+            {
+                const string sql = @"
+                                    IF NOT EXISTS (SELECT 1 FROM sys.schemas WHERE name = N'aud')
+                                        BEGIN
+                                            EXEC('CREATE SCHEMA [aud] AUTHORIZATION [dbo];');
+                                        END
+                                    set @Success=1
+                                    ";
+                SqlParameter[] parameters =
+              { 
+                    //// output params: set Direction and (recommended) Size for nvarchar
+                    new SqlParameter("@Success", SqlDbType.Bit, 50) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@Message", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+                };
+                return await SQLDataAccessLayer.MultipleOutputBySqlAsync<GeneralResponseDTO>(sql, parameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<GeneralResponseDTO> EnsureAuditLogsTableAsync()
+        {
+            try
+            {
+                const string sql = @"
+                                    IF NOT EXISTS (
+                                        SELECT 1
+                                        FROM sys.schemas
+                                        WHERE name = 'aud'
+                                    )
+                                    BEGIN
+                                        EXEC('CREATE SCHEMA [aud]');
+                                    END;
+
+                                    IF NOT EXISTS (
+                                        SELECT 1
+                                        FROM sys.tables t
+                                        INNER JOIN sys.schemas s
+                                            ON t.schema_id = s.schema_id
+                                        WHERE s.name = 'aud'
+                                          AND t.name = 'AuditLogs'
+                                    )
+                                    BEGIN
+                                        CREATE TABLE [aud].[AuditLogs]
+                                        (
+                                            [AuditLogID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+
+                                            [SchemaName] NVARCHAR(200) NULL,
+                                            [TableName] NVARCHAR(200) NULL,
+                                            [PrimaryKeyValue] NVARCHAR(500) NULL,
+                                            [ActionType] NVARCHAR(10) NULL,
+
+                                            [OldData] NVARCHAR(MAX) NULL,
+                                            [NewData] NVARCHAR(MAX) NULL,
+
+                                            [HostName] NVARCHAR(200) NULL,
+                                            [AppName] NVARCHAR(200) NULL,
+
+                                            [CompanyID] INT NULL,
+                                            [UserID] INT NULL,
+
+                                            [CreatedDate] DATETIME NULL DEFAULT(GETDATE()),
+                                            [CreatedBy] INT NULL,
+
+                                            [ModifiedDate] DATETIME NULL,
+                                            [ModifiedBy] INT NULL,
+
+                                            [ApprovedDate] DATETIME NULL,
+                                            [ApprovedBy] INT NULL,
+
+                                            [PostedDate] DATETIME NULL,
+                                            [PostedBy] INT NULL,
+
+                                            [DeletedDate] DATETIME NULL,
+                                            [DeletedBy] INT NULL,
+
+                                            [IsActive] BIT NULL DEFAULT(1),
+                                            [IsApproved] BIT NULL DEFAULT(0),
+                                            [IsPosted] BIT NULL DEFAULT(0),
+                                            [IsDeleted] BIT NULL DEFAULT(0),
+
+                                            [ChangedBy] INT NULL
+                                        );
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Companies]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_CompanyID')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_CompanyID]
+                                        FOREIGN KEY ([CompanyID])
+                                        REFERENCES [auth].[Companies]([CompanyID]);
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Users]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_UserID')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_UserID]
+                                        FOREIGN KEY ([UserID])
+                                        REFERENCES [auth].[Users]([UserID]);
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Users]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_CreatedBy')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_CreatedBy]
+                                        FOREIGN KEY ([CreatedBy])
+                                        REFERENCES [auth].[Users]([UserID]);
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Users]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_ModifiedBy')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_ModifiedBy]
+                                        FOREIGN KEY ([ModifiedBy])
+                                        REFERENCES [auth].[Users]([UserID]);
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Users]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_ApprovedBy')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_ApprovedBy]
+                                        FOREIGN KEY ([ApprovedBy])
+                                        REFERENCES [auth].[Users]([UserID]);
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Users]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_PostedBy')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_PostedBy]
+                                        FOREIGN KEY ([PostedBy])
+                                        REFERENCES [auth].[Users]([UserID]);
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[Users]', 'U') IS NOT NULL
+                                    AND NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_AuditLogs_DeletedBy')
+                                    BEGIN
+                                        ALTER TABLE [aud].[AuditLogs]
+                                        ADD CONSTRAINT [FK_AuditLogs_DeletedBy]
+                                        FOREIGN KEY ([DeletedBy])
+                                        REFERENCES [auth].[Users]([UserID]);
+                                    END;
+                                     set @Success=1
+                                    ";
+                SqlParameter[] parameters =
+               { 
+                    //// output params: set Direction and (recommended) Size for nvarchar
+                    new SqlParameter("@Success", SqlDbType.Bit, 50) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@Message", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+                };
+                var cleaned = System.Text.RegularExpressions.Regex.Replace(sql, @"^\s*GO\s*$", "", System.Text.RegularExpressions.RegexOptions.Multiline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+                return await SQLDataAccessLayer.MultipleOutputBySqlAsync<GeneralResponseDTO>(cleaned, parameters);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
         public async Task<GeneralResponseDTO> EnsureUsersTableAsync()
         {
             try
@@ -75,36 +247,36 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                                         CREATE TABLE [auth].[Users]
                                         (
                                             [UserID] [int] IDENTITY(1,1) NOT NULL,
-                                            [UserGuid] [uniqueidentifier] NOT NULL,
-                                            [UserName] [nvarchar](100) NOT NULL,
-                                            [FullName] [nvarchar](200) NOT NULL,
-                                            [EmailAddress] [nvarchar](256) NOT NULL,
-                                            [PasswordHash] [nvarchar](500) NULL,
-                                            [PasswordSalt] [nvarchar](500) NULL,
-                                            [MobileNumber] [nvarchar](20) NULL,
-                                            [CountryCode] [nvarchar](10) NULL,
-                                            [ProfilePictureUrl] [nvarchar](1000) NULL,
-                                            [AvatarUrl] [nvarchar](1000) NULL,
-                                            [AvatarName] [nvarchar](100) NULL,
-                                            [Gender] [nvarchar](20) NULL,
-                                            [DateOfBirth] [date] NULL,
-                                            [PreferredLanguage] [nvarchar](10) NULL,
-                                            [TimeZone] [nvarchar](100) NULL,
-                                            [EmailVerified] [bit] NOT NULL,
-                                            [MobileVerified] [bit] NOT NULL,
-                                            [IsActive] [bit] NOT NULL,
-                                            [IsDeleted] [bit] NOT NULL,
-                                            [IsLocked] [bit] NOT NULL,
-                                            [FailedLoginAttempts] [int] NOT NULL,
-                                            [LockoutEndDate] [datetime2](3) NULL,
-                                            [LastLoginDate] [datetime2](3) NULL,
-                                            [LastPasswordChangedDate] [datetime2](3) NULL,
-                                            [AllowMultipleLogin] [bit] NOT NULL,
-                                            [MFAEnabled] [bit] NOT NULL,
-                                            [CreatedDate] [datetime2](3) NOT NULL,
-                                            [CreatedBy] [INT] NULL,
-                                            [ModifiedDate] [datetime2](3) NULL,
-                                            [ModifiedBy] [INT] NULL,
+	                                        [UserGuid] [uniqueidentifier] NOT NULL,
+	                                        [UserName] [nvarchar](100) NOT NULL,
+	                                        [FullName] [nvarchar](200) NOT NULL,
+	                                        [EmailAddress] [nvarchar](256) NOT NULL,
+	                                        [PasswordHash] [nvarchar](500) NULL,
+	                                        [PasswordSalt] [nvarchar](500) NULL,
+	                                        [MobileNumber] [nvarchar](20) NULL,
+	                                        [CountryCode] [nvarchar](10) NULL,
+	                                        [ProfilePictureUrl] [nvarchar](1000) NULL,
+	                                        [AvatarUrl] [nvarchar](1000) NULL,
+	                                        [AvatarName] [nvarchar](100) NULL,
+	                                        [Gender] [nvarchar](20) NULL,
+	                                        [DateOfBirth] [date] NULL,
+	                                        [PreferredLanguage] [nvarchar](10) NULL,
+	                                        [TimeZone] [nvarchar](100) NULL,
+	                                        [EmailVerified] [bit] NOT NULL,
+	                                        [MobileVerified] [bit] NOT NULL,
+	                                        [IsActive] [bit] NOT NULL,
+	                                        [IsDeleted] [bit] NOT NULL,
+	                                        [IsLocked] [bit] NOT NULL,
+	                                        [FailedLoginAttempts] [int] NOT NULL,
+	                                        [LockoutEndDate] [datetime2](3) NULL,
+	                                        [LastLoginDate] [datetime2](3) NULL,
+	                                        [LastPasswordChangedDate] [datetime2](3) NULL,
+	                                        [AllowMultipleLogin] [bit] NOT NULL,
+	                                        [MFAEnabled] [bit] NOT NULL,
+	                                        [CreatedDate] [datetime2](3) NOT NULL,
+	                                        [CreatedBy] [int] NULL,
+	                                        [ModifiedDate] [datetime2](3) NULL,
+	                                        [ModifiedBy] [int] NULL,
 
                                             CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([UserID]),
                                             CONSTRAINT [UQ_Users_UserGuid] UNIQUE ([UserGuid]),
@@ -284,19 +456,19 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                     CREATE TABLE [auth].[UserTokens]
                                     (
-                                        [UserTokenID] INT IDENTITY(1,1) NOT NULL,
-                                        [UserID] INT NOT NULL,
-                                        [JWTID] NVARCHAR(100) NOT NULL,
-                                        [AccessToken] NVARCHAR(MAX) NOT NULL,
-                                        [RefreshToken] NVARCHAR(500) NOT NULL,
-                                        [IssueDate] DATETIME2(3) NOT NULL,
-                                        [ExpireDate] DATETIME2(3) NOT NULL,
-                                        [IsRevoked] BIT NOT NULL,
-                                        [IsBlacklisted] BIT NOT NULL,
-                                        [RevokedDate] DATETIME2(3) NULL,
-                                        [RevokedReason] NVARCHAR(500) NULL,
-                                        [DeviceInfo] NVARCHAR(500) NULL,
-                                        [IPAddress] NVARCHAR(64) NULL,
+                                        [UserTokenID] [int] IDENTITY(1,1) NOT NULL,
+	                                    [UserID] [int] NOT NULL,
+	                                    [JWTID] [nvarchar](100) NOT NULL,
+	                                    [AccessToken] [nvarchar](max) NOT NULL,
+	                                    [RefreshToken] [nvarchar](500) NOT NULL,
+	                                    [IssueDate] [datetime2](3) NOT NULL,
+	                                    [ExpireDate] [datetime2](3) NOT NULL,
+	                                    [IsRevoked] [bit] NOT NULL,
+	                                    [IsBlacklisted] [bit] NOT NULL,
+	                                    [RevokedDate] [datetime2](3) NULL,
+	                                    [RevokedReason] [nvarchar](500) NULL,
+	                                    [DeviceInfo] [nvarchar](500) NULL,
+	                                    [IPAddress] [nvarchar](64) NULL,
 
                                         CONSTRAINT [PK_UserTokens]
                                             PRIMARY KEY CLUSTERED ([UserTokenID])
@@ -383,14 +555,14 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                         CREATE TABLE [auth].[Roles]
                                         (
-                                            [RoleID] INT IDENTITY(1,1) NOT NULL,
-                                            [RoleName] NVARCHAR(100) NOT NULL,
-                                            [Description] NVARCHAR(500) NULL,
-                                            [IsActive] BIT NOT NULL,
-                                            [CreatedDate] DATETIME2(3) NOT NULL,
-                                            [CreatedBy] INT NULL,
-                                            [ModifiedDate] DATETIME2(3) NULL,
-                                            [ModifiedBy] INT NULL,
+                                            [RoleID] [int] IDENTITY(1,1) NOT NULL,
+	                                        [RoleName] [nvarchar](100) NOT NULL,
+	                                        [Description] [nvarchar](500) NULL,
+	                                        [IsActive] [bit] NOT NULL,
+	                                        [CreatedDate] [datetime2](3) NOT NULL,
+	                                        [CreatedBy] [int] NULL,
+	                                        [ModifiedDate] [datetime2](3) NULL,
+	                                        [ModifiedBy] [int] NULL,
 
                                             CONSTRAINT [PK_Roles]
                                                 PRIMARY KEY CLUSTERED ([RoleID]),
@@ -543,14 +715,14 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                         CREATE TABLE [auth].[LoginAttempts]
                                         (
-                                            [AttemptID] INT IDENTITY(1,1) NOT NULL,
-                                            [UserID] INT NULL,
-                                            [UserName] NVARCHAR(256) NULL,
-                                            [IPAddress] NVARCHAR(64) NULL,
-                                            [UserAgent] NVARCHAR(1000) NULL,
-                                            [IsSuccess] BIT NOT NULL,
-                                            [FailureReason] NVARCHAR(500) NULL,
-                                            [AttemptDate] DATETIME2(3) NOT NULL,
+                                            	[AttemptID] [int] IDENTITY(1,1) NOT NULL,
+	                                            [UserID] [int] NULL,
+	                                            [UserName] [nvarchar](256) NULL,
+	                                            [IPAddress] [nvarchar](64) NULL,
+	                                            [UserAgent] [nvarchar](1000) NULL,
+	                                            [IsSuccess] [bit] NOT NULL,
+	                                            [FailureReason] [nvarchar](500) NULL,
+	                                            [AttemptDate] [datetime2](3) NOT NULL,
 
                                             CONSTRAINT [PK_LoginAttempts]
                                                 PRIMARY KEY CLUSTERED ([AttemptID])
@@ -623,15 +795,16 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                         CREATE TABLE [auth].[ExternalLogins]
                                         (
-                                            [ExternalLoginID] INT IDENTITY(1,1) NOT NULL,
-                                            [UserID] INT NOT NULL,
-                                            [Provider] NVARCHAR(50) NOT NULL,
-                                            [ProviderUserId] NVARCHAR(200) NOT NULL,
-                                            [Email] NVARCHAR(256) NULL,
-                                            [DisplayName] NVARCHAR(200) NULL,
-                                            [PictureUrl] NVARCHAR(1000) NULL,
-                                            [CreatedDate] DATETIME2(3) NOT NULL,
-                                            [LastLoginDate] DATETIME2(3) NULL,
+                                            [ExternalLoginID] [int] IDENTITY(1,1) NOT NULL,
+	                                        [UserID] [int] NOT NULL,
+	                                        [Provider] [nvarchar](50) NOT NULL,
+	                                        [ProviderUserId] [nvarchar](200) NOT NULL,
+	                                        [Email] [nvarchar](256) NULL,
+	                                        [DisplayName] [nvarchar](200) NULL,
+	                                        [PictureUrl] [nvarchar](1000) NULL,
+	                                        [CreatedDate] [datetime2](3) NOT NULL,
+	                                        [LastLoginDate] [datetime2](3) NULL,
+	                                        [ModifiedDate] [datetime2](3) NULL,
 
                                             CONSTRAINT [PK_ExternalLogins]
                                                 PRIMARY KEY CLUSTERED ([ExternalLoginID]),
@@ -660,7 +833,9 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                                                     N'Microsoft',
                                                     N'Facebook',
                                                     N'Apple',
-                                                    N'GitHub'
+                                                    N'GitHub',
+                                                    N'Twitter',
+                                                    N'LinkedIn' 
                                                 )
                                             );
 
@@ -715,17 +890,17 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                         CREATE TABLE [auth].[EmailVerificationTokens]
                                         (
-                                            [TokenID] INT IDENTITY(1,1) NOT NULL,
-                                            [UserID] INT NOT NULL,
-                                            [Token] NVARCHAR(500) NOT NULL,
-                                            [EmailAddress] NVARCHAR(256) NOT NULL,
-                                            [IssueDate] DATETIME2(3) NOT NULL,
-                                            [ExpireDate] DATETIME2(3) NOT NULL,
-                                            [IsUsed] BIT NOT NULL,
-                                            [UsedDate] DATETIME2(3) NULL,
-                                            [IPAddress] NVARCHAR(64) NULL,
-                                            [IsActive] BIT NOT NULL,
-                                            [IsDeleted] BIT NOT NULL,
+                                            [TokenID] [int] IDENTITY(1,1) NOT NULL,
+	                                        [UserID] [int] NOT NULL,
+	                                        [Token] [nvarchar](500) NOT NULL,
+	                                        [EmailAddress] [nvarchar](256) NOT NULL,
+	                                        [IssueDate] [datetime2](3) NOT NULL,
+	                                        [ExpireDate] [datetime2](3) NOT NULL,
+	                                        [IsUsed] [bit] NOT NULL,
+	                                        [UsedDate] [datetime2](3) NULL,
+	                                        [IPAddress] [nvarchar](64) NULL,
+	                                        [IsActive] [bit] NOT NULL,
+	                                        [IsDeleted] [bit] NOT NULL,
 
                                             CONSTRAINT [PK_EmailVerificationTokens]
                                                 PRIMARY KEY CLUSTERED ([TokenID])
@@ -900,18 +1075,18 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                         CREATE TABLE [auth].[MFAOTPs]
                                         (
-                                            [OTPID] INT IDENTITY(1,1) NOT NULL,
-                                            [UserID] INT NOT NULL,
-                                            [MFAToken] NVARCHAR(200) NOT NULL,
-                                            [OTPHash] NVARCHAR(500) NOT NULL,
-                                            [MFAType] NVARCHAR(30) NOT NULL,
-                                            [Purpose] NVARCHAR(50) NOT NULL,
-                                            [IssueDate] DATETIME2(3) NOT NULL,
-                                            [ExpireDate] DATETIME2(3) NOT NULL,
-                                            [IsUsed] BIT NOT NULL,
-                                            [UsedDate] DATETIME2(3) NULL,
-                                            [RetryCount] INT NOT NULL,
-                                            [IPAddress] NVARCHAR(64) NULL,
+ 	                                        [OTPID] [int] IDENTITY(1,1) NOT NULL,
+                                            [UserID] [int] NOT NULL,
+                                            [MFAToken] [nvarchar](max) NOT NULL,
+                                            [OTPHash] [nvarchar](max) NULL,
+                                            [MFAType] [nvarchar](30) NOT NULL,
+                                            [Purpose] [nvarchar](50) NOT NULL,
+                                            [IssueDate] [datetime2](3) NOT NULL,
+                                            [ExpireDate] [datetime2](3) NOT NULL,
+                                            [IsUsed] [bit] NOT NULL,
+                                            [UsedDate] [datetime2](3) NULL,
+                                            [RetryCount] [int] NOT NULL,
+                                            [IPAddress] [nvarchar](64) NULL,
 
                                             CONSTRAINT [PK_MFAOTPs]
                                                 PRIMARY KEY CLUSTERED ([OTPID]),
@@ -941,14 +1116,12 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                                             ADD CONSTRAINT [DF_MFAOTPs_RetryCount]
                                             DEFAULT (0) FOR [RetryCount];
 
-                                        CREATE UNIQUE NONCLUSTERED INDEX UX_MFAOTPs_MFAToken
-                                            ON [auth].[MFAOTPs]([MFAToken]);
+  
 
                                         CREATE NONCLUSTERED INDEX IX_MFAOTPs_User_Active
                                             ON [auth].[MFAOTPs]([UserID], [IsUsed], [ExpireDate]);
 
-                                    END
-                                    GO
+                                    END 
 
 
                                 set @Success=1
@@ -1000,15 +1173,15 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                                             [CompanyName] NVARCHAR(250) NULL,
                                             [CompanyAlias] NVARCHAR(250) NULL,
                                             [CompanyPicture] NVARCHAR(250) NULL,
-                                            [CreatedDate] DATETIME NULL DEFAULT GETDATE(),
+                                            [CreatedDate] [datetime2](3) NULL DEFAULT GETDATE(),
                                             [CreatedBy] INT NULL,
-                                            [ModifiedDate] DATETIME NULL,
+                                            [ModifiedDate] [datetime2](3) NULL,
                                             [ModifiedBy] INT NULL,
-                                            [ApprovedDate] DATETIME NULL,
+                                            [ApprovedDate] [datetime2](3) NULL,
                                             [ApprovedBy] INT NULL,
-                                            [PostedDate] DATETIME NULL,
+                                            [PostedDate] [datetime2](3) NULL,
                                             [PostedBy] INT NULL,
-                                            [DeletedDate] DATETIME NULL,
+                                            [DeletedDate] [datetime2](3) NULL,
                                             [DeletedBy] INT NULL,
                                             [IsActive] BIT NULL DEFAULT 1,
                                             [IsApproved] BIT NULL DEFAULT 0,
@@ -1135,7 +1308,7 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
 
                                         CREATE TABLE [auth].[UserCompanies]
                                         (
-                                            [UserCompaniesID] BIGINT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+                                            [UserCompaniesID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 
                                             [UserCompaniesCode] NVARCHAR(50) NULL,
                                             [UserCompaniesName] NVARCHAR(250) NULL,
@@ -1144,19 +1317,19 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                                             [CompanyID] INT NULL,
                                             [UserID] INT NULL,
 
-                                            [CreatedDate] DATETIME NULL DEFAULT(GETDATE()),
+                                            [CreatedDate] [datetime2](3) NULL DEFAULT(sysutcdatetime()),
                                             [CreatedBy] INT NULL,
 
-                                            [ModifiedDate] DATETIME NULL,
+                                            [ModifiedDate] [datetime2](3) NULL,
                                             [ModifiedBy] INT NULL,
 
-                                            [ApprovedDate] DATETIME NULL,
+                                            [ApprovedDate] [datetime2](3) NULL,
                                             [ApprovedBy] INT NULL,
 
-                                            [PostedDate] DATETIME NULL,
+                                            [PostedDate] [datetime2](3) NULL,
                                             [PostedBy] INT NULL,
 
-                                            [DeletedDate] DATETIME NULL,
+                                            [DeletedDate] [datetime2](3) NULL,
                                             [DeletedBy] INT NULL,
 
                                             [IsActive] BIT NULL DEFAULT(1),
@@ -1307,19 +1480,19 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                                                 [TableName] NVARCHAR(200) NULL,
                                                 [SchemaName] NVARCHAR(50) NULL,
 
-                                                [CreatedDate] DATETIME NULL DEFAULT(GETDATE()),
+                                                [CreatedDate] [datetime2](3) NULL DEFAULT(GETDATE()),
                                                 [CreatedBy] INT NULL,
 
-                                                [ModifiedDate] DATETIME NULL,
+                                                [ModifiedDate] [datetime2](3) NULL,
                                                 [ModifiedBy] INT NULL,
 
-                                                [ApprovedDate] DATETIME NULL,
+                                                [ApprovedDate] [datetime2](3) NULL,
                                                 [ApprovedBy] INT NULL,
 
-                                                [PostedDate] DATETIME NULL,
+                                                [PostedDate] [datetime2](3) NULL,
                                                 [PostedBy] INT NULL,
 
-                                                [DeletedDate] DATETIME NULL,
+                                                [DeletedDate] [datetime2](3) NULL,
                                                 [DeletedBy] INT NULL,
 
                                                 [IsActive] BIT NULL DEFAULT(1),
@@ -1475,6 +1648,86 @@ namespace Beanz.Data.Services.AuthModule.AuthDatabaseEnsure
                 throw;
             }
         }
-         
+
+        public async Task<GeneralResponseDTO> EnsureUsersEmailChangedTriggerAsync()
+        {
+            try
+            {
+                const string sql = @"
+                                    IF OBJECT_ID('[auth].[trg_Users_EmailChanged]', 'TR') IS NULL
+                                    BEGIN
+                                        EXEC('
+                                    CREATE TRIGGER [auth].[trg_Users_EmailChanged]
+                                    ON [auth].[Users]
+                                    AFTER UPDATE
+                                    AS
+                                    BEGIN
+                                        SET NOCOUNT ON;
+
+                                        IF NOT UPDATE(EmailAddress) RETURN;
+
+                                        -- 1) Reset email verification
+                                        UPDATE u
+                                           SET u.EmailVerified = 0
+                                        FROM [auth].[Users] u
+                                        INNER JOIN inserted i ON i.UserID = u.UserID
+                                        INNER JOIN deleted d  ON d.UserID = u.UserID
+                                        WHERE ISNULL(i.EmailAddress, N'''') <> ISNULL(d.EmailAddress, N'''');
+
+                                        -- 2) Delete external logins
+                                        IF OBJECT_ID(''[auth].[UserExternalLogins]'', ''U'') IS NOT NULL
+                                        BEGIN
+                                            DELETE el
+                                            FROM [auth].[UserExternalLogins] el
+                                            INNER JOIN inserted i ON i.UserID = el.UserID
+                                            INNER JOIN deleted d  ON d.UserID = el.UserID
+                                            WHERE ISNULL(i.EmailAddress, N'''') <> ISNULL(d.EmailAddress, N'''');
+                                        END;
+
+                                        -- 3) Revoke user tokens
+                                        IF OBJECT_ID(''[auth].[UserTokens]'', ''U'') IS NOT NULL
+                                        BEGIN
+                                            DELETE rt
+                                            FROM [auth].[UserTokens] rt
+                                            INNER JOIN inserted i ON i.UserID = rt.UserID
+                                            INNER JOIN deleted d  ON d.UserID = rt.UserID
+                                            WHERE ISNULL(i.EmailAddress, N'''') <> ISNULL(d.EmailAddress, N'''');
+                                        END;
+
+                                        -- 4) Revoke user sessions
+                                        IF OBJECT_ID(''[auth].[UserSessions]'', ''U'') IS NOT NULL
+                                        BEGIN
+                                           DELETE us                                               
+                                            FROM [auth].[UserSessions] us
+                                            INNER JOIN inserted i ON i.UserID = us.UserID
+                                            INNER JOIN deleted d  ON d.UserID = us.UserID
+                                            WHERE ISNULL(i.EmailAddress, N'''') <> ISNULL(d.EmailAddress, N'''');
+                                        END;
+                                    END
+                                        ');
+                                    END;
+
+                                    IF OBJECT_ID('[auth].[trg_Users_EmailChanged]', 'TR') IS NOT NULL
+                                    BEGIN
+                                        ENABLE TRIGGER [trg_Users_EmailChanged] ON [auth].[Users];
+                                    END;
+                                    set @Success=1
+                                    ";
+                SqlParameter[] parameters =
+               { 
+                    //// output params: set Direction and (recommended) Size for nvarchar
+                    new SqlParameter("@Success", SqlDbType.Bit, 50) { Direction = ParameterDirection.Output },
+                    new SqlParameter("@Message", SqlDbType.NVarChar) { Direction = ParameterDirection.Output },
+                };
+                var cleaned = System.Text.RegularExpressions.Regex.Replace(sql, @"^\s*GO\s*$", "", System.Text.RegularExpressions.RegexOptions.Multiline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+                return await SQLDataAccessLayer.MultipleOutputBySqlAsync<GeneralResponseDTO>(cleaned, parameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

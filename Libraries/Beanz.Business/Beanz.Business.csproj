@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceBusiness.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Areas\ADM-Administration\" />
     <Folder Include="Areas\CRM-CustomerRelationManagement\" />
     <Folder Include="Areas\ESS-EmployeeSelfService\" />

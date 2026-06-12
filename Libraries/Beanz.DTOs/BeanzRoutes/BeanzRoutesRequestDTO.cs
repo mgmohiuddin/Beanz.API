@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Beanz.DTOs.Common;
 using Newtonsoft.Json.Linq;
 
-namespace Beanz.DTOs.Common
+namespace Beanz.DTOs.BeanzRoutes
 {
    
     public class BeanzRoutesRequestDTO : APIClientJWT

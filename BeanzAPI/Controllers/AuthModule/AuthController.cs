@@ -1,4 +1,9 @@
-﻿using Beanz.Core.AuthModule;
+﻿using Beanz.API.Helpers;
+using Beanz.API.Interfaces;
+using Beanz.API.Models;
+using Beanz.API.Services;
+using Beanz.API.Services.ExternalServices;
+using Beanz.Core.AuthModule;
 using Beanz.Core.AuthModule.AuthDatabaseEnsure;
 using Beanz.Data.Services;
 using Beanz.DTOs.Auth;
@@ -14,11 +19,7 @@ using Beanz.DTOs.AuthModule.UserInfoDTOs;
 //using Beanz.DTOs.Administration.Security.StoreProcedureDTO;
 using Beanz.DTOs.Common;
 using Beanz.Models.AuthModule;
-using Beanz.API.Helpers;
-using Beanz.API.Interfaces;
-using Beanz.API.Models;
-using Beanz.API.Services;
-using Beanz.API.Services.ExternalServices;
+using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Google.Apis.Auth;
@@ -43,6 +44,7 @@ using System.Net.Mail;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using static QRCoder.PayloadGenerator;
 
 namespace Beanz.API.Controllers.AuthModule
 {
@@ -78,10 +80,11 @@ namespace Beanz.API.Controllers.AuthModule
         private readonly ILinkedInTokenVerifier _linkedin;
         private readonly IAuthEnsureRepository _authEnsureRepository;
         private readonly ITotpService _totp;
+        private readonly IPasswordResetTokenRepository _passwordResetTokenRepository;
 
 
         public AuthController(IAuthRepository authRepository, IConfiguration config, IUserRepository userRepo,
-             IOptions<AuthSettings> settings, IPasswordHasherService hasher
+              IOptions<AuthSettings> settings, IPasswordHasherService hasher
             , IMFARepository mfaRepo
             , IUserTokenRepository tokenRepo
             , IJWTService jwt
@@ -91,8 +94,9 @@ namespace Beanz.API.Controllers.AuthModule
             , IExternalLoginRepository ext
             , IMicrosoftTokenVerifier microsoftTokenVerifier
             , IAuthEnsureRepository authEnsureRepository
-            ,IOTPService oTPService
+            , IOTPService oTPService
             , ITotpService totp
+            , IPasswordResetTokenRepository passwordResetTokenRepository
             )
         {
             _authRepository = authRepository;
@@ -113,6 +117,7 @@ namespace Beanz.API.Controllers.AuthModule
             _authEnsureRepository = authEnsureRepository;
             _otp = oTPService;
             _totp = totp;
+            _passwordResetTokenRepository= passwordResetTokenRepository;
         }
         // ✅ SIGN UP
         [HttpPost("signupOLD")]
@@ -369,7 +374,7 @@ namespace Beanz.API.Controllers.AuthModule
 
         // -------- VERIFY EMAIL --------
         [HttpPost("verify-email")]
-        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailDTO token)
+        public async Task<IActionResult> VerifyPostEmail([FromBody] VerifyEmailDTO token)
         {
             var record = await _userRepo.GetEmailVerificationTokenAsync(token.Token);
             if (record is null)
@@ -382,6 +387,27 @@ namespace Beanz.API.Controllers.AuthModule
             await _userRepo.MarkEmailVerifiedAsync(record.UserID, record.TokenID);
             return Ok(ResponseObjectDTO<object>.Ok(new { record.UserID }, "Email verified successfully."));
         }
+
+        [HttpGet("verify-email")]
+        [AllowAnonymous]
+        public async Task<IActionResult> VerifyEmail([FromQuery] string token)
+        {
+            var record = await _userRepo.GetEmailVerificationTokenAsync(token);
+            if (record is null)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Invalid verification token.", "TOKEN_INVALID", 400));
+            if (record.IsUsed)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link already used.", "TOKEN_USED", 400));
+            if (record.ExpireDate < DateTime.UtcNow)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link has expired.", "TOKEN_EXPIRED", 400));
+
+            await _userRepo.MarkEmailVerifiedAsync(record.UserID, record.TokenID);
+            string frontend = _config["AuthSettings:frontend"] ?? "https://erp.beanzinnovations.com"; // fallback             
+            return Redirect($"{frontend}");
+            //return Redirect($"{frontend}/verify-email?token={Uri.EscapeDataString(token)}");
+            //  return Ok(ResponseObjectDTO<object>.Ok(new { record.UserID }, "Email verified successfully."));
+        }
+
+
 
         // -------- SIGN IN --------
         [HttpPost("signin")]
@@ -429,6 +455,8 @@ namespace Beanz.API.Controllers.AuthModule
                 }
                 else
                 {
+                    var link = $"{_settings.WebAppBaseUrl}/verify-email?token={Uri.EscapeDataString(token)}";
+                    await _email.SendEmailVerificationAsync(user.EmailAddress, user.FullName, link);
                     return Ok(ResponseObjectDTO<object>.Ok(new { user.UserID }, dataEmail.Message));
                 }
                 //return Unauthorized(ResponseDTO<object>.Fail("Email not verified.", "EMAIL_NOT_VERIFIED", 403));
@@ -464,7 +492,7 @@ namespace Beanz.API.Controllers.AuthModule
             if (user.MFAEnabled)
             {
                 var mfaConfig = await _mfaRepo.GetUserMFAAsync(user.UserID);
-                if (mfaConfig is null || !mfaConfig.IsActive)
+                if (mfaConfig is null || !mfaConfig.IsEnabled)
                     return Unauthorized(ResponseObjectDTO<object>.Fail(
                         "MFA is enabled but not configured.", "MFA_NOT_CONFIGURED", 401));
 
@@ -478,15 +506,15 @@ namespace Beanz.API.Controllers.AuthModule
                     otpHash = _hasher.HashRaw(otpCode);
                 }
 
-                await _mfaRepo.SaveOtpAsync(new MFAOTP
-                {
-                    UserID = user.UserID,
-                    MFAToken = mfaToken,
-                    OTPHash = otpHash,              // null for Authenticator (TOTP)
-                    MFAType = mfaConfig.MFAType,
-                    ExpireDate = DateTime.UtcNow.AddMinutes(_settings.OtpExpiryMinutes),
-                    IPAddress = ip,
-                });
+                //await _mfaRepo.SaveOtpAsync(new MFAOTP
+                //{
+                //    UserID = user.UserID,
+                //    MFAToken = mfaToken,
+                //    OTPHash = otpHash,              // null for Authenticator (TOTP)
+                //    MFAType = mfaConfig.MFAType,
+                //    ExpireDate = DateTime.UtcNow.AddMinutes(_settings.OtpExpiryMinutes),
+                //    IPAddress = ip,
+                //});
 
                 if (mfaConfig.MFAType == "Email")
                     await _email.SendMfaOtpAsync(user.EmailAddress, user.FullName, otpCode);
@@ -502,7 +530,7 @@ namespace Beanz.API.Controllers.AuthModule
                         OTPHash = "",                       // verified via TOTP secret, not stored hash
                         MFAType = "Authenticator",
                         Purpose = "SignIn",
-                        ExpireDate = DateTime.UtcNow.AddMinutes(5),
+                        ExpireDate = DateTime.UtcNow.AddMinutes(_settings.OtpExpiryMinutes),
                         IPAddress = ip,
                     });
                 }
@@ -510,6 +538,7 @@ namespace Beanz.API.Controllers.AuthModule
                 return Ok(ResponseObjectDTO<MFAChallengeDTO>.Ok(new MFAChallengeDTO
                 {
                     MfaRequired = true,
+                    UserID= user.UserID, 
                     MFAToken = mfaToken,
                     MFAType = mfaConfig.MFAType,
                 }, "MFA required. Submit OTP to /api/MFA/verify-otp."));
@@ -571,385 +600,43 @@ namespace Beanz.API.Controllers.AuthModule
                     FullName = user.FullName,
                     EmailAddress = user.EmailAddress,
                     ProfilePictureUrl = user.ProfilePictureUrl,
+                    MobileNumber=user.MobileNumber,
+                    CountryCode=user.CountryCode,
+                    AvatarUrl=user.AvatarUrl,
+                    AvatarName=user.AvatarName,
+                    Gender= user.Gender,
+                    PreferredLanguage=user.PreferredLanguage,
+                    IsEmailVerified= user.EmailVerified,
+                    IsMobileVerified= user.MobileVerified,
+                    IsActive=user.IsActive,
+                    IsDeleted=user.IsDeleted,
+                    IsLocked = user.IsLocked    ,
+                    FailedLoginAttempts = user.FailedLoginAttempts,
+                    LockedOutEndDate= user.LockoutEndDate,
+                    LastLoginDate = user.LastLoginDate,
+                    LastPasswordChangedDate= user.LastPasswordChangedDate,
+                    AllowMultipleLogin = user.AllowMultipleLogin,
+                    IsMFAEnabled=user.MFAEnabled    ,
+                    CreatedDate= user.CreatedDate,
+                    ModifiedDate=user.ModifiedDate
+
+
                     //Roles = roles,
                 },
             };
             return Ok(ResponseObjectDTO<TokenResponseDTO>.Ok(response, "Login successful"));
 
-            //// ✅ SIGN IN
-            //[HttpPost("signin")]
-            //public async Task<IActionResult> SignIn([FromBody] AuthSignInDTO model)
-            //{
-
-            //    AuthSignInDTO authSignInDTO = new AuthSignInDTO();
-            //    authSignInDTO.Email = model.Email;
-            //    authSignInDTO.UserName = model.UserName; 
-            //    authSignInDTO.CompanyID = model.CompanyID;
-            //    authSignInDTO.Type = model.Type??0;  
-            //    authSignInDTO.googleSub = model.googleSub ?? default;
-            //    var data = await _authRepository.SignInAsync(authSignInDTO);
-            //    if (data.IsValid==true)
-            //    {           
-
-            //        if (VerifyPassword(model.Password, data.PasswordHash, data.UserName) || model.Type==2)
-            //        { 
-            //            if (data.IsActive == false)
-            //            {
-            //                authSignInDTO.IsFail = false;
-            //                authSignInDTO.UserID = data.UserID;
-            //                authSignInDTO.CompanyID = model.CompanyID;
-            //                var LoginAttempt = await _authRepository.LoginAttemptsAsync(authSignInDTO);
-            //                return BadRequest(data.Message);
-            //            }
-            //            else
-            //            {
-            //                model.UserID = data.UserID;
-            //                model.CompanyID = data.CompanyID;
-            //                model.Email = data.Email;
-            //                model.UserName = data.UserName;
-
-            //                var token = GenerateJwtToken(model);
-            //                var handler = new JwtSecurityTokenHandler();
-            //                var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
-
-            //                var issuedAtClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Iat)?.Value;
-            //                var expirationLocal = jwtToken.ValidTo; // ✅ This will now be in local time
-
-            //                DateTime? issuedAtLocal = null;
-            //                if (issuedAtClaim != null && long.TryParse(issuedAtClaim, out long issuedAtUnix))
-            //                {
-            //                    issuedAtLocal = DateTimeOffset.FromUnixTimeSeconds(issuedAtUnix).LocalDateTime;
-            //                }
-
-            //              //  _blacklistedTokens.Add(data.Token);
-
-            //                authSignInDTO.IsFail = false;
-            //                authSignInDTO.UserID = data.UserID;
-            //                authSignInDTO.CompanyID = model.CompanyID;
-            //                authSignInDTO.Token = token;
-            //                var LoginAttempt = await _authRepository.LoginAttemptsAsync(authSignInDTO);
-
-            //                AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //                authResponseDTO.IssuedAt = issuedAtLocal?.ToString("yyyy-MM-ddTHH:mm:ss");
-            //                authResponseDTO.ExpiresAt = expirationLocal.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss");
-            //                authResponseDTO.Token = token;
-            //                authResponseDTO.UserID = data.UserID;
-            //                authResponseDTO.CompanyID = data.CompanyID;
-            //                authResponseDTO.IsValid = data.IsValid;
-            //                authResponseDTO.Message = data.Message;
-
-            //                return Ok(new
-            //                {
-            //                    authResponseDTO.UserID,
-            //                    //authResponseDTO.Token,
-            //                    authResponseDTO.IsValid,
-            //                    authResponseDTO.IsFail,
-            //                    authResponseDTO.CompanyID,
-            //                    authResponseDTO.IssuedAt,
-            //                    authResponseDTO.ExpiresAt,
-            //                    JwtToken = authResponseDTO.Token,
-            //                });
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if (model.Password == data.PasswordHash)
-            //            {
-            //                    var hashedPassword = EncodePassword(model.Password, model.UserName);
-
-            //                    AuthResetPasswordDTO authResetPasswordDTO = new AuthResetPasswordDTO();
-            //                    authResetPasswordDTO.Email = model.Email;
-            //                    authResetPasswordDTO.UserName = model.UserName;
-            //                    authResetPasswordDTO.CompanyID = model.CompanyID;
-            //                    authResetPasswordDTO.NewPassword = hashedPassword;
-            //                    authResetPasswordDTO.ConfirmPassword = hashedPassword;
-            //                    authResetPasswordDTO.UserID=data.UserID;
-            //                    var Resetdata = await _authRepository.ResetPasswordAsync(authResetPasswordDTO);
-
-            //            }
-            //            authSignInDTO.IsFail = true;
-            //            authSignInDTO.UserID = data.UserID;
-            //            authSignInDTO.CompanyID = data.CompanyID;
-            //            authSignInDTO.Email = model.Email;
-            //            authSignInDTO.UserName = model.UserName;
-            //            var LoginAttempt = await _authRepository.LoginAttemptsAsync(authSignInDTO);
-            //            return Unauthorized("Invalid credentials.");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        return BadRequest(data.Message);
-            //    }
-            //}
-
-
-            //// ✅ SIGN OUT (Handled on the client-side or with token revocation)
-            //[Authorize]
-            //[HttpPost("signout")]
-            //public async Task<IActionResult> SignOut([FromBody]  AuthSignInDTO model)
-            //{
-
-
-            //    if (ValidateTokeUser(model))
-            //    {
-            //        //string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            //        //var db = _redis.GetDatabase();
-            //        //await db.StringSetAsync($"blacklist:{token}", "true", TimeSpan.FromHours(2)); // Expire in 2 hours
-            //        string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-
-            //        // Add token to blacklist
-            //        _blacklistedTokens.Add(token);
-            //        AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //        authResponseDTO.Message = "Signed out successfully. Token blacklisted.";
-
-            //        return Ok(authResponseDTO);
-            //    }
-            //    else
-            //    {
-            //        return Unauthorized("Invalid Token");
-            //    }
-
-            //}
-
-            //// ✅ Middleware to Check if Token is Blacklisted (Should be added in request pipeline)
-            //// ✅ Middleware to Check if Token is Blacklisted
-            //private bool IsTokenBlacklisted(string token)
-            //{
-            //    return _blacklistedTokens.Contains(token);
-            //}
-
-            //// ✅ FORGET PASSWORD (Simulated email reset token)
-            //[HttpPost("forget-password")]
-            //public IActionResult ForgetPassword([FromBody] AuthForgetPasswordDTO model)
-            //{
-            //    // if (!users.ContainsKey(model.Email)) return BadRequest("User not found.");
-
-            //    //string resetToken = Guid.NewGuid().ToString(); // Simulated token
-            //    AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //    authResponseDTO.Message = "reset password link sent to email ";
-
-            //    return Ok(authResponseDTO);
-            //    //return Ok(new { Message = "Reset token sent to email (simulated).", ResetToken = resetToken });
-            //}
-
-
-            //// ✅ CHANGE PASSWORD
-            //[Authorize]
-            //[HttpPost("change-password")]
-            //public async Task<IActionResult> ChangePassword([FromBody] AuthChangePasswordDTO model)
-            //{
-
-
-            //    if (model.NewPassword == model.ConfirmPassword)
-            //    {
-            //        AuthSignInDTO authSignInDTO = new AuthSignInDTO();
-            //        authSignInDTO.Email = model.Email;
-            //        authSignInDTO.UserName = model.UserName;
-            //        authSignInDTO.CompanyID = model.CompanyID;
-            //        var data = await _authRepository.SignInAsync(authSignInDTO);
-
-            //        if (data.IsValid == true)
-            //        {
-            //            if (VerifyPassword(model.OldPassword, data.PasswordHash, model.UserName))
-            //            {
-            //                if (data.IsActive == false)
-            //                {
-            //                    return BadRequest(data.Message);
-            //                }
-            //                else
-            //                {
-            //                    var hashedOldPassword = EncodePassword(model.OldPassword, model.UserName);
-            //                    var hashedNewPassword = EncodePassword(model.NewPassword, model.UserName);
-            //                    AuthChangePasswordDTO authChangePassDTO = new AuthChangePasswordDTO();
-            //                    authChangePassDTO.Email = data.Email;
-            //                    authChangePassDTO.UserName = model.UserName;
-            //                    authChangePassDTO.OldPassword = hashedOldPassword;
-            //                    authChangePassDTO.NewPassword = hashedNewPassword;
-            //                    authChangePassDTO.ConfirmPassword = hashedNewPassword;
-            //                    authChangePassDTO.UserID = data.UserID;
-            //                    authChangePassDTO.CompanyID = data.CompanyID;
-
-            //                    var ChangePassdata = await _authRepository.ChangePasswordAsync(authChangePassDTO);
-            //                    AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //                    authResponseDTO.Message = ChangePassdata.Message;
-
-            //                    return Ok(authResponseDTO);
-            //                    //return Ok(new { ChangePassdata.Message });
-
-            //                }
-            //            }
-            //            else
-            //            {
-            //                AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //                authResponseDTO.Message = "Old Password is not valid";
-            //                authResponseDTO.IsFail = true;
-            //                return Ok(authResponseDTO);
-            //                //return BadRequest("Old Password is not valid");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //            authResponseDTO.Message = "User Is not Valid";
-            //            authResponseDTO.IsFail = true;
-            //            return Ok(authResponseDTO);
-
-            //        }
-
-
-
-            //    }
-            //    else
-            //    {
-            //        AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
-            //        authResponseDTO.Message = "Password Confirm Password not matched";
-            //        return Ok(authResponseDTO);
-
-            //    }
-            //    ////DecodeJwtToken();
-            //    //var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", string.Empty);
-            //    //UserLoginDTO userLogin = new UserLoginDTO();
-            //    //userLogin.UserName = model.UserName;
-            //    //userLogin.Email = model.Email;
-
-            //    //if(ValidateTokeUser(userLogin))
-            //    //{
-            //    //    var handler = new JwtSecurityTokenHandler();
-            //    //    var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
-
-            //    //    if (jsonToken == null)
-            //    //    {
-            //    //        return Unauthorized("Invalid Token");
-            //    //    }
-
-            //    //    var claims = jsonToken.Claims;
-            //    //    var userName1 = claims.FirstOrDefault(c => c.Type == "UserName")?.Value;
-            //    //    var userEmail1 = claims.FirstOrDefault(c => c.Type == "Email")?.Value;
-
-            //    //    string userEmail = User.FindFirstValue(ClaimTypes.Email);
-            //    //    if (userEmail == null || !users.ContainsKey(userEmail))
-            //    //        return Unauthorized("User not found.");
-
-            //    //    users[userEmail].PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.NewPassword);
-            //    //    return Ok(new { Message = "Password changed successfully!" });
-            //    //}
-            //    //{
-            //    //    return Unauthorized("Invalid Token");
-            //    //}
-
-            //}
-
-            //// 🔑 Helper: Generate JWT Token
-            //private string GenerateJwtToken(AuthSignInDTO user)
-            //{
-            //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
-            //    var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            //    var issuedAt = DateTime.Now;   // Issue time (iat)
-            //    var expiration = issuedAt.AddDays(7); // Expiration time (exp)
-
-            //    var claims = new[]
-            //    {
-
-            //        //new Claim(ClaimTypes.Email,user.Email ?? string.Empty ),
-            //        new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString() ),
-            //        new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
-            //        new Claim(JwtRegisteredClaimNames.Iat, new DateTimeOffset(issuedAt).ToUnixTimeSeconds().ToString(),ClaimValueTypes.Integer64)
-            //        //new Claim(ClaimTypes.Expiration,DateTime.Now.AddSeconds(20))
-            //    };
-
-            //    var token = new JwtSecurityToken(
-            //        _config["Jwt:Issuer"],
-            //        _config["Jwt:Audience"],
-            //        claims:claims,
-            //        notBefore: issuedAt, // Token is valid from this time
-            //        expires: expiration, // Correct expiration time
-            //        signingCredentials: credentials
-            //    );
-
-            //    return new JwtSecurityTokenHandler().WriteToken(token);
-            //}
-
-            //private static DateTime? GetTokenExpiration(string token)
-            //{
-            //    var handler = new JwtSecurityTokenHandler();
-            //    var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
-
-            //    return jwtToken?.ValidTo; // Returns expiration time in UTC
-            //}
-
-            //private bool ValidateTokeUser(AuthSignInDTO user)
-            //{
-            //    // Get Authorization header
-            //    var authHeader = Request.Headers["Authorization"].ToString();
-            //    if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
-            //    {
-            //        return false;
-            //    }
-
-            //    // Extract the token (remove "Bearer ")
-            //    var token = authHeader.Replace("Bearer ", string.Empty);
-
-            //    var handler = new JwtSecurityTokenHandler();
-            //    var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
-
-            //    if (jwtToken == null)
-            //    {
-            //        return false;
-            //    }
-
-            //    // Get expiration time from the token
-            //    var expirationTime = jwtToken.ValidTo;
-            //    string TokenEmail = User.FindFirstValue(ClaimTypes.Email);
-            //    string TokenNameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //    string TokenUserName = User.FindFirstValue(ClaimTypes.Name);
-            //    if(TokenNameIdentifier==user.UserID.ToString())
-            //    {
-            //        //if (TokenUserName==user.UserName)
-            //        //{
-            //            return true;
-            //        //}
-            //        //else
-            //        //{
-            //        //    return false;
-            //        //}
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
-
-
-
-            //private static void DecodeJwtToken(string token)
-            //{
-            //    var handler = new JwtSecurityTokenHandler();
-
-            //    // Parse the JWT token
-            //    var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
-
-            //    if (jsonToken == null)
-            //    {
-            //        Console.WriteLine("Invalid token");
-            //        return;
-            //    }
-
-            //    // Extract claims (the payload of the JWT token)
-            //    foreach (var claim in jsonToken.Claims)
-            //    {
-            //        Console.WriteLine($"{claim.Type}: {claim.Value}");
-            //    }
-            //}
+           
 
         }
 
-
-
+     
 
         // STEP 1 — Authenticated user clicks "Enable Authenticator"
         // Returns: secret (manual key), otpauth URL, QR PNG (base64)
-        [HttpPost("mfa/totp/setup")]
+
         [Authorize]
+        [HttpPost("mfa/totp/setup")]
         public async Task<IActionResult> Setup()
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
@@ -999,7 +686,17 @@ namespace Beanz.API.Controllers.AuthModule
         [AllowAnonymous] // called between password step and final token issue
         public async Task<IActionResult> Verify([FromBody] TotpVerifyDTO dto)
         {
+            var mfatoken =await _mfaRepo.GetOtpByTokenAsync(dto.mfaToken);
+            if (mfatoken==null || mfatoken.UserID != dto.UserID)
+                return BadRequest(new { message = "Token Invalid" });
+
+            if (mfatoken.ExpireDate <= DateTime.UtcNow)
+                return BadRequest(new { message = "Token Expired" });
+
             var mfa = await _mfaRepo.GetByUserIdAsync(dto.UserID);
+
+            var user = await _userRepo.GetByIdAsync(dto.UserID);
+
             if (mfa == null || !mfa.IsEnabled || string.IsNullOrEmpty(mfa.SecretKey))
                 return BadRequest(new { message = "Authenticator MFA not enabled for this user." });
 
@@ -1007,7 +704,55 @@ namespace Beanz.API.Controllers.AuthModule
                 return Unauthorized(new { message = "Invalid or expired code." });
 
             // Caller (sign-in flow) now issues the final JWT.
-            return Ok(new { message = "Verified." });
+            var sessionId = Guid.NewGuid();
+            var issued = _jwt.IssueAccessToken(user, sessionId);
+            var refresh = _jwt.GenerateRefreshToken();
+            await _tokenRepo.InsertAsync(new UserToken
+            {
+                UserID = user.UserID,
+                JWTID = issued.JwtId,
+                AccessToken = issued.AccessToken,
+                RefreshToken = refresh,
+                IssueDate = DateTime.UtcNow,
+                ExpireDate = issued.ExpiresAt 
+            });
+            var response = new TokenResponseDTO
+            {
+                AccessToken = issued.AccessToken,
+                RefreshToken = refresh,
+                ExpiryDate = issued.ExpiresAt,
+                User = new UserInfoDTO
+                {
+                 
+                    UserID = user.UserID,
+                    UserGuid = user.UserGuid,
+                    UserName = user.UserName,
+                    FullName = user.FullName,
+                    EmailAddress = user.EmailAddress,
+                    ProfilePictureUrl = user.ProfilePictureUrl,
+                    MobileNumber = user.MobileNumber,
+                    CountryCode = user.CountryCode,
+                    AvatarUrl = user.AvatarUrl,
+                    AvatarName = user.AvatarName,
+                    Gender = user.Gender,
+                    PreferredLanguage = user.PreferredLanguage,
+                    IsEmailVerified = user.EmailVerified,
+                    IsMobileVerified = user.MobileVerified,
+                    IsActive = user.IsActive,
+                    IsDeleted = user.IsDeleted,
+                    IsLocked = user.IsLocked,
+                    FailedLoginAttempts = user.FailedLoginAttempts,
+                    LockedOutEndDate = user.LockoutEndDate,
+                    LastLoginDate = user.LastLoginDate,
+                    LastPasswordChangedDate = user.LastPasswordChangedDate,
+                    AllowMultipleLogin = user.AllowMultipleLogin,
+                    IsMFAEnabled = user.MFAEnabled,
+                    CreatedDate = user.CreatedDate,
+                    ModifiedDate = user.ModifiedDate
+                },
+            };
+            return Ok(ResponseObjectDTO<TokenResponseDTO>.Ok(response, "Login successful"));
+            //return Ok(new { message = "Verified." });
         }
 
 
@@ -1022,6 +767,52 @@ namespace Beanz.API.Controllers.AuthModule
             return Ok(new { message = "Authenticator disabled." });
         }
 
+        //// 1) Request change — requires current password
+        //[HttpPost("change-email/request")]
+        //[Authorize]
+        //public async Task<IActionResult> RequestChangeEmail([FromBody] ChangeEmailRequest dto)
+        //{
+        //    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+        //    var user = await _userRepo.GetByIdAsync(userId);
+
+        //    if (!_passwordHasher.Verify(user.PasswordHash, dto.CurrentPassword))
+        //        return Unauthorized(new { message = "Invalid password" });
+
+        //    if (await _userRepo.EmailExistsAsync(dto.NewEmail))
+        //        return Conflict(new { message = "Email already in use" });
+
+        //    // (if user has MFA enabled, also require an OTP here)
+
+        //    var token = _tokenService.GenerateSecureToken();          // 32+ bytes
+        //    await _emailChangeRepo.CreateAsync(new EmailChangeRequest
+        //    {
+        //        UserId = userId,
+        //        PendingEmail = dto.NewEmail,
+        //        TokenHash = _hasher.Hash(token),
+        //        ExpiresAt = DateTime.UtcNow.AddMinutes(30),
+        //    });
+
+        //    await _mail.SendConfirmNewEmail(dto.NewEmail, token);
+        //    await _mail.SendNoticeToOldEmail(user.Email, dto.NewEmail);
+
+        //    return Ok(new { message = "Confirmation link sent to new email." });
+        //}
+
+        //// 2) Confirm via link from new inbox
+        //[HttpGet("change-email/confirm")]
+        //[AllowAnonymous] // user clicks from email; may not have an active session
+        //public async Task<IActionResult> ConfirmChangeEmail([FromQuery] string token)
+        //{
+        //    var req = await _emailChangeRepo.FindValidByTokenAsync(_hasher.Hash(token));
+        //    if (req is null) return BadRequest(new { message = "Invalid or expired link" });
+
+        //    await _userRepo.UpdateEmailAsync(req.UserId, req.PendingEmail);
+        //    await _emailChangeRepo.MarkUsedAsync(req.Id);
+        //    await _refreshTokenRepo.RevokeAllForUserAsync(req.UserId); // force re-login
+
+        //    return Ok(new { message = "Email changed. Please sign in again." });
+        //}
+
 
 
         [HttpPost("external/google")]
@@ -1029,12 +820,139 @@ namespace Beanz.API.Controllers.AuthModule
         public async Task<IActionResult> GoogleSignIn([FromBody] GoogleSignInDTO dto)
         {
             var profile = await _google.VerifyAsync(dto.IdToken);
+            var ip = HttpContext.Connection.RemoteIpAddress?.ToString();
+            var ua = Request.Headers.UserAgent.ToString();
+
             var (user, isNew) = await _ext.UpsertExternalUserAsync(
                 "Google", profile.Sub, profile.Email, profile.Name, profile.Picture);
             var roles = await _roleRepo.GetUserRoleNamesAsync(user.UserID);
+            //var user = await _userRepo.GetByIdentifierAsync(dto.Username);
+            if (user.IsLocked && user.LockoutEndDate > DateTime.UtcNow)
+                return Unauthorized(ResponseObjectDTO<object>.Fail("Account locked. Try again later.", "ACCOUNT_LOCKED", 423));
+
+            if (!user.IsActive || !user.EmailVerified)
+            {
+                var token = Helpers.TokenGenerator.CreateSecureToken();
+                EmailVerificationToken emailVerificationToken = new EmailVerificationToken();
+                emailVerificationToken.UserID = user.UserID;
+                emailVerificationToken.Token = token;
+                emailVerificationToken.EmailAddress = user.EmailAddress;
+                emailVerificationToken.ExpireDate = DateTime.UtcNow.AddHours(_settings.EmailVerificationTokenExpiryHours);
+                emailVerificationToken.IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                emailVerificationToken.LanguageID = user.LanguageID;
+
+                var dataEmail = await _userRepo.SaveEmailVerificationTokenAsync(emailVerificationToken);
+
+                if (dataEmail.Success == false)
+                {
+                    return BadRequest(ResponseObjectDTO<object>.Fail(dataEmail.Message, "Fail", 400));
+                }
+                else
+                {
+                    return Ok(ResponseObjectDTO<object>.Ok(new { user.UserID }, dataEmail.Message));
+                }
+                //return Unauthorized(ResponseDTO<object>.Fail("Email not verified.", "EMAIL_NOT_VERIFIED", 403));
+            }
+
+            // ============ MFA GATE ============
+            // If the user has MFA enabled, do NOT issue JWT here. Issue a short-lived
+            // MFAToken instead; the client must call /api/MFA/verify-otp with the code
+            // to receive the real JWT.
+            if (user.MFAEnabled)
+            {
+                var mfaConfig = await _mfaRepo.GetUserMFAAsync(user.UserID);
+                if (mfaConfig is null || !mfaConfig.IsEnabled)
+                    return Unauthorized(ResponseObjectDTO<object>.Fail(
+                        "MFA is enabled but not configured.", "MFA_NOT_CONFIGURED", 401));
+
+                var mfaToken = Helpers.TokenGenerator.CreateSecureToken();
+                string otpCode = null;
+                string otpHash = null;
+
+                if (mfaConfig.MFAType == "Email" || mfaConfig.MFAType == "SMS")
+                {
+                    otpCode = _otp.GenerateNumericOtp(6);
+                    otpHash = _hasher.HashRaw(otpCode);
+                }
+
+                //await _mfaRepo.SaveOtpAsync(new MFAOTP
+                //{
+                //    UserID = user.UserID,
+                //    MFAToken = mfaToken,
+                //    OTPHash = otpHash,              // null for Authenticator (TOTP)
+                //    MFAType = mfaConfig.MFAType,
+                //    ExpireDate = DateTime.UtcNow.AddMinutes(_settings.OtpExpiryMinutes),
+                //    IPAddress = ip,
+                //});
+
+                if (mfaConfig.MFAType == "Email")
+                    await _email.SendMfaOtpAsync(user.EmailAddress, user.FullName, otpCode);
+                else if (mfaConfig.MFAType == "SMS")
+                    await _sms.SendOtpAsync(user.CountryCode + user.MobileNumber, otpCode);
+                // Authenticator: user reads code from their authenticator app — nothing to send.
+                else // Authenticator (TOTP) — user reads code from their app; nothing to send.
+                {
+                    await _mfaRepo.SaveOtpAsync(new MFAOTP
+                    {
+                        UserID = user.UserID,
+                        MFAToken = mfaToken,
+                        OTPHash = "",                       // verified via TOTP secret, not stored hash
+                        MFAType = "Authenticator",
+                        Purpose = "SignIn",
+                        ExpireDate = DateTime.UtcNow.AddMinutes(_settings.OtpExpiryMinutes),
+                        IPAddress = ip,
+                    });
+                }
+                // STOP here — do NOT issue the JWT. Client must call POST /api/MFA/verify-otp.
+                return Ok(ResponseObjectDTO<MFAChallengeDTO>.Ok(new MFAChallengeDTO
+                {
+                    MfaRequired = true,
+                    MFAToken = mfaToken,
+                    MFAType = mfaConfig.MFAType,
+                }, "MFA required. Submit OTP to /api/MFA/verify-otp."));
+
+            }
+            // ============ END MFA GATE ============
+
             var access = _jwt.IssueAccessToken(user, Guid.NewGuid(), roles);
             var refresh = _jwt.GenerateRefreshToken();
-            return Ok(ResponseObjectDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
+            var response = new TokenResponseDTO
+            {
+                AccessToken = access.AccessToken,
+                RefreshToken = refresh,
+                ExpiryDate = access.ExpiresAt,
+                User = new UserInfoDTO
+                {
+                    UserID = user.UserID,
+                    UserGuid = user.UserGuid,
+                    UserName = user.UserName,
+                    FullName = user.FullName,
+                    EmailAddress = user.EmailAddress,
+                    ProfilePictureUrl = user.ProfilePictureUrl,
+                    MobileNumber = user.MobileNumber,
+                    CountryCode = user.CountryCode,
+                    AvatarUrl = user.AvatarUrl,
+                    AvatarName = user.AvatarName,
+                    Gender = user.Gender,
+                    PreferredLanguage = user.PreferredLanguage,
+                    IsEmailVerified = user.EmailVerified,
+                    IsMobileVerified = user.MobileVerified,
+                    IsActive = user.IsActive,
+                    IsDeleted = user.IsDeleted,
+                    IsLocked = user.IsLocked,
+                    FailedLoginAttempts = user.FailedLoginAttempts,
+                    LockedOutEndDate = user.LockoutEndDate,
+                    LastLoginDate = user.LastLoginDate,
+                    LastPasswordChangedDate = user.LastPasswordChangedDate,
+                    AllowMultipleLogin = user.AllowMultipleLogin,
+                    IsMFAEnabled = user.MFAEnabled,
+                    CreatedDate = user.CreatedDate,
+                    ModifiedDate = user.ModifiedDate
+                    //Roles = roles,
+                },
+            };
+            return Ok(ResponseObjectDTO<TokenResponseDTO>.Ok(response, "Login successful"));
+            //return Ok(ResponseObjectDTO<object>.Ok((object)new { accessToken = access, refreshToken = refresh, isNew }, "Signed in"));
         }
 
         [HttpPost("external/microsoft")]
@@ -1209,7 +1127,85 @@ namespace Beanz.API.Controllers.AuthModule
             }
         }
 
+        [Authorize]
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] AuthChangePasswordDTO dto)
+        {
+            AuthSignOutDTO authSignOutDTO = new AuthSignOutDTO();
+            authSignOutDTO.UserID = dto.UserID;
+            if (ValidateTokeUser(authSignOutDTO))
+            {
+                var ip = HttpContext.Connection.RemoteIpAddress?.ToString();
+                var ua = Request.Headers.UserAgent.ToString();
+                if (dto.NewPassword != dto.ConfirmPassword)
+                    return BadRequest(ResponseObjectDTO<object>.Fail(
+                        "New password and confirm password do not match.",
+                        "PASSWORD_NOT_MATCH",
+                        400));
 
+                var user = await _userRepo.GetByIdAsync(dto.UserID);
+                if (user is null || user.IsDeleted)
+                    return NotFound(ResponseObjectDTO<object>.Fail(
+                        "User not found.",
+                        "USER_NOT_FOUND",
+                        404));
+
+                if (!user.IsActive)
+                    return BadRequest(ResponseObjectDTO<object>.Fail(
+                        "User is inactive.",
+                        "USER_INACTIVE",
+                        400));
+
+                if (string.IsNullOrEmpty(user.PasswordHash))
+                    return BadRequest(ResponseObjectDTO<object>.Fail(
+                        "Password is not set for this user.",
+                        "PASSWORD_NOT_SET",
+                        400));
+
+                // Verify old password
+                if (!_hasher.Verify(user.UserName, dto.OldPassword, user.PasswordHash))
+                {
+                    return Unauthorized(ResponseObjectDTO<object>.Fail(
+                        "Current password is incorrect.",
+                        "INVALID_CURRENT_PASSWORD",
+                        401));
+                }
+
+
+                // Optional: same password not allowed
+                if (_hasher.Verify(user.UserName, dto.NewPassword, user.PasswordHash))
+                {
+                    return BadRequest(ResponseObjectDTO<object>.Fail(
+                        "New password cannot be same as current password.",
+                        "SAME_PASSWORD_NOT_ALLOWED",
+                        400));
+                }
+
+                var newHash = _hasher.Hash(user.UserName, dto.NewPassword);
+
+
+                var result = await _userRepo.ChangePasswordAsync(user.UserID, newHash);
+
+                if (!result.Success)
+                    return BadRequest(ResponseObjectDTO<object>.Fail(
+                        result.Message,
+                        "CHANGE_PASSWORD_FAILED",
+                        400));
+
+                // Security: revoke all old tokens after password change
+                await _tokenRepo.RevokeAllForUserAsync(user.UserID, "Password changed");
+
+                return Ok(ResponseObjectDTO<object>.Ok(
+                    new { user.UserID },
+                    "Password changed successfully. Please login again."));
+
+            }
+            else
+            {
+                return Unauthorized("Invalid Token");
+            }
+
+        }
 
         [Authorize]
         [HttpPost("select-company")]
@@ -1241,8 +1237,639 @@ namespace Beanz.API.Controllers.AuthModule
 
         }
 
-       
+        
+        /// <summary>
+        /// Step 1: User submits email. If it exists, an email with a reset link
+        /// (containing a one-hour token) is sent. Always returns success to avoid
+        /// leaking which emails are registered.
+        /// </summary>
+        [HttpPost("forget-password-request")]
+        public async Task<IActionResult> ForgetPasswordRequest([FromBody] ForgetPasswordRequestDTO request)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Email))
+            {
+                return BadRequest(new ForgetPasswordRequestResponseDTO
+                {
+                    Success = false,
+                    Message = "Email address is required."
+                });
+            }
+            var user = await _userRepo.GetByEmailAsync(request.Email);
+            if (user == null || !user.IsActive)
+                return Ok(new { success = true, message = "If that email exists, a reset link has been sent." });
 
+
+            // Create + persist email verification token
+            var token = Helpers.TokenGenerator.CreateSecureToken();
+
+
+            SavePasswordResetTokenDTO savePasswordResetToken = new SavePasswordResetTokenDTO();
+            savePasswordResetToken.UserID = user.UserID;
+            savePasswordResetToken.TokenHash = token;
+            savePasswordResetToken.EmailAddress = user.EmailAddress;
+            savePasswordResetToken.ExpiresAt = DateTime.UtcNow.AddHours(_settings.EmailVerificationTokenExpiryHours);            
+            savePasswordResetToken.LanguageID = user.PreferredLanguage;
+
+            var dataEmail = await _userRepo.SavePasswordResetTokenAsync(savePasswordResetToken);
+
+            if (dataEmail.Success == false)
+            {
+
+                return BadRequest(ResponseObjectDTO<object>.Fail(dataEmail.Message, "Fail", 400));
+            }
+            else
+            {
+                var link = $"{_settings.frontend}/reset-password?token={Uri.EscapeDataString(token)}";
+                await _email.SendEmailVerificationAsync(user.EmailAddress, user.FullName, link);
+                return Ok(ResponseObjectDTO<object>.Ok(new { user.UserID }, dataEmail.Message));
+            } 
+        }
+
+        /// <summary>
+        /// Step 2: User clicks the link from the email and submits
+        /// Email + Token + NewPassword + ConfirmPassword. Backend validates
+        /// the token (exists, not used, not expired), then updates the password.
+        /// </summary>
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ForgetPassword([FromBody] ResetPasswordRequestDTO request)
+            {
+
+            var record = await _userRepo.GetPasswordResetTokenAsync(request.Token);
+            if (record is null)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Invalid verification token.", "TOKEN_INVALID", 400));
+            if (record.IsUsed)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link already used.", "TOKEN_USED", 400));
+            if (record.ExpireDate < DateTime.UtcNow)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link has expired.", "TOKEN_EXPIRED", 400));
+            if (record.EmailAddress != request.EmailAddress)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification INVALID", "TOKEN_EXPIRED", 400));
+
+            if (request == null
+                    || string.IsNullOrWhiteSpace(request.EmailAddress)
+                    || string.IsNullOrWhiteSpace(request.Token)
+                    || string.IsNullOrWhiteSpace(request.NewPassword)
+                    || string.IsNullOrWhiteSpace(request.ConfirmPassword))
+                {
+                    return BadRequest(new ResetPasswordResponseDTO
+                    {
+                        Success = false,
+                        Message = "All fields are required."
+                    });
+                }
+
+                if (request.NewPassword != request.ConfirmPassword)
+                {
+                    return BadRequest(new ResetPasswordResponseDTO
+                    {
+                        Success = false,
+                        Message = "New password and confirm password do not match."
+                    });
+                }
+
+            var user = await _userRepo.GetByEmailAsync(request.EmailAddress);
+
+            var hashedPassword = _hasher.Hash(user.UserName, request.NewPassword);
+
+            request.NewPassword = hashedPassword;
+            request.ConfirmPassword= request.NewPassword;
+            request.UserID = user.UserID;
+
+            var response = await _passwordResetTokenRepository.ResetPasswordAsync(request);
+                return Ok(response);
+            }
+
+        [HttpPost("verify-token-reset")]
+        public async Task<IActionResult> VerifyResetPassword([FromBody] ResetPasswordVerifyDTO request)
+        {
+             
+            var record = await _userRepo.GetPasswordResetTokenAsync(request.Token);
+            if (record is null)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Invalid verification token.", "TOKEN_INVALID", 400));
+            if (record.IsUsed)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link already used.", "TOKEN_USED", 400));
+            if (record.ExpireDate < DateTime.UtcNow)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link has expired.", "TOKEN_EXPIRED", 400));
+            //if(record.EmailAddress != request.EmailAddress)
+            //    return BadRequest(ResponseObjectDTO<object>.Fail("Verification INVALID", "TOKEN_EXPIRED", 400));
+
+
+            ForgetPasswordRequestResponseDTO forgetPasswordRequestDTO = new ForgetPasswordRequestResponseDTO();
+
+            forgetPasswordRequestDTO.UserID = record.UserID;
+            forgetPasswordRequestDTO.EmailAddress = record.EmailAddress;
+            forgetPasswordRequestDTO.Success = true;
+            forgetPasswordRequestDTO.FullName = record.UserName;
+            forgetPasswordRequestDTO.Message = "Enter your new password and confirm password to complete the process.";  
+             
+            return Ok(forgetPasswordRequestDTO);
+
+
+        }
+
+
+        [HttpGet("verify-token-reset")]
+        public async Task<IActionResult> VerifyResetPassword([FromQuery] string Token)
+        {
+
+            var record = await _userRepo.GetPasswordResetTokenAsync(Token);
+            if (record is null)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Invalid verification token.", "TOKEN_INVALID", 400));
+            if (record.IsUsed)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link already used.", "TOKEN_USED", 400));
+            if (record.ExpireDate < DateTime.UtcNow)
+                return BadRequest(ResponseObjectDTO<object>.Fail("Verification link has expired.", "TOKEN_EXPIRED", 400));
+            //if (record.EmailAddress != request.EmailAddress)
+            //    return BadRequest(ResponseObjectDTO<object>.Fail("Verification INVALID", "TOKEN_EXPIRED", 400));
+
+
+            ForgetPasswordRequestResponseDTO forgetPasswordRequestDTO = new ForgetPasswordRequestResponseDTO();
+
+            forgetPasswordRequestDTO.UserID = record.UserID;
+            forgetPasswordRequestDTO.EmailAddress = record.EmailAddress;
+            forgetPasswordRequestDTO.Success = true;
+            forgetPasswordRequestDTO.FullName = record.UserName;
+            forgetPasswordRequestDTO.Message = "Enter your new password and confirm password to complete the process.";
+
+            return Ok(forgetPasswordRequestDTO);
+
+
+        }
+
+
+        [HttpPost("user-menu")]
+        public async Task<IActionResult> UserManu([FromBody] BeanzRequestDTO request)
+        {
+
+            var record = await _authRepository.GetUserMenuAsync(request);
+            return Ok(record);
+
+
+        }
+
+
+        //[HttpPost("forget-password-request")]
+        //public async Task<IActionResult> ForgetPasswordRequest([FromBody] ForgetPasswordRequestDto dto)
+        //{
+        //    var user = await _userRepo.GetByEmailAsync(dto.Email);
+        //    // Always respond success to avoid email enumeration
+        //    if (user == null || !user.IsActive)
+        //        return Ok(new { success = true, message = "If that email exists, a reset link has been sent." });
+
+        //    // Generate secure token + 1 hour expiry
+        //    var rawToken = Convert.ToBase64String(RandomNumberGenerator.GetBytes(48))
+        //                          .Replace("+", "-").Replace("/", "_").Replace("=", "");
+        //    var tokenHash = SHA256.HashData(Encoding.UTF8.GetBytes(rawToken));
+
+        //    await _db.PasswordResetTokens.AddAsync(new PasswordResetToken
+        //    {
+        //        UserId = user.UserID,
+        //        TokenHash = Convert.ToBase64String(tokenHash),
+        //        ExpiresAt = DateTime.UtcNow.AddHours(1),
+        //        Used = false
+        //    });
+        //    await _db.SaveChangesAsync();
+
+        //    var link = $"{_cfg["App:UiBaseUrl"]}/reset-password" +
+        //               $"?email={Uri.EscapeDataString(user.EmailAddress)}" +
+        //               $"&token={Uri.EscapeDataString(rawToken)}";
+
+        //    await _email.SendAsync(user.EmailAddress, "Reset your password",
+        //        $"<p>Hi {user.FullName},</p><p>Click the link below to reset your password. It expires in 1 hour.</p>" +
+        //        $"<p><a href=\"{link}\">Reset password</a></p>");
+
+        //    return Ok(new { success = true, message = "If that email exists, a reset link has been sent." });
+        //}
+
+        //[HttpPost("forget-password")]
+        //public async Task<IActionResult> ForgetPassword([FromBody] ForgetPasswordDto dto)
+        //{
+        //    if (string.IsNullOrWhiteSpace(dto.NewPassword) || dto.NewPassword != dto.ConfirmPassword)
+        //        return Ok(new { success = false, message = "Passwords do not match." });
+
+        //    var user = await _users.GetByEmailAsync(dto.EmailAddress);
+        //    if (user == null)
+        //        return Ok(new { success = false, message = "Invalid or expired token." });
+
+        //    var tokenHash = Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(dto.Token)));
+        //    var record = await _db.PasswordResetTokens
+        //        .Where(t => t.UserId == user.UserID && t.TokenHash == tokenHash && !t.Used)
+        //        .OrderByDescending(t => t.ExpiresAt)
+        //        .FirstOrDefaultAsync();
+
+        //    if (record == null || record.ExpiresAt < DateTime.UtcNow)
+        //        return Ok(new { success = false, message = "Invalid or expired token." });
+
+        //    user.PasswordHash = _hasher.Hash(dto.NewPassword);
+        //    user.LastPasswordChangedDate = DateTime.UtcNow;
+        //    record.Used = true;
+        //    await _db.SaveChangesAsync();
+
+        //    return Ok(new { success = true, message = "Password reset successfully. Please login again." });
+        //}
+
+        //[HttpPost("forget-passwords")]
+        //public async Task<IActionResult> ForgetPasswords([FromBody] AuthForgetPasswordDTO authSingupDTO)
+        //{
+        //    try
+        //    {
+        //        return await RunSignUpFlowAsync(authSingupDTO);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Self-heal: build all auth tables, then retry once
+        //        if (!HasMissingAuthObject(ex))
+        //            throw;
+
+        //        // Schema not initialized — ensure all auth tables, then retry once.
+        //        var ensureResult = await EnsureAllAuthTablesAsync();
+        //        if (!ensureResult.Success)
+        //        {
+        //            //await RollbackAuthSchemaAsync();
+        //            return StatusCode(500, ResponseObjectDTO<object>.Fail(
+        //                "Failed to initialize auth schema: " + ensureResult.Message, "FAIL", 500));
+        //        }
+
+        //        try
+        //        {
+        //            return await RunSignUpFlowAsync(authSingupDTO);
+        //        }
+        //        catch (Exception retryEx)
+        //        {
+        //            // await RollbackAuthSchemaAsync();
+        //            return StatusCode(500, ResponseObjectDTO<object>.Fail(
+        //                "SignUp failed after schema init: " + retryEx.Message, "FAIL", 500));
+        //        }
+        //    }
+
+
+
+        //}
+
+
+        //// ✅ SIGN IN
+        //[HttpPost("signin")]
+        //public async Task<IActionResult> SignIn([FromBody] AuthSignInDTO model)
+        //{
+
+        //    AuthSignInDTO authSignInDTO = new AuthSignInDTO();
+        //    authSignInDTO.Email = model.Email;
+        //    authSignInDTO.UserName = model.UserName; 
+        //    authSignInDTO.CompanyID = model.CompanyID;
+        //    authSignInDTO.Type = model.Type??0;  
+        //    authSignInDTO.googleSub = model.googleSub ?? default;
+        //    var data = await _authRepository.SignInAsync(authSignInDTO);
+        //    if (data.IsValid==true)
+        //    {           
+
+        //        if (VerifyPassword(model.Password, data.PasswordHash, data.UserName) || model.Type==2)
+        //        { 
+        //            if (data.IsActive == false)
+        //            {
+        //                authSignInDTO.IsFail = false;
+        //                authSignInDTO.UserID = data.UserID;
+        //                authSignInDTO.CompanyID = model.CompanyID;
+        //                var LoginAttempt = await _authRepository.LoginAttemptsAsync(authSignInDTO);
+        //                return BadRequest(data.Message);
+        //            }
+        //            else
+        //            {
+        //                model.UserID = data.UserID;
+        //                model.CompanyID = data.CompanyID;
+        //                model.Email = data.Email;
+        //                model.UserName = data.UserName;
+
+        //                var token = GenerateJwtToken(model);
+        //                var handler = new JwtSecurityTokenHandler();
+        //                var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+        //                var issuedAtClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Iat)?.Value;
+        //                var expirationLocal = jwtToken.ValidTo; // ✅ This will now be in local time
+
+        //                DateTime? issuedAtLocal = null;
+        //                if (issuedAtClaim != null && long.TryParse(issuedAtClaim, out long issuedAtUnix))
+        //                {
+        //                    issuedAtLocal = DateTimeOffset.FromUnixTimeSeconds(issuedAtUnix).LocalDateTime;
+        //                }
+
+        //              //  _blacklistedTokens.Add(data.Token);
+
+        //                authSignInDTO.IsFail = false;
+        //                authSignInDTO.UserID = data.UserID;
+        //                authSignInDTO.CompanyID = model.CompanyID;
+        //                authSignInDTO.Token = token;
+        //                var LoginAttempt = await _authRepository.LoginAttemptsAsync(authSignInDTO);
+
+        //                AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //                authResponseDTO.IssuedAt = issuedAtLocal?.ToString("yyyy-MM-ddTHH:mm:ss");
+        //                authResponseDTO.ExpiresAt = expirationLocal.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss");
+        //                authResponseDTO.Token = token;
+        //                authResponseDTO.UserID = data.UserID;
+        //                authResponseDTO.CompanyID = data.CompanyID;
+        //                authResponseDTO.IsValid = data.IsValid;
+        //                authResponseDTO.Message = data.Message;
+
+        //                return Ok(new
+        //                {
+        //                    authResponseDTO.UserID,
+        //                    //authResponseDTO.Token,
+        //                    authResponseDTO.IsValid,
+        //                    authResponseDTO.IsFail,
+        //                    authResponseDTO.CompanyID,
+        //                    authResponseDTO.IssuedAt,
+        //                    authResponseDTO.ExpiresAt,
+        //                    JwtToken = authResponseDTO.Token,
+        //                });
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (model.Password == data.PasswordHash)
+        //            {
+        //                    var hashedPassword = EncodePassword(model.Password, model.UserName);
+
+        //                    AuthResetPasswordDTO authResetPasswordDTO = new AuthResetPasswordDTO();
+        //                    authResetPasswordDTO.Email = model.Email;
+        //                    authResetPasswordDTO.UserName = model.UserName;
+        //                    authResetPasswordDTO.CompanyID = model.CompanyID;
+        //                    authResetPasswordDTO.NewPassword = hashedPassword;
+        //                    authResetPasswordDTO.ConfirmPassword = hashedPassword;
+        //                    authResetPasswordDTO.UserID=data.UserID;
+        //                    var Resetdata = await _authRepository.ResetPasswordAsync(authResetPasswordDTO);
+
+        //            }
+        //            authSignInDTO.IsFail = true;
+        //            authSignInDTO.UserID = data.UserID;
+        //            authSignInDTO.CompanyID = data.CompanyID;
+        //            authSignInDTO.Email = model.Email;
+        //            authSignInDTO.UserName = model.UserName;
+        //            var LoginAttempt = await _authRepository.LoginAttemptsAsync(authSignInDTO);
+        //            return Unauthorized("Invalid credentials.");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return BadRequest(data.Message);
+        //    }
+        //}
+
+
+        //// ✅ SIGN OUT (Handled on the client-side or with token revocation)
+        //[Authorize]
+        //[HttpPost("signout")]
+        //public async Task<IActionResult> SignOut([FromBody]  AuthSignInDTO model)
+        //{
+
+
+        //    if (ValidateTokeUser(model))
+        //    {
+        //        //string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+        //        //var db = _redis.GetDatabase();
+        //        //await db.StringSetAsync($"blacklist:{token}", "true", TimeSpan.FromHours(2)); // Expire in 2 hours
+        //        string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+        //        // Add token to blacklist
+        //        _blacklistedTokens.Add(token);
+        //        AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //        authResponseDTO.Message = "Signed out successfully. Token blacklisted.";
+
+        //        return Ok(authResponseDTO);
+        //    }
+        //    else
+        //    {
+        //        return Unauthorized("Invalid Token");
+        //    }
+
+        //}
+
+        //// ✅ Middleware to Check if Token is Blacklisted (Should be added in request pipeline)
+        //// ✅ Middleware to Check if Token is Blacklisted
+        //private bool IsTokenBlacklisted(string token)
+        //{
+        //    return _blacklistedTokens.Contains(token);
+        //}
+
+        //// ✅ FORGET PASSWORD (Simulated email reset token)
+        //[HttpPost("forget-password")]
+        //public IActionResult ForgetPassword([FromBody] AuthForgetPasswordDTO model)
+        //{
+        //    // if (!users.ContainsKey(model.Email)) return BadRequest("User not found.");
+
+        //    //string resetToken = Guid.NewGuid().ToString(); // Simulated token
+        //    AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //    authResponseDTO.Message = "reset password link sent to email ";
+
+        //    return Ok(authResponseDTO);
+        //    //return Ok(new { Message = "Reset token sent to email (simulated).", ResetToken = resetToken });
+        //}
+
+
+        //// ✅ CHANGE PASSWORD
+        //[Authorize]
+        //[HttpPost("change-password")]
+        //public async Task<IActionResult> ChangePassword([FromBody] AuthChangePasswordDTO model)
+        //{
+
+
+        //    if (model.NewPassword == model.ConfirmPassword)
+        //    {
+        //        AuthSignInDTO authSignInDTO = new AuthSignInDTO();
+        //        authSignInDTO.Email = model.Email;
+        //        authSignInDTO.UserName = model.UserName;
+        //        authSignInDTO.CompanyID = model.CompanyID;
+        //        var data = await _authRepository.SignInAsync(authSignInDTO);
+
+        //        if (data.IsValid == true)
+        //        {
+        //            if (VerifyPassword(model.OldPassword, data.PasswordHash, model.UserName))
+        //            {
+        //                if (data.IsActive == false)
+        //                {
+        //                    return BadRequest(data.Message);
+        //                }
+        //                else
+        //                {
+        //                    var hashedOldPassword = EncodePassword(model.OldPassword, model.UserName);
+        //                    var hashedNewPassword = EncodePassword(model.NewPassword, model.UserName);
+        //                    AuthChangePasswordDTO authChangePassDTO = new AuthChangePasswordDTO();
+        //                    authChangePassDTO.Email = data.Email;
+        //                    authChangePassDTO.UserName = model.UserName;
+        //                    authChangePassDTO.OldPassword = hashedOldPassword;
+        //                    authChangePassDTO.NewPassword = hashedNewPassword;
+        //                    authChangePassDTO.ConfirmPassword = hashedNewPassword;
+        //                    authChangePassDTO.UserID = data.UserID;
+        //                    authChangePassDTO.CompanyID = data.CompanyID;
+
+        //                    var ChangePassdata = await _authRepository.ChangePasswordAsync(authChangePassDTO);
+        //                    AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //                    authResponseDTO.Message = ChangePassdata.Message;
+
+        //                    return Ok(authResponseDTO);
+        //                    //return Ok(new { ChangePassdata.Message });
+
+        //                }
+        //            }
+        //            else
+        //            {
+        //                AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //                authResponseDTO.Message = "Old Password is not valid";
+        //                authResponseDTO.IsFail = true;
+        //                return Ok(authResponseDTO);
+        //                //return BadRequest("Old Password is not valid");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //            authResponseDTO.Message = "User Is not Valid";
+        //            authResponseDTO.IsFail = true;
+        //            return Ok(authResponseDTO);
+
+        //        }
+
+
+
+        //    }
+        //    else
+        //    {
+        //        AuthResponseDTO authResponseDTO = new Beanz.DTOs.Auth.AuthResponseDTO();
+        //        authResponseDTO.Message = "Password Confirm Password not matched";
+        //        return Ok(authResponseDTO);
+
+        //    }
+        //    ////DecodeJwtToken();
+        //    //var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", string.Empty);
+        //    //UserLoginDTO userLogin = new UserLoginDTO();
+        //    //userLogin.UserName = model.UserName;
+        //    //userLogin.Email = model.Email;
+
+        //    //if(ValidateTokeUser(userLogin))
+        //    //{
+        //    //    var handler = new JwtSecurityTokenHandler();
+        //    //    var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+
+        //    //    if (jsonToken == null)
+        //    //    {
+        //    //        return Unauthorized("Invalid Token");
+        //    //    }
+
+        //    //    var claims = jsonToken.Claims;
+        //    //    var userName1 = claims.FirstOrDefault(c => c.Type == "UserName")?.Value;
+        //    //    var userEmail1 = claims.FirstOrDefault(c => c.Type == "Email")?.Value;
+
+        //    //    string userEmail = User.FindFirstValue(ClaimTypes.Email);
+        //    //    if (userEmail == null || !users.ContainsKey(userEmail))
+        //    //        return Unauthorized("User not found.");
+
+        //    //    users[userEmail].PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.NewPassword);
+        //    //    return Ok(new { Message = "Password changed successfully!" });
+        //    //}
+        //    //{
+        //    //    return Unauthorized("Invalid Token");
+        //    //}
+
+        //}
+
+        //// 🔑 Helper: Generate JWT Token
+        //private string GenerateJwtToken(AuthSignInDTO user)
+        //{
+        //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
+        //    var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        //    var issuedAt = DateTime.Now;   // Issue time (iat)
+        //    var expiration = issuedAt.AddDays(7); // Expiration time (exp)
+
+        //    var claims = new[]
+        //    {
+
+        //        //new Claim(ClaimTypes.Email,user.Email ?? string.Empty ),
+        //        new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString() ),
+        //        new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
+        //        new Claim(JwtRegisteredClaimNames.Iat, new DateTimeOffset(issuedAt).ToUnixTimeSeconds().ToString(),ClaimValueTypes.Integer64)
+        //        //new Claim(ClaimTypes.Expiration,DateTime.Now.AddSeconds(20))
+        //    };
+
+        //    var token = new JwtSecurityToken(
+        //        _config["Jwt:Issuer"],
+        //        _config["Jwt:Audience"],
+        //        claims:claims,
+        //        notBefore: issuedAt, // Token is valid from this time
+        //        expires: expiration, // Correct expiration time
+        //        signingCredentials: credentials
+        //    );
+
+        //    return new JwtSecurityTokenHandler().WriteToken(token);
+        //}
+
+        //private static DateTime? GetTokenExpiration(string token)
+        //{
+        //    var handler = new JwtSecurityTokenHandler();
+        //    var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+        //    return jwtToken?.ValidTo; // Returns expiration time in UTC
+        //}
+
+        //private bool ValidateTokeUser(AuthSignInDTO user)
+        //{
+        //    // Get Authorization header
+        //    var authHeader = Request.Headers["Authorization"].ToString();
+        //    if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+        //    {
+        //        return false;
+        //    }
+
+        //    // Extract the token (remove "Bearer ")
+        //    var token = authHeader.Replace("Bearer ", string.Empty);
+
+        //    var handler = new JwtSecurityTokenHandler();
+        //    var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+        //    if (jwtToken == null)
+        //    {
+        //        return false;
+        //    }
+
+        //    // Get expiration time from the token
+        //    var expirationTime = jwtToken.ValidTo;
+        //    string TokenEmail = User.FindFirstValue(ClaimTypes.Email);
+        //    string TokenNameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    string TokenUserName = User.FindFirstValue(ClaimTypes.Name);
+        //    if(TokenNameIdentifier==user.UserID.ToString())
+        //    {
+        //        //if (TokenUserName==user.UserName)
+        //        //{
+        //            return true;
+        //        //}
+        //        //else
+        //        //{
+        //        //    return false;
+        //        //}
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+
+
+        //private static void DecodeJwtToken(string token)
+        //{
+        //    var handler = new JwtSecurityTokenHandler();
+
+        //    // Parse the JWT token
+        //    var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+
+        //    if (jsonToken == null)
+        //    {
+        //        Console.WriteLine("Invalid token");
+        //        return;
+        //    }
+
+        //    // Extract claims (the payload of the JWT token)
+        //    foreach (var claim in jsonToken.Claims)
+        //    {
+        //        Console.WriteLine($"{claim.Type}: {claim.Value}");
+        //    }
+        //}
 
 
         // ============================================================

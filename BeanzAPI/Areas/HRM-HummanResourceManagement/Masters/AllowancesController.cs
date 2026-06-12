@@ -19,14 +19,14 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Get")]
-        public async Task<List<AllowanceDTO>> GetAllowances(BeanzCommonDTO common)
+        public async Task<BeanzResponseObjectDTO<List<AllowanceDTO>>> GetAllowances(BeanzRequestDTO common)
         {
             var data = await _allowancesBusiness.GetAllowancesAsync(common);
             return data;
         }
 
         [HttpPost("Set")]
-        public async Task<ActionResult> SetAllowances(BeanzCommonDTO common)
+        public async Task<ActionResult> SetAllowances(BeanzRequestDTO common)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Post")]
-        public async Task<ActionResult> PostAllowances(BeanzCommonDTO common)
+        public async Task<ActionResult> PostAllowances(BeanzRequestDTO common)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Del")]
-        public async Task<ActionResult> DelAllowances(BeanzCommonDTO common)
+        public async Task<ActionResult> DelAllowances(BeanzRequestDTO common)
         {
             try
             {
@@ -77,28 +77,28 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("LookUp")]
-        public async Task<List<BeanzlookupDTO>> LookUpAllowances(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpAllowances(BeanzRequestDTO lookup)
         {
             var data = await _allowancesBusiness.LookUpAllowancesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
-        public async Task<AllowanceViewModel> GetInfoAllowances(BeanzCommonDTO common)
+        public async Task<AllowanceViewModel> GetInfoAllowances(BeanzRequestDTO common)
         {
             var data = await _allowancesBusiness.GetInfoAllowancesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
-        public async Task<AllowanceViewModel> PrintAllowances(BeanzCommonDTO common)
+        public async Task<AllowanceViewModel> PrintAllowances(BeanzRequestDTO common)
         {
             var data = await _allowancesBusiness.PrintAllowancesAsync(common);
             return data;
         }
 
         [HttpPost("Approve")]
-        public async Task<ActionResult> ApproveAllowances(BeanzCommonDTO common)
+        public async Task<ActionResult> ApproveAllowances(BeanzRequestDTO common)
         {
             try
             {

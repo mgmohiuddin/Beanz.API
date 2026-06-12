@@ -21,31 +21,51 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Get")]
-        public async Task<List<AdvanceSalaryTypeDTO>> GetAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<BeanzResponseObjectDTO<List<AdvanceSalaryTypeDTO>>> GetAdvanceSalaryTypes(BeanzRequestDTO common)
         {
+            
             var data = await _advanceSalaryTypesBusiness.GetAdvanceSalaryTypesAsync(common);
             return data;
         }
 
         [HttpPost("Set")]
-        public async Task<ActionResult> SetAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<ActionResult<BeanzResponseObjectDTO<int?>>> SetAdvanceSalaryTypes(BeanzRequestDTO common)
         {
             try
             {
-                BeanzResponseDTO beanzResponseDTO = await _advanceSalaryTypesBusiness.SetAdvanceSalaryTypesAsync(common);
-                if (beanzResponseDTO.ErrorCode != "")
-                    return BadRequest(beanzResponseDTO);
-                else
-                    return Ok(beanzResponseDTO);
+                var response = await _advanceSalaryTypesBusiness.SetAdvanceSalaryTypesAsync(common);
+                return response.Success
+                    ? StatusCode(response.StatusCode, response)
+                    : StatusCode(response.StatusCode == 0 ? 400 : response.StatusCode, response);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message.ToString());
+                return StatusCode(500,
+                    BeanzResponseObjectDTO<int?>.Fail(ex.Message, "ERR-01", 500));
             }
         }
+        //[HttpPost("Set")]
+        //public async Task<ActionResult> SetAdvanceSalaryTypes(BeanzRequestDTO common)
+        //{
+        //    try
+        //    {
+        //        BeanzResponseDTO beanzResponseDTO = await _advanceSalaryTypesBusiness.SetAdvanceSalaryTypesAsync(common);
+        //        if (beanzResponseDTO.ErrorCode != "")
+        //            return BadRequest(beanzResponseDTO);
+        //        else
+        //            return Ok(beanzResponseDTO);
+        //    }
+        //    catch (System.Exception ex)
+        //    {
+        //        BeanzResponseDTO beanzResponseDTO = new BeanzResponseDTO();
+        //        beanzResponseDTO.ErrorMessage = ex.Message;
+        //        beanzResponseDTO.ErrorCode = "ERR-01";
+        //        return BadRequest(beanzResponseDTO);
+        //    }
+        //}
 
         [HttpPost("Post")]
-        public async Task<ActionResult> PostAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> PostAdvanceSalaryTypes(BeanzRequestDTO common)
         {
             try
             {
@@ -62,7 +82,7 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("Del")]
-        public async Task<ActionResult> DelAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> DelAdvanceSalaryTypes(BeanzRequestDTO common)
         {
             try
             {
@@ -79,28 +99,28 @@ namespace Beanz.API.Areas.HummanResourceManagement.Masters
         }
 
         [HttpPost("LookUp")]
-        public async Task<List<BeanzlookupDTO>> LookUpAdvanceSalaryTypes(BeanzCommonDTO lookup)
+        public async Task<List<BeanzlookupDTO>> LookUpAdvanceSalaryTypes(BeanzRequestDTO lookup)
         {
             var data = await _advanceSalaryTypesBusiness.LookUpAdvanceSalaryTypesAsync(lookup);
             return data;
         }
 
         [HttpPost("GetInfo")]
-        public async Task<AdvanceSalaryTypeViewModel> GetInfoAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<AdvanceSalaryTypeViewModel> GetInfoAdvanceSalaryTypes(BeanzRequestDTO common)
         {
             var data = await _advanceSalaryTypesBusiness.GetInfoAdvanceSalaryTypesAsync(common);
             return data;
         }
 
         [HttpPost("Print")]
-        public async Task<AdvanceSalaryTypeViewModel> PrintAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<AdvanceSalaryTypeViewModel> PrintAdvanceSalaryTypes(BeanzRequestDTO common)
         {
             var data = await _advanceSalaryTypesBusiness.PrintAdvanceSalaryTypesAsync(common);
             return data;
         }
 
         [HttpPost("Approve")]
-        public async Task<ActionResult> ApproveAdvanceSalaryTypes(BeanzCommonDTO common)
+        public async Task<ActionResult> ApproveAdvanceSalaryTypes(BeanzRequestDTO common)
         {
             try
             {

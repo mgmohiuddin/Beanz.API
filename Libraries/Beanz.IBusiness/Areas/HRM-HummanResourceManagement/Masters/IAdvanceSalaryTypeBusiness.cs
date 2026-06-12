@@ -8,13 +8,14 @@ namespace Beanz.IBusiness.Areas.HummanResourceManagement.Masters
 {
     public interface IAdvanceSalaryTypeBusiness
     {
-        Task<List<AdvanceSalaryTypeDTO>> GetAdvanceSalaryTypesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> SetAdvanceSalaryTypesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> PostAdvanceSalaryTypesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> DelAdvanceSalaryTypesAsync(BeanzCommonDTO common);
-        Task<AdvanceSalaryTypeViewModel> GetInfoAdvanceSalaryTypesAsync(BeanzCommonDTO common);
-        Task<List<BeanzlookupDTO>> LookUpAdvanceSalaryTypesAsync(BeanzCommonDTO lookup);
-        Task<AdvanceSalaryTypeViewModel> PrintAdvanceSalaryTypesAsync(BeanzCommonDTO common);
-        Task<BeanzResponseDTO> ApproveAdvanceSalaryTypesAsync(BeanzCommonDTO common);
+        //Task<List<AdvanceSalaryTypeDTO>> GetAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseObjectDTO<List<AdvanceSalaryTypeDTO>>> GetAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseObjectDTO<int?>> SetAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> PostAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> DelAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<AdvanceSalaryTypeViewModel> GetInfoAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<List<BeanzlookupDTO>> LookUpAdvanceSalaryTypesAsync(BeanzRequestDTO lookup);
+        Task<AdvanceSalaryTypeViewModel> PrintAdvanceSalaryTypesAsync(BeanzRequestDTO common);
+        Task<BeanzResponseDTO> ApproveAdvanceSalaryTypesAsync(BeanzRequestDTO common);
     }
 }

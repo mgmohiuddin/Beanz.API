@@ -8,6 +8,7 @@ namespace Beanz.DTOs.AuthModule.MFADTOs
 {
     public class MFAChallengeDTO
     {
+        public int? UserID { get; set; }
         public bool MfaRequired { get; set; } = true;
         public string MFAToken { get; set; } = default!;
         public string MFAType { get; set; } = default!;   // Email | SMS | Authenticator
