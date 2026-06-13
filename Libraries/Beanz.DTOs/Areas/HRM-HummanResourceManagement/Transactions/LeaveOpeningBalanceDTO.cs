@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Beanz.DTOs.Areas.HummanResourceManagement.Transactions
+namespace Beanz.DTOs.Areas.HumanResourceManagement.Transactions
 {
     public class LeaveOpeningBalanceDTO
     {

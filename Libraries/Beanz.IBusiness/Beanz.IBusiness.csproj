@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\IAllowanceBusiness.cs" />
+    <Compile Remove="Areas\HRM-HumanResourceManagement\Masters\IAllowanceBusiness.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\" />
+    <Folder Include="Areas\HRM-HumanResourceManagement\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
     <Folder Include="Areas\System\" />

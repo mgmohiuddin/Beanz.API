@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceModel.cs" />
+    <Compile Remove="Areas\HRM-HumanResourceManagement\Masters\AllowanceModel.cs" />
     <Compile Remove="BeanzModel\ResponseModel.cs" />
   </ItemGroup>
 
@@ -17,7 +17,7 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
+    <Folder Include="Areas\HRM-HumanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
     <Folder Include="BeanzModel\" />

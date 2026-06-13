@@ -1,9 +1,9 @@
-using Beanz.DTOs.Areas.HummanResourceManagement.Transactions;
+using Beanz.DTOs.Areas.HumanResourceManagement.Transactions;
 //using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 
-namespace Beanz.Core.Areas.HummanResourceManagement.Transactions
+namespace Beanz.Core.Areas.HumanResourceManagement.Transactions
 {
     public interface ILeaveDayRepository
     {

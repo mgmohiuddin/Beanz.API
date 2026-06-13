@@ -150,11 +150,11 @@ namespace Beanz.API
             StartupConfig.BeanzSystem.Setup.ses_Setup.Register(services);
 
             ////--------------------------Start------HumanResourceManagementSystem-------------------------------------
-            StartupConfig.HummanResourceManagement.Masters.hrms_Masters.Register(services);
-            StartupConfig.HummanResourceManagement.Policies.hrms_Policies.Register(services);
-            StartupConfig.HummanResourceManagement.Statuses.hrms_Statuses.Register(services);
+            StartupConfig.HumanResourceManagement.Masters.hrms_Masters.Register(services);
+            StartupConfig.HumanResourceManagement.Policies.hrms_Policies.Register(services);
+            StartupConfig.HumanResourceManagement.Statuses.hrms_Statuses.Register(services);
 
-            StartupConfig.HummanResourceManagement.Masters.Business.hrms_Masters_Business.Register(services);
+            StartupConfig.HumanResourceManagement.Masters.Business.hrms_Masters_Business.Register(services);
         }
 
         public static void Registerd(WebApplicationBuilder builder)
@@ -334,11 +334,11 @@ namespace Beanz.API
 
 
             ////--------------------------Start------HumanResourceManagementSystem-------------------------------------
-            StartupConfig.HummanResourceManagement.Masters.hrms_Masters.Register(services);
-            StartupConfig.HummanResourceManagement.Masters.Business.hrms_Masters_Business.Register(services);
+            StartupConfig.HumanResourceManagement.Masters.hrms_Masters.Register(services);
+            StartupConfig.HumanResourceManagement.Masters.Business.hrms_Masters_Business.Register(services);
 
-            StartupConfig.HummanResourceManagement.Policies.hrms_Policies.Register(services);
-            StartupConfig.HummanResourceManagement.Statuses.hrms_Statuses.Register(services);
+            StartupConfig.HumanResourceManagement.Policies.hrms_Policies.Register(services);
+            StartupConfig.HumanResourceManagement.Statuses.hrms_Statuses.Register(services);
             //StartupConfig.HumanResourceManagementSystem.Dashboards.Attendance.Register(services);
             //StartupConfig.HumanResourceManagementSystem.Dashboards.Employees.Register(services);
             //StartupConfig.HumanResourceManagementSystem.Dashboards.Leaves.Register(services);

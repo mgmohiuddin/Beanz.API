@@ -1,9 +1,9 @@
 using AutoMapper;
-using Beanz.Core.Areas.HummanResourceManagement.Transactions;
+using Beanz.Core.Areas.HumanResourceManagement.Transactions;
 using Beanz.Data.Services.DataAccessLayer;
 using Beanz.Data.Services.DataAccessLayer.DAL;
 using Beanz.DTOs.Areas;
-using Beanz.DTOs.Areas.HummanResourceManagement.Transactions;
+using Beanz.DTOs.Areas.HumanResourceManagement.Transactions;
 //using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
@@ -11,7 +11,7 @@ using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Beanz.Data.Services.Areas.HummanResourceManagement.Transactions
+namespace Beanz.Data.Services.Areas.HumanResourceManagement.Transactions
 {
     public class LeaveDayRepository : ILeaveDayRepository
     {

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceBusiness.cs" />
+    <Compile Remove="Areas\HRM-HumanResourceManagement\Masters\AllowanceBusiness.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,8 +22,8 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\Masters\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
+    <Folder Include="Areas\HRM-HumanResourceManagement\" />
+    <Folder Include="Areas\HRM-HumanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
   </ItemGroup>

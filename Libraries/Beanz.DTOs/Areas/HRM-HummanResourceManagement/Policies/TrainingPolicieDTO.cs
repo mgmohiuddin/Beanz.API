@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Beanz.DTOs.Areas.HummanResourceManagement.Policies
+namespace Beanz.DTOs.Areas.HumanResourceManagement.Policies
 {
     public class TrainingPolicieDTO
     {

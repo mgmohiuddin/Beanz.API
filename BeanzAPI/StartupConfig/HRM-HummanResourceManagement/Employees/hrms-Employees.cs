@@ -1,7 +1,7 @@
-using Beanz.Core.Areas.HummanResourceManagement.Employees;
-using Beanz.Data.Services.Areas.HummanResourceManagement.Employees;
+using Beanz.Core.Areas.HumanResourceManagement.Employees;
+using Beanz.Data.Services.Areas.HumanResourceManagement.Employees;
 
-namespace Beanz.API.StartupConfig.HummanResourceManagement.Employees
+namespace Beanz.API.StartupConfig.HumanResourceManagement.Employees
 {
     public class hrms_Employees
     {

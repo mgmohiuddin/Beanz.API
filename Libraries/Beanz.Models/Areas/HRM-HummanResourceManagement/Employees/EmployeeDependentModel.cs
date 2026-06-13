@@ -1,6 +1,6 @@
 using System;
 
-namespace Beanz.Models.Areas.HummanResourceManagement.Employees.Objects
+namespace Beanz.Models.Areas.HumanResourceManagement.Employees.Objects
 {
     // Entity model generated from table structure
     public class EmployeeDependent

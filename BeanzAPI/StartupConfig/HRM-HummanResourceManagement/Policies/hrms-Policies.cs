@@ -1,7 +1,7 @@
-using Beanz.Core.Areas.HummanResourceManagement.Policies;
-using Beanz.Data.Services.Areas.HummanResourceManagement.Policies;
+using Beanz.Core.Areas.HumanResourceManagement.Policies;
+using Beanz.Data.Services.Areas.HumanResourceManagement.Policies;
 
-namespace Beanz.API.StartupConfig.HummanResourceManagement.Policies
+namespace Beanz.API.StartupConfig.HumanResourceManagement.Policies
 {
     public class hrms_Policies
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Beanz.Models.Areas.HummanResourceManagement.Transactions.Objects
+namespace Beanz.Models.Areas.HumanResourceManagement.Transactions.Objects
 {
     // Entity model generated from table structure
     public class LeaveDay

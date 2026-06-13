@@ -1,9 +1,9 @@
-using Beanz.DTOs.Areas.HummanResourceManagement.Employees;
+using Beanz.DTOs.Areas.HumanResourceManagement.Employees;
 //using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
 
-namespace Beanz.Core.Areas.HummanResourceManagement.Employees
+namespace Beanz.Core.Areas.HumanResourceManagement.Employees
 {
     public interface IEmployeeContractOfficialInformationRepository
     {

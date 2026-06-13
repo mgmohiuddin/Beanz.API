@@ -1,0 +1,118 @@
+using Beanz.Core.Areas.HumanResourceManagement.Policies;
+using Beanz.DTOs.Areas.HumanResourceManagement.Policies;
+//using Beanz.DTOs.BeanzCommon;
+using Beanz.DTOs.BeanzRoutes;
+using Beanz.DTOs.Common;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Beanz.API.Areas.HumanResourceManagement.Policies
+{
+    [Route("api/[area]/Policies/[controller]/[action]")]
+    [ApiController]
+    [Area("HumanResourceManagement")]
+    public class TicketPolicyEligiblesController : ControllerBase
+    {
+        private readonly ITicketPolicyEligibleRepository _ticketPolicyEligiblesRepository;
+
+        public TicketPolicyEligiblesController(ITicketPolicyEligibleRepository ticketPolicyEligiblesRepository)
+        {
+            _ticketPolicyEligiblesRepository = ticketPolicyEligiblesRepository;
+        }
+
+        [HttpPost("Get")]
+        public async Task<List<TicketPolicyEligibleDTO>> GetTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            var data = await _ticketPolicyEligiblesRepository.GetTicketPolicyEligiblesAsync(common);
+            return data;
+        }
+
+        [HttpPost("Set")]
+        public async Task<ActionResult> SetTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _ticketPolicyEligiblesRepository.SetTicketPolicyEligiblesAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("Post")]
+        public async Task<ActionResult> PostTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _ticketPolicyEligiblesRepository.PostTicketPolicyEligiblesAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("Del")]
+        public async Task<ActionResult> DelTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _ticketPolicyEligiblesRepository.DelTicketPolicyEligiblesAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+
+        [HttpPost("LookUp")]
+        public async Task<List<BeanzlookupDTO>> LookUpTicketPolicyEligibles(BeanzCommonDTO lookup)
+        {
+            var data = await _ticketPolicyEligiblesRepository.LookUpTicketPolicyEligiblesAsync(lookup);
+            return data;
+        }
+
+        [HttpPost("GetInfo")]
+        public async Task<TicketPolicyEligibleViewModel> GetInfoTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            var data = await _ticketPolicyEligiblesRepository.GetInfoTicketPolicyEligiblesAsync(common);
+            return data;
+        }
+
+        [HttpPost("Print")]
+        public async Task<TicketPolicyEligibleViewModel> PrintTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            var data = await _ticketPolicyEligiblesRepository.PrintTicketPolicyEligiblesAsync(common);
+            return data;
+        }
+
+        [HttpPost("Approve")]
+        public async Task<ActionResult> ApproveTicketPolicyEligibles(BeanzCommonDTO common)
+        {
+            try
+            {
+                BeanzResponseDTO beanzResponseDTO = await _ticketPolicyEligiblesRepository.ApproveTicketPolicyEligiblesAsync(common);
+                if (beanzResponseDTO.ErrorCode != "")
+                    return BadRequest(beanzResponseDTO);
+                else
+                    return Ok(beanzResponseDTO);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
+    }
+}

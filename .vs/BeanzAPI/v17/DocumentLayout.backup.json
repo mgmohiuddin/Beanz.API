@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74D33993-B4D0-C45B-05D5-9998A53327AB}|Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.dtos\\beanz.dtos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{74D33993-B4D0-C45B-05D5-9998A53327AB}|Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj|solutionrelative:libraries\\beanz.dtos\\beanz.dtos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4003D154-5A39-4A84-AE0C-FF45689874AF}|Libraries\\Beanz.Core\\Beanz.Core.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.core\\areas\\fas-financialaccountingsystem\\accounts\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4003D154-5A39-4A84-AE0C-FF45689874AF}|Libraries\\Beanz.Core\\Beanz.Core.csproj|solutionrelative:libraries\\beanz.core\\areas\\fas-financialaccountingsystem\\accounts\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,16 +43,8 @@
       "RelativeMoniker": "D:0:0:{74D33993-B4D0-C45B-05D5-9998A53327AB}|Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj|solutionrelative:libraries\\beanz.dtos\\beanzcommon\\beanzrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74D33993-B4D0-C45B-05D5-9998A53327AB}|Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.dtos\\beanz.dtos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{74D33993-B4D0-C45B-05D5-9998A53327AB}|Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj|solutionrelative:libraries\\beanz.dtos\\beanz.dtos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AEF56262-8E1A-DED2-5B73-C4A708E53AEC}|Libraries\\Beanz.Business\\Beanz.Business.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.business\\areas\\fas-financialaccountingsystem\\masters\\costcenterbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AEF56262-8E1A-DED2-5B73-C4A708E53AEC}|Libraries\\Beanz.Business\\Beanz.Business.csproj|solutionrelative:libraries\\beanz.business\\areas\\fas-financialaccountingsystem\\masters\\costcenterbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\beanzapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A17B2490-51FD-4471-B785-1192012A83B3}|BeanzAPI\\Beanz.API.csproj|solutionrelative:beanzapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D1A852D-620A-4BD4-BD75-3DD2B7724205}|Libraries\\Beanz.Data.Services\\Beanz.Data.Services.csproj|d:\\beanzbkp\\beanz\\beanzapi\\beanz.api\\libraries\\beanz.data.services\\beanzroutes\\beanzrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -256,7 +256,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -273,8 +273,12 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Accounts\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Accounts\\IAccountRepository.cs",
@@ -287,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AccountTypesController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Accounts\\AccountTypesController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Accounts\\AccountTypesController.cs",
@@ -300,7 +304,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "BeanzAPI\\appsettings.json",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\appsettings.json",
+              "RelativeToolTip": "BeanzAPI\\appsettings.json",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwCUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-10T02:24:11.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Beanz.DTOs",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
+              "RelativeDocumentMoniker": "Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
+              "RelativeToolTip": "Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-12T03:12:21.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AccountsController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Accounts\\AccountsController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Accounts\\AccountsController.cs",
@@ -314,6 +352,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "ICostCenterRepository.cs",
+              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
+              "RelativeDocumentMoniker": "Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
+              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
+              "RelativeToolTip": "Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T03:11:49.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "BeanzRoutesRequestDTO.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\BeanzRoutes\\BeanzRoutesRequestDTO.cs",
               "RelativeDocumentMoniker": "Libraries\\Beanz.DTOs\\BeanzRoutes\\BeanzRoutesRequestDTO.cs",
@@ -326,20 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Beanz.DTOs",
-              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
-              "RelativeDocumentMoniker": "Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
-              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
-              "RelativeToolTip": "Libraries\\Beanz.DTOs\\Beanz.DTOs.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-12T03:12:21.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CostCenterBusiness.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Business\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCenterBusiness.cs",
               "RelativeDocumentMoniker": "Libraries\\Beanz.Business\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCenterBusiness.cs",
@@ -352,37 +390,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ICostCenterRepository.cs",
-              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
-              "RelativeDocumentMoniker": "Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
-              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
-              "RelativeToolTip": "Libraries\\Beanz.Core\\Areas\\FAS-FinancialAccountingSystem\\Masters\\ICostCenterRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T03:11:49.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CostCenterRepository.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Data.Services\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCenterRepository.cs",
               "RelativeDocumentMoniker": "Libraries\\Beanz.Data.Services\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCenterRepository.cs",
               "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.Data.Services\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCenterRepository.cs",
               "RelativeToolTip": "Libraries\\Beanz.Data.Services\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCenterRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T03:11:44.826Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -390,13 +407,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CostCentersController.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCentersController.cs",
               "RelativeDocumentMoniker": "BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCentersController.cs",
               "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCentersController.cs",
               "RelativeToolTip": "BeanzAPI\\Areas\\FAS-FinancialAccountingSystem\\Masters\\CostCentersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T03:09:10.852Z",
               "EditorCaption": ""
@@ -416,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "BeanzRequestDTO.cs",
               "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\Libraries\\Beanz.DTOs\\BeanzCommon\\BeanzRequestDTO.cs",
               "RelativeDocumentMoniker": "Libraries\\Beanz.DTOs\\BeanzCommon\\BeanzRequestDTO.cs",
@@ -475,19 +492,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-06-10T08:37:49.524Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "BeanzAPI\\appsettings.json",
-              "ToolTip": "D:\\BeanzBkp\\Beanz\\BeanzAPI\\Beanz.API\\BeanzAPI\\appsettings.json",
-              "RelativeToolTip": "BeanzAPI\\appsettings.json",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAUwGoAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-10T02:24:11.762Z",
               "EditorCaption": ""
             },
             {

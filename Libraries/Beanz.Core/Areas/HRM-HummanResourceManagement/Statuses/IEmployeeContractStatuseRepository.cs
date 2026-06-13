@@ -1,7 +1,7 @@
-using Beanz.DTOs.Areas.HummanResourceManagement.Statuses;
+using Beanz.DTOs.Areas.HumanResourceManagement.Statuses;
 using Beanz.DTOs.Common;
 
-namespace Beanz.Core.Areas.HummanResourceManagement.Statuses
+namespace Beanz.Core.Areas.HumanResourceManagement.Statuses
 {
     public interface IEmployeeContractStatuseRepository
     {

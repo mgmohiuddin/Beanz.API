@@ -43,7 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceRepository.cs" />
+    <Compile Remove="Areas\HRM-HumanResourceManagement\Masters\AllowanceRepository.cs" />
     <Compile Remove="AuthModule\AuthService.cs" />
     <Compile Remove="AuthModule\ExternalLoginRepositoryOld.cs" />
   </ItemGroup>
@@ -70,7 +70,7 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
+    <Folder Include="Areas\HRM-HumanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
   </ItemGroup>

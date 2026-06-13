@@ -66,7 +66,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowancesController.cs" />
     <Compile Remove="Controllers\CodeGeneratorController.cs" />
     <Compile Remove="Controllers\General\UISettingController.cs" />
     <Compile Remove="Controllers\LoginController.cs" />
@@ -100,7 +99,6 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
     <Folder Include="Areas\CRM-CustomerRelationManagement\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
     <Folder Include="Security\" />

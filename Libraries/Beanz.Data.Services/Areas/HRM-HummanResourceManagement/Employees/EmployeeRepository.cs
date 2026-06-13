@@ -1,9 +1,9 @@
 using AutoMapper;
-using Beanz.Core.Areas.HummanResourceManagement.Employees;
+using Beanz.Core.Areas.HumanResourceManagement.Employees;
 using Beanz.Data.Services.DataAccessLayer;
 using Beanz.Data.Services.DataAccessLayer.DAL;
 using Beanz.DTOs.Areas;
-using Beanz.DTOs.Areas.HummanResourceManagement.Employees;
+using Beanz.DTOs.Areas.HumanResourceManagement.Employees;
 //using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
@@ -11,7 +11,7 @@ using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Beanz.Data.Services.Areas.HummanResourceManagement.Employees
+namespace Beanz.Data.Services.Areas.HumanResourceManagement.Employees
 {
     public class EmployeeRepository : IEmployeeRepository
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Beanz.DTOs.Areas.HummanResourceManagement.Masters
+namespace Beanz.DTOs.Areas.HumanResourceManagement.Masters
 {
     public class AdvanceSalaryTypeDTO
     {

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Beanz.Core.Areas.HummanResourceManagement.Masters;
-using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
+using Beanz.Core.Areas.HumanResourceManagement.Masters;
+using Beanz.DTOs.Areas.HumanResourceManagement.Masters;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
-using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
+using Beanz.IBusiness.Areas.HumanResourceManagement.Masters;
 
-namespace Beanz.Business.Areas.HummanResourceManagement.Masters
+namespace Beanz.Business.Areas.HumanResourceManagement.Masters
 {
     public class EducationTypeBusiness : IEducationTypeBusiness
     {

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beanz.Core.Areas.HummanResourceManagement.Transactions;
-using Beanz.DTOs.Areas.HummanResourceManagement.Transactions;
+using Beanz.Core.Areas.HumanResourceManagement.Transactions;
+using Beanz.DTOs.Areas.HumanResourceManagement.Transactions;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
 
-namespace Beanz.Business.Areas.HummanResourceManagement.Transactions
+namespace Beanz.Business.Areas.HumanResourceManagement.Transactions
 {
     public class LeaveDayBusiness
     {

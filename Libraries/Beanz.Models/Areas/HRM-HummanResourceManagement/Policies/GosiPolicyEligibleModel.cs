@@ -1,6 +1,6 @@
 using System;
 
-namespace Beanz.Models.Areas.HummanResourceManagement.Policies.Objects
+namespace Beanz.Models.Areas.HumanResourceManagement.Policies.Objects
 {
     // Entity model generated from table structure
     public class GosiPolicyEligible

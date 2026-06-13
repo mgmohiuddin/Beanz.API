@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Beanz.DTOs.Areas.HummanResourceManagement.Employees
+namespace Beanz.DTOs.Areas.HumanResourceManagement.Employees
 {
     public class EmployeeOfficialInformationDTO
     {

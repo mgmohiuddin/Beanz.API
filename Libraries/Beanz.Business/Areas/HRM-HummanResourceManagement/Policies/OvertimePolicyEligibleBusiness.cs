@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beanz.Core.Areas.HummanResourceManagement.Policies;
-using Beanz.DTOs.Areas.HummanResourceManagement.Policies;
+using Beanz.Core.Areas.HumanResourceManagement.Policies;
+using Beanz.DTOs.Areas.HumanResourceManagement.Policies;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
 
-namespace Beanz.Business.Areas.HummanResourceManagement.Policies
+namespace Beanz.Business.Areas.HumanResourceManagement.Policies
 {
     public class OvertimePolicyEligibleBusiness
     {

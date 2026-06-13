@@ -1,7 +1,7 @@
-using Beanz.DTOs.Areas.HummanResourceManagement.Employees;
+using Beanz.DTOs.Areas.HumanResourceManagement.Employees;
 using Beanz.DTOs.Common;
 
-namespace Beanz.Core.Areas.HummanResourceManagement.Employees
+namespace Beanz.Core.Areas.HumanResourceManagement.Employees
 {
     public interface IEmployeeDocumentRepository
     {

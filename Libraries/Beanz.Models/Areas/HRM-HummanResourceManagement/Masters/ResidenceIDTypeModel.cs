@@ -1,6 +1,6 @@
 using System;
 
-namespace Beanz.Models.Areas.HummanResourceManagement.Masters.Objects
+namespace Beanz.Models.Areas.HumanResourceManagement.Masters.Objects
 {
     // Entity model generated from table structure
     public class ResidenceIDType

@@ -1,7 +1,7 @@
-using Beanz.DTOs.Areas.HummanResourceManagement.Policies;
+using Beanz.DTOs.Areas.HumanResourceManagement.Policies;
 using Beanz.DTOs.Common;
 
-namespace Beanz.Core.Areas.HummanResourceManagement.Policies
+namespace Beanz.Core.Areas.HumanResourceManagement.Policies
 {
     public interface IVacationPolicyPaymentRepository
     {

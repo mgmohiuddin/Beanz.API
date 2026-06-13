@@ -81,7 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Areas\HRM-HummanResourceManagement\Masters\AllowanceDTO.cs" />
+    <Compile Remove="Areas\HRM-HumanResourceManagement\Masters\AllowanceDTO.cs" />
     <Compile Remove="AuthModule\ExternalDTOs\AppleSignInDTO.cs" />
     <Compile Remove="AuthModule\ExternalDTOs\ExternalAccessTokenDTO.cs" />
     <Compile Remove="AuthModule\ExternalDTOs\ExternalIdTokenDTO.cs" />
@@ -110,7 +110,7 @@
     <Folder Include="Areas\ESS-EmployeeSelfService\" />
     <Folder Include="Areas\FAS-FinancialAccountingSystem\" />
     <Folder Include="Areas\HIS-HospitalInformationSystem\" />
-    <Folder Include="Areas\HRM-HummanResourceManagement\Masters\" />
+    <Folder Include="Areas\HRM-HumanResourceManagement\Masters\" />
     <Folder Include="Areas\POS-PointOfSales\" />
     <Folder Include="Areas\SCM-SupplyChainManagement\" />
   </ItemGroup>

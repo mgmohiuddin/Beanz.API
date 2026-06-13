@@ -1,15 +1,15 @@
 using Beanz.Business.Helper;
-using Beanz.Core.Areas.HummanResourceManagement.Masters;
-using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
+using Beanz.Core.Areas.HumanResourceManagement.Masters;
+using Beanz.DTOs.Areas.HumanResourceManagement.Masters;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
-using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
+using Beanz.IBusiness.Areas.HumanResourceManagement.Masters;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace Beanz.Business.Areas.HummanResourceManagement.Masters
+namespace Beanz.Business.Areas.HumanResourceManagement.Masters
 {
     public class AdvanceSalaryTypeBusiness : BaseBusiness ,IAdvanceSalaryTypeBusiness
     {

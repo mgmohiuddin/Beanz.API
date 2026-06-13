@@ -1,9 +1,9 @@
-using Beanz.Business.Areas.HummanResourceManagement.Masters;
-using Beanz.Core.Areas.HummanResourceManagement.Masters;
-using Beanz.Data.Services.Areas.HummanResourceManagement.Masters;
-using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
+using Beanz.Business.Areas.HumanResourceManagement.Masters;
+using Beanz.Core.Areas.HumanResourceManagement.Masters;
+using Beanz.Data.Services.Areas.HumanResourceManagement.Masters;
+using Beanz.IBusiness.Areas.HumanResourceManagement.Masters;
 
-namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters
+namespace Beanz.API.StartupConfig.HumanResourceManagement.Masters
 {
     public class hrms_Masters
     {

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Beanz.Core.Areas.HummanResourceManagement.Statuses;
-using Beanz.DTOs.Areas.HummanResourceManagement.Statuses;
+using Beanz.Core.Areas.HumanResourceManagement.Statuses;
+using Beanz.DTOs.Areas.HumanResourceManagement.Statuses;
 using Beanz.DTOs.Common;
 using Beanz.DTOs.BeanzRoutes;
 
-namespace Beanz.Business.Areas.HummanResourceManagement.Statuses
+namespace Beanz.Business.Areas.HumanResourceManagement.Statuses
 {
     public class EmployeeContractStatuseBusiness
     {

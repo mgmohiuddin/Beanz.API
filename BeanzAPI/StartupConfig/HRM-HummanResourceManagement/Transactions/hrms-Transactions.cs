@@ -1,7 +1,7 @@
-using Beanz.Core.Areas.HummanResourceManagement.Transactions;
-using Beanz.Data.Services.Areas.HummanResourceManagement.Transactions;
+using Beanz.Core.Areas.HumanResourceManagement.Transactions;
+using Beanz.Data.Services.Areas.HumanResourceManagement.Transactions;
 
-namespace Beanz.API.StartupConfig.HummanResourceManagement.Transactions
+namespace Beanz.API.StartupConfig.HumanResourceManagement.Transactions
 {
     public class hrms_Transactions
     {

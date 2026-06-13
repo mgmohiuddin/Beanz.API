@@ -1,6 +1,6 @@
 using System;
 
-namespace Beanz.Models.Areas.HummanResourceManagement.Statuses.Objects
+namespace Beanz.Models.Areas.HumanResourceManagement.Statuses.Objects
 {
     // Entity model generated from table structure
     public class EmployeeContractStatuse

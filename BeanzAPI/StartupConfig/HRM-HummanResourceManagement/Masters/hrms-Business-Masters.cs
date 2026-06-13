@@ -1,7 +1,7 @@
-using Beanz.IBusiness.Areas.HummanResourceManagement.Masters;
-using Beanz.Business.Areas.HummanResourceManagement.Masters;
+using Beanz.IBusiness.Areas.HumanResourceManagement.Masters;
+using Beanz.Business.Areas.HumanResourceManagement.Masters;
 
-namespace Beanz.API.StartupConfig.HummanResourceManagement.Masters.Business
+namespace Beanz.API.StartupConfig.HumanResourceManagement.Masters.Business
 {
     public class hrms_Masters_Business
     {

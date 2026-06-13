@@ -1,9 +1,9 @@
 using AutoMapper;
-using Beanz.Core.Areas.HummanResourceManagement.Masters;
+using Beanz.Core.Areas.HumanResourceManagement.Masters;
 using Beanz.Data.Services.DataAccessLayer;
 using Beanz.Data.Services.DataAccessLayer.DAL;
 using Beanz.DTOs.Areas;
-using Beanz.DTOs.Areas.HummanResourceManagement.Masters;
+using Beanz.DTOs.Areas.HumanResourceManagement.Masters;
 //using Beanz.DTOs.BeanzCommon;
 using Beanz.DTOs.BeanzRoutes;
 using Beanz.DTOs.Common;
@@ -11,7 +11,7 @@ using Dapper;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Beanz.Data.Services.Areas.HummanResourceManagement.Masters
+namespace Beanz.Data.Services.Areas.HumanResourceManagement.Masters
 {
     public class TrainingTypeRepository : ITrainingTypeRepository
     {
